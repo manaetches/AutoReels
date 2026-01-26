@@ -1,0 +1,541 @@
+import csv
+
+# Define sample data (first 25 hooks from previous list)
+hooks_data = [
+    ["Learn practical ways to help ADHD children manage daily routines more effectively.",
+     "#ADHDParenting #ChildFocus #FamilyHealth",
+     "ADHD daily routine tips for children, managing ADHD at home, strategies for ADHD parenting"],
+    
+    ["Discover how a 7-day blueprint can reduce stress for parents of ADHD kids.",
+     "#ADHDSupport #ParentWellness #MindfulParenting",
+     "7 day ADHD plan for parents, reducing parental stress ADHD, ADHD support for families"],
+    
+    ["ADHD behavior doesn’t have to overwhelm your household — here’s how to regain calm.",
+     "#ADHDStrategies #ParentingTips #PeacefulParenting",
+     "calming ADHD behavior at home, strategies for ADHD parents, managing ADHD children effectively"],
+    
+    ["Practical tips for helping ADHD children focus during homework time.",
+     "#ADHDFocus #HomeworkHelp #ParentingEducation",
+     "ADHD homework focus strategies, helping ADHD children concentrate, ADHD learning support for parents"],
+    
+    ["Understanding ADHD triggers and how to reduce meltdowns at home.",
+     "#ADHDAwareness #ParentingTips #ChildBehavior",
+     "identifying ADHD triggers in children, reducing ADHD meltdowns, ADHD behavior management techniques"],
+    
+    ["Simple daily activities that improve ADHD children’s concentration naturally.",
+     "#ADHDParenting #ChildFocus #HealthyRoutines",
+     "natural concentration techniques ADHD, daily focus activities for ADHD children, ADHD concentration exercises at home"],
+    
+    ["How structured routines help ADHD children feel secure and in control.",
+     "#ADHDSupport #ParentingTips #ChildDevelopment",
+     "structured routines for ADHD children, ADHD routine strategies, helping ADHD children thrive at home"],
+    
+    ["ADHD-friendly strategies to improve bedtime and sleep patterns.",
+     "#ADHDSleep #ParentingAdvice #HealthyKids",
+     "bedtime tips for ADHD children, ADHD sleep schedule strategies, improving ADHD child sleep routines"],
+    
+    ["Techniques for parents to stay patient and calm during ADHD meltdowns.",
+     "#MindfulParenting #ADHDParenting #FamilyHealth",
+     "staying calm with ADHD child, ADHD meltdown parenting strategies, patience techniques for ADHD parents"],
+    
+    ["How reward systems can motivate ADHD children without increasing stress.",
+     "#ADHDParenting #PositiveReinforcement #ChildBehavior",
+     "ADHD reward system ideas, positive reinforcement for ADHD kids, motivating ADHD children effectively"],
+
+    ["ADHD-friendly study tips that actually work for children ages 4-16.",
+     "#ADHDStudyTips #EducationForKids #ParentingHelp",
+     "effective study techniques ADHD children, ADHD learning methods for parents, supporting ADHD student success"],
+
+    ["How parents can recognize early signs of ADHD stress and prevent escalation.",
+     "#ADHDAwareness #ChildWellness #ParentingTips",
+     "recognizing ADHD stress in children, ADHD early warning signs, preventing ADHD meltdowns at home"],
+
+    ["Simple mindfulness exercises tailored for ADHD kids and families.",
+     "#ADHDParenting #MindfulnessForKids #FamilyWellness",
+     "mindfulness exercises for ADHD children, ADHD calming techniques, family mindfulness routines ADHD"],
+
+    ["Tips to create an ADHD-friendly homework environment at home.",
+     "#ADHDFocus #ParentingTips #HomeworkHelp",
+     "ADHD homework environment setup, supporting ADHD child learning at home, ADHD-friendly study space"],
+
+    ["How parents can effectively communicate with teachers about ADHD challenges.",
+     "#ADHDEducation #ParentTeacherCollaboration #ChildSupport",
+     "communicating with teachers about ADHD, ADHD parent-teacher strategies, supporting ADHD child education"],
+
+    ["ADHD meal planning tips to maintain focus and energy throughout the day.",
+     "#ADHDNutrition #ParentingTips #HealthyKids",
+     "ADHD meal planning for kids, nutrition strategies for ADHD children, ADHD diet tips for focus"],
+
+    ["Strategies for parents to help ADHD children manage emotional regulation.",
+     "#ADHDEmotion #ChildDevelopment #ParentingSupport",
+     "ADHD emotional regulation strategies, helping ADHD kids control emotions, parenting tips ADHD behavior"],
+
+    ["How ADHD children benefit from short, structured learning bursts.",
+     "#ADHDParenting #ChildFocus #LearningTips",
+     "short learning sessions ADHD children, structured learning ADHD, ADHD focus techniques"],
+
+    ["Fun, ADHD-friendly activities that boost attention and engagement.",
+     "#ADHDParenting #ChildDevelopment #PlayToLearn",
+     "fun activities ADHD children, ADHD engagement exercises, attention-boosting activities for kids"],
+
+    ["Using visual aids to improve ADHD children’s memory and organization.",
+     "#ADHDParenting #LearningTools #ChildFocus",
+     "visual aids for ADHD children, memory improvement ADHD, organizational tools ADHD kids"],
+
+    ["How to create a low-distraction environment for ADHD children at home.",
+     "#ADHDParenting #FocusTips #HomeLearning",
+     "low distraction ADHD environment, ADHD study space setup, ADHD child concentration tips"],
+
+    ["ADHD children and screen time: how to balance it for focus and calm.",
+     "#ADHDSupport #ParentingTips #HealthyKids",
+     "managing ADHD screen time, ADHD digital balance tips, screen time strategies ADHD children"],
+
+    ["How 7-day structured plans reduce stress for parents and ADHD children.",
+     "#ADHDParenting #FamilyWellness #ParentSupport",
+     "7-day ADHD plan benefits, structured ADHD routine for families, parent stress reduction ADHD"],
+
+    ["How parents can track ADHD progress effectively without extra stress.",
+     "#ADHDParenting #TrackingProgress #FamilySupport",
+     "tracking ADHD child progress, monitoring ADHD improvement, ADHD parent tracking strategies"],
+
+    ["Using supportive communities to share ADHD parenting tips and strategies.",
+     "#ADHDSupport #ParentCommunity #FamilyHealth",
+     "ADHD parenting community support, sharing ADHD tips online, supportive ADHD parent networks"],
+
+    ["How parents can help ADHD children manage time effectively.",
+     "#ADHDParenting #TimeManagement #ChildFocus",
+     "ADHD time management strategies, teaching time skills to ADHD children, ADHD daily schedule tips"],
+
+    ["Practical exercises to improve ADHD children's short-term memory.",
+     "#ADHDParenting #MemoryTips #ChildDevelopment",
+     "ADHD memory exercises for kids, improving short-term memory ADHD, child cognitive support ADHD"],
+
+    ["How to set achievable goals for ADHD children to boost confidence.",
+     "#ADHDEducation #ChildMotivation #ParentingTips",
+     "setting goals for ADHD children, boosting ADHD child confidence, ADHD goal-setting strategies"],
+
+    ["Managing ADHD symptoms during transitions like moving or changing schools.",
+     "#ADHDParenting #Transitions #ChildSupport",
+     "ADHD child transitions support, coping with ADHD changes, school transition tips ADHD"],
+
+    ["Understanding executive function challenges in ADHD children.",
+     "#ADHDAwareness #ChildDevelopment #ParentingTips",
+     "executive function in ADHD kids, ADHD cognitive challenges, supporting ADHD executive skills"],
+
+    ["How parents can foster social skills in ADHD children.",
+     "#ADHDSocialSkills #ParentingSupport #ChildDevelopment",
+     "ADHD social skills development, teaching social skills ADHD, ADHD child peer interaction"],
+
+    ["Simple mindfulness activities to calm ADHD children before bedtime.",
+     "#ADHDParenting #MindfulnessForKids #BedtimeRoutine",
+     "ADHD bedtime mindfulness, calming ADHD children, mindfulness techniques for ADHD"],
+
+    ["Creating ADHD-friendly morning routines to start the day positively.",
+     "#ADHDParenting #MorningRoutine #ChildFocus",
+     "morning routines ADHD children, ADHD morning strategies, positive ADHD start tips"],
+
+    ["How to reduce homework frustration in ADHD children.",
+     "#ADHDFocus #HomeworkHelp #ParentingTips",
+     "reducing homework stress ADHD, ADHD children homework strategies, helping ADHD focus homework"],
+
+    ["Using visual schedules to improve ADHD children’s daily organization.",
+     "#ADHDParenting #VisualSchedules #ChildFocus",
+     "visual schedule ADHD children, daily organization tips ADHD, ADHD visual learning tools"],
+
+    ["How parents can support ADHD children’s emotional resilience.",
+     "#ADHDEmotion #ChildSupport #ParentingTips",
+     "emotional resilience ADHD children, supporting ADHD coping skills, ADHD child self-regulation strategies"],
+
+    ["Strategies to reduce impulsive behavior in ADHD children at home.",
+     "#ADHDBehavior #ParentingTips #ChildFocus",
+     "reducing impulsivity ADHD children, managing ADHD impulsive behavior, ADHD home behavior strategies"],
+
+    ["How structured playtime helps ADHD children improve focus.",
+     "#ADHDParenting #PlayToLearn #ChildFocus",
+     "structured play ADHD children, improving ADHD focus with play, ADHD concentration activities"],
+
+    ["Tips for ADHD children to manage stress in school environments.",
+     "#ADHDEducation #ChildSupport #SchoolSuccess",
+     "ADHD school stress management, coping strategies ADHD school, ADHD academic support tips"],
+
+    ["How parents can identify ADHD triggers in social situations.",
+     "#ADHDAwareness #ChildBehavior #ParentingTips",
+     "ADHD triggers social settings, understanding ADHD child behavior, managing ADHD social challenges"],
+
+    ["The role of nutrition in ADHD children’s behavior and focus.",
+     "#ADHDNutrition #ParentingTips #HealthyKids",
+     "nutrition impact on ADHD behavior, ADHD diet and focus, healthy eating ADHD children"],
+
+    ["Tips for helping ADHD children develop better self-control.",
+     "#ADHDParenting #ChildBehavior #SelfControl",
+     "improving self-control ADHD, ADHD children impulse management, ADHD behavioral strategies"],
+
+    ["How to use positive reinforcement effectively with ADHD children.",
+     "#ADHDParenting #PositiveReinforcement #ChildSupport",
+     "positive reinforcement ADHD children, rewarding ADHD behavior, ADHD parenting tips"],
+
+    ["How parents can create ADHD-friendly learning environments at home.",
+     "#ADHDEducation #HomeLearning #ChildFocus",
+     "home learning setup ADHD children, ADHD study environment tips, ADHD learning strategies at home"],
+
+    ["How exercise impacts ADHD children’s attention and energy levels.",
+     "#ADHDParenting #HealthyKids #FocusTips",
+     "exercise benefits ADHD children, ADHD physical activity strategies, ADHD attention improvement"],
+
+    ["How parents can teach ADHD children coping strategies for frustration.",
+     "#ADHDParenting #ChildEmotions #ParentingTips",
+     "teaching coping skills ADHD, ADHD frustration management, supporting ADHD emotional regulation"],
+
+    ["Understanding sensory sensitivities in ADHD children and how to help.",
+     "#ADHDSensory #ChildDevelopment #ParentingSupport",
+     "sensory sensitivities ADHD children, supporting ADHD sensory issues, ADHD child sensory strategies"],
+
+    ["How structured checklists improve ADHD children’s task completion.",
+     "#ADHDParenting #TaskManagement #ChildFocus",
+     "checklists for ADHD children, ADHD task completion strategies, ADHD organizational tips"],
+
+    ["Tips to help ADHD children manage impulsive speech and reactions.",
+     "#ADHDBehavior #ParentingTips #ChildFocus",
+     "managing ADHD impulsive speech, ADHD emotional control strategies, ADHD behavior guidance"],
+
+    ["How parents can support ADHD children in building friendships.",
+     "#ADHDSocialSkills #ChildSupport #ParentingTips",
+     "ADHD friendship tips, supporting social skills ADHD children, ADHD peer interaction strategies"],
+
+    ["How ADHD children benefit from visual learning tools and aids.",
+     "#ADHDParenting #LearningTools #ChildFocus",
+     "visual aids ADHD learning, ADHD educational resources, supporting ADHD children visually"],
+
+    ["Strategies to manage ADHD children’s screen time without conflict.",
+     "#ADHDParenting #ScreenTime #ChildFocus",
+     "managing screen time ADHD children, healthy digital habits ADHD, ADHD screen balance strategies"],
+
+    ["How parents can use calm-down corners to help ADHD children self-regulate.",
+     "#ADHDEmotion #ChildSupport #ParentingTips",
+     "calm-down strategies ADHD, ADHD self-regulation techniques, ADHD parenting tips for behavior"],
+
+    ["How ADHD children can benefit from brief, frequent movement breaks.",
+     "#ADHDParenting #ChildFocus #HealthyKids",
+     "movement breaks ADHD children, ADHD focus improvement strategies, ADHD active learning tips"],
+
+    ["How parents can help ADHD children manage transitions between activities.",
+     "#ADHDParenting #ChildFocus #ParentingTips",
+     "managing ADHD transitions, ADHD child routine strategies, smooth activity changes ADHD"],
+
+    ["The role of positive routines in reducing ADHD children’s anxiety.",
+     "#ADHDSupport #ParentingTips #ChildWellness",
+     "reducing anxiety ADHD children, ADHD daily routines for calm, positive routines for ADHD"],
+
+    ["How parents can collaborate with teachers to support ADHD children.",
+     "#ADHDEducation #ParentTeacherCollaboration #ChildSupport",
+     "collaborating with teachers ADHD, ADHD classroom support strategies, parent-teacher ADHD communication"],
+
+    ["Tips for ADHD children to manage their emotions during stressful tasks.",
+     "#ADHDEmotion #ChildSupport #ParentingTips",
+     "ADHD emotional management strategies, helping children handle stress ADHD, ADHD coping skills education"],
+
+    ["How mindfulness can reduce ADHD children’s impulsivity and agitation.",
+     "#ADHDParenting #MindfulnessForKids #ChildFocus",
+     "mindfulness for ADHD children, reducing impulsivity ADHD, ADHD calming techniques"],
+
+    ["How structured meal times improve focus and behavior in ADHD children.",
+     "#ADHDNutrition #ChildFocus #ParentingTips",
+     "structured meals ADHD children, improving ADHD behavior with meals, ADHD nutrition tips"],
+
+    ["Strategies to help ADHD children complete multi-step tasks successfully.",
+     "#ADHDParenting #TaskManagement #ChildFocus",
+     "ADHD multi-step task strategies, helping ADHD children complete tasks, ADHD task support techniques"],
+
+    ["How parents can use charts and trackers to monitor ADHD progress.",
+     "#ADHDParenting #TrackingProgress #ChildSupport",
+     "tracking ADHD child progress, ADHD chart strategies, monitoring ADHD improvements"],
+
+    ["Tips to help ADHD children manage overstimulation in busy environments.",
+     "#ADHDSensory #ChildSupport #ParentingTips",
+     "ADHD overstimulation strategies, helping children manage sensory overload, ADHD calm techniques"],
+
+    ["How parents can teach ADHD children organizational skills step by step.",
+     "#ADHDParenting #OrganizationalSkills #ChildFocus",
+     "teaching organizational skills ADHD, ADHD task organization, ADHD planning tips for children"],
+
+    ["How ADHD children can benefit from peer-support and group activities.",
+     "#ADHDSocialSkills #ChildDevelopment #ParentingTips",
+     "ADHD peer support benefits, group activities ADHD children, ADHD social engagement strategies"],
+
+    ["How parents can help ADHD children cope with frustration during learning.",
+     "#ADHDParenting #ChildFocus #ParentingTips",
+     "coping with frustration ADHD children, ADHD learning support, managing ADHD emotions at home"],
+
+    ["How ADHD children benefit from predictable routines in school and home.",
+     "#ADHDParenting #ChildFocus #ParentingTips",
+     "predictable routines ADHD children, ADHD home and school routine strategies, ADHD structured daily routines"],
+
+    ["How parents can help ADHD children transition smoothly from play to homework.",
+     "#ADHDParenting #ChildFocus #HomeworkTips",
+     "transition strategies ADHD children, ADHD play to homework routines, ADHD focus improvement"],
+
+    ["How ADHD children can learn to set small, realistic goals for tasks.",
+     "#ADHDParenting #ChildMotivation #LearningTips",
+     "goal-setting for ADHD children, ADHD task motivation, ADHD child achievement strategies"],
+
+    ["Tips for ADHD children to develop self-monitoring skills at home and school.",
+     "#ADHDParenting #ChildFocus #SelfMonitoring",
+     "self-monitoring strategies ADHD children, ADHD behavior tracking, teaching ADHD self-awareness"],
+
+    ["How ADHD children can benefit from brief daily reflection and journaling.",
+     "#ADHDParenting #ChildFocus #MindfulnessForKids",
+     "ADHD journaling for kids, reflection strategies ADHD children, ADHD mindfulness techniques"],
+
+    ["How parents can use visual timers to improve ADHD children’s time awareness.",
+     "#ADHDParenting #TimeManagement #ChildFocus",
+     "visual timers ADHD children, time awareness ADHD strategies, ADHD daily routine tools"],
+
+    ["How parents can teach ADHD children calming techniques before stressful events.",
+     "#ADHDEmotion #ChildFocus #ParentingTips",
+     "calming techniques ADHD children, ADHD stress management, preparing ADHD kids for stress"],
+
+    ["How structured breaks during schoolwork improve ADHD children’s attention.",
+     "#ADHDParenting #ChildFocus #HomeworkHelp",
+     "ADHD breaks strategies, improving focus ADHD children, structured study sessions ADHD"],
+
+    ["How parents can support ADHD children’s independence through routines.",
+     "#ADHDParenting #ChildFocus #LifeSkills",
+     "building independence ADHD children, ADHD routines for self-reliance, child life skills ADHD"],
+
+    ["How ADHD children benefit from consistent rewards and recognition.",
+     "#ADHDParenting #PositiveReinforcement #ChildSupport",
+     "consistent reward strategies ADHD, ADHD children motivation, positive reinforcement ADHD kids"],
+
+    ["How parents can identify strengths in ADHD children to boost confidence.",
+     "#ADHDParenting #ChildDevelopment #ParentingTips",
+     "identifying ADHD child strengths, boosting confidence ADHD children, ADHD child skill recognition"],
+
+    ["Tips for ADHD children to improve focus during group activities.",
+     "#ADHDParenting #ChildFocus #LearningTips",
+     "group activity focus ADHD, improving attention ADHD children, ADHD teamwork strategies"],
+
+    ["How ADHD children benefit from structured visual routines at home and school.",
+     "#ADHDParenting #ChildFocus #VisualLearning",
+     "structured visual routines ADHD, ADHD daily visual plans, supporting ADHD children visually"],
+
+    ["How parents can reduce ADHD children’s anxiety before transitions or new activities.",
+     "#ADHDSupport #ChildWellness #ParentingTips",
+     "reducing anxiety ADHD children, ADHD transition support strategies, calming ADHD child stress"],
+
+    ["How parents can support ADHD children’s strengths in creative learning activities.",
+     "#ADHDParenting #ChildDevelopment #CreativeLearning",
+     "creative learning ADHD children, supporting ADHD strengths, ADHD learning activities at home"],
+
+    ["How parents can use consistent routines to improve ADHD children’s executive function.",
+     "#ADHDParenting #ChildFocus #ExecutiveFunction",
+     "improving executive function ADHD, routines for ADHD children, ADHD skills development strategies"],
+
+    ["How ADHD children benefit from hands-on learning activities at home.",
+     "#ADHDParenting #ChildFocus #HandsOnLearning",
+     "hands-on learning ADHD children, ADHD practical learning tips, child learning strategies ADHD"],
+
+    ["How parents can create ADHD-friendly homework checklists to stay organized.",
+     "#ADHDFocus #ParentingTips #HomeworkHelp",
+     "ADHD homework checklists, staying organized ADHD children, ADHD task completion strategies"],
+
+    ["How parents can support ADHD children during stressful school exams.",
+     "#ADHDEducation #ChildSupport #ParentingTips",
+     "ADHD exam stress management, supporting ADHD children during tests, ADHD school exam tips"],
+
+    ["How structured snack breaks improve ADHD children’s focus throughout the day.",
+     "#ADHDNutrition #ChildFocus #ParentingTips",
+     "snack breaks ADHD children, focus improvement ADHD, ADHD daily energy tips"],
+
+    ["How parents can help ADHD children set priorities and manage tasks.",
+     "#ADHDParenting #TaskManagement #ChildFocus",
+     "setting priorities ADHD children, ADHD task management strategies, ADHD time management tips"],
+
+    ["How ADHD children can benefit from interactive learning games.",
+     "#ADHDParenting #ChildDevelopment #LearningGames",
+     "interactive learning ADHD children, ADHD educational games, fun ADHD learning strategies"],
+
+    ["How to use calming strategies for ADHD children before homework sessions.",
+     "#ADHDEmotion #ParentingTips #ChildFocus",
+     "calming techniques ADHD children, ADHD homework preparation, managing ADHD stress at home"],
+
+    ["How parents can teach ADHD children problem-solving skills step by step.",
+     "#ADHDParenting #ChildDevelopment #ProblemSolving",
+     "problem-solving skills ADHD children, ADHD child critical thinking, teaching ADHD strategies"],
+
+    ["How structured transitions improve ADHD children’s focus and behavior.",
+     "#ADHDParenting #ChildFocus #RoutineTips",
+     "structured transitions ADHD, improving ADHD focus, ADHD behavior management strategies"],
+
+    ["How parents can help ADHD children develop self-discipline through routines.",
+     "#ADHDParenting #ChildDevelopment #SelfDiscipline",
+     "self-discipline ADHD children, ADHD routine strategies, ADHD behavioral improvement"],
+
+    ["How mindfulness breaks improve ADHD children’s attention and calmness.",
+     "#ADHDParenting #MindfulnessForKids #ChildFocus",
+     "mindfulness breaks ADHD children, calming ADHD techniques, improving ADHD attention"],
+
+    ["How parents can support ADHD children in managing frustration at school.",
+     "#ADHDEducation #ChildSupport #ParentingTips",
+     "managing frustration ADHD children, school support ADHD, ADHD behavior management school"],
+
+    ["How to use reward charts effectively for ADHD children at home.",
+     "#ADHDParenting #PositiveReinforcement #ChildFocus",
+     "reward chart ADHD children, positive reinforcement strategies ADHD, ADHD behavior motivation"],
+
+    ["How parents can help ADHD children balance energy with focused activities.",
+     "#ADHDParenting #ChildFocus #HealthyKids",
+     "energy balance ADHD children, ADHD focus strategies, active ADHD learning tips"],
+
+    ["How structured morning routines reduce ADHD children’s stress before school.",
+     "#ADHDParenting #MorningRoutine #ChildFocus",
+     "morning routines ADHD children, reducing ADHD stress, ADHD school prep tips"],
+
+    ["How parents can help ADHD children improve self-monitoring skills.",
+     "#ADHDParenting #ChildFocus #SelfMonitoring",
+     "self-monitoring ADHD children, ADHD behavior tracking, ADHD child self-awareness techniques"],
+
+    ["How parents can create ADHD-friendly chore routines at home.",
+     "#ADHDParenting #ChildFocus #LifeSkills",
+     "chore routines ADHD children, ADHD daily responsibilities, supporting ADHD independence"],
+
+    ["How ADHD children can benefit from predictable weekly schedules.",
+     "#ADHDParenting #ChildFocus #RoutineTips",
+     "predictable weekly schedule ADHD, ADHD structured routine tips, ADHD focus improvement"],
+
+    ["How parents can help ADHD children build resilience after setbacks.",
+     "#ADHDParenting #ChildDevelopment #ParentingTips",
+     "building resilience ADHD children, coping with setbacks ADHD, ADHD emotional support"],
+
+    ["How parents can teach ADHD children calming techniques before bed.",
+     "#ADHDEmotion #ParentingTips #BedtimeRoutine",
+     "calming techniques ADHD bedtime, ADHD child relaxation strategies, bedtime ADHD support"],
+
+    ["How structured visual cues improve ADHD children’s task completion.",
+     "#ADHDParenting #ChildFocus #VisualLearning",
+     "visual cues ADHD children, task completion ADHD strategies, ADHD visual learning tips"],
+
+    ["How parents can help ADHD children manage multitasking effectively.",
+     "#ADHDParenting #ChildFocus #TaskManagement",
+     "multitasking strategies ADHD children, ADHD focus improvement, managing ADHD tasks"],
+
+    ["How parents can use short, consistent routines to improve ADHD children’s behavior.",
+     "#ADHDParenting #ChildFocus #RoutineTips",
+     "short consistent routines ADHD, ADHD behavior improvement strategies, ADHD daily routine tips"],
+
+    ["How ADHD children benefit from goal-setting and progress tracking.",
+     "#ADHDParenting #ChildDevelopment #GoalSetting",
+     "ADHD goal-setting strategies, tracking ADHD child progress, ADHD achievement tips"],
+
+    ["How parents can support ADHD children’s emotional awareness and regulation.",
+     "#ADHDEmotion #ChildDevelopment #ParentingTips",
+     "emotional awareness ADHD children, ADHD regulation strategies, supporting ADHD coping skills"],
+
+    ["How structured homework time reduces ADHD children’s distractions.",
+     "#ADHDFocus #HomeworkHelp #ParentingTips",
+     "structured homework ADHD children, reducing distractions ADHD, ADHD focus improvement"],
+
+    ["How ADHD children benefit from movement breaks during study sessions.",
+     "#ADHDParenting #ChildFocus #ActiveLearning",
+     "movement breaks ADHD study, improving focus ADHD children, ADHD active learning strategies"],
+
+    ["How parents can help ADHD children develop time awareness with visual tools.",
+     "#ADHDParenting #TimeManagement #ChildFocus",
+     "visual time management ADHD, teaching time awareness ADHD, ADHD daily schedule tips"],
+
+    ["How parents can foster creativity in ADHD children through structured activities.",
+     "#ADHDParenting #ChildDevelopment #CreativeLearning",
+     "fostering creativity ADHD children, structured activities ADHD, ADHD creative skill building"],
+
+    ["How consistent bedtime routines improve ADHD children’s sleep quality.",
+     "#ADHDSleep #ParentingTips #ChildWellness",
+     "bedtime routines ADHD children, improving ADHD sleep quality, ADHD nighttime strategies"],
+
+    ["How parents can help ADHD children manage excitement and energy spikes.",
+     "#ADHDParenting #ChildFocus #EnergyManagement",
+     "managing ADHD excitement, ADHD energy regulation strategies, ADHD children focus tips"],
+
+    ["How parents can support ADHD children in completing multi-step school assignments.",
+     "#ADHDEducation #ChildFocus #HomeworkHelp",
+     "multi-step assignment strategies ADHD, ADHD homework completion tips, ADHD task guidance"],
+
+    ["How visual timers help ADHD children manage study and playtime.",
+     "#ADHDParenting #TimeManagement #ChildFocus",
+     "visual timers ADHD children, ADHD time awareness tips, managing ADHD routines"],
+
+    ["How parents can teach ADHD children self-calming techniques during the day.",
+     "#ADHDEmotion #ParentingTips #ChildFocus",
+     "self-calming strategies ADHD children, ADHD emotional control techniques, ADHD daily routines"],
+
+    ["How parents can help ADHD children manage emotional outbursts effectively.",
+     "#ADHDBehavior #ParentingTips #ChildFocus",
+     "managing ADHD outbursts, ADHD behavior strategies, calming ADHD children"],
+
+    ["How ADHD children benefit from structured, predictable weekend routines.",
+     "#ADHDParenting #ChildFocus #RoutineTips",
+     "predictable weekend routines ADHD, ADHD structured weekend tips, ADHD family routines"],
+
+    ["How parents can support ADHD children in building social confidence.",
+     "#ADHDSocialSkills #ChildDevelopment #ParentingTips",
+     "building social confidence ADHD, ADHD children social skills, supporting ADHD peer interactions"],
+
+    ["How parents can use small, frequent breaks to improve ADHD children’s focus.",
+     "#ADHDParenting #ChildFocus #FocusTips",
+     "frequent breaks ADHD children, ADHD attention improvement strategies, managing ADHD focus"],
+
+    ["How ADHD children benefit from positive reinforcement at home and school.",
+     "#ADHDParenting #PositiveReinforcement #ChildSupport",
+     "positive reinforcement ADHD strategies, motivating ADHD children, ADHD reward systems"],
+
+    ["How parents can help ADHD children develop planning and organizational skills.",
+     "#ADHDParenting #ChildFocus #OrganizationalSkills",
+     "planning skills ADHD children, organizational strategies ADHD, ADHD executive function tips"],
+
+    ["How structured visual schedules help ADHD children navigate daily tasks.",
+     "#ADHDParenting #VisualLearning #ChildFocus",
+     "visual schedules ADHD children, task management ADHD, ADHD daily routine strategies"],
+
+    ["How parents can use calm-down routines to reduce ADHD children’s stress.",
+     "#ADHDEmotion #ParentingTips #ChildFocus",
+     "calm-down routines ADHD, ADHD stress reduction strategies, ADHD emotional regulation tips"],
+
+    ["How parents can support ADHD children in managing peer conflicts.",
+     "#ADHDSocialSkills #ChildDevelopment #ParentingTips",
+     "managing peer conflict ADHD children, ADHD social problem solving, supporting ADHD social skills"],
+
+    ["How ADHD children benefit from structured, predictable classroom routines.",
+     "#ADHDEducation #ChildFocus #RoutineTips",
+     "classroom routines ADHD children, ADHD structured learning strategies, ADHD focus improvement"],
+
+    ["How parents can foster independence in ADHD children with small daily tasks.",
+     "#ADHDParenting #ChildDevelopment #LifeSkills",
+     "building independence ADHD children, small task routines ADHD, ADHD daily life skills"],
+
+    ["How ADHD children benefit from consistent reminders and prompts for tasks.",
+     "#ADHDParenting #ChildFocus #TaskManagement",
+     "task reminders ADHD children, ADHD prompt strategies, supporting ADHD task completion"],
+
+    ["How parents can help ADHD children manage overstimulation in social settings.",
+     "#ADHDSensory #ChildSupport #ParentingTips",
+     "managing overstimulation ADHD children, ADHD social environment strategies, calming ADHD kids"],
+
+    ["How parents can teach ADHD children coping skills for frustration and disappointment.",
+     "#ADHDParenting #ChildFocus #ParentingTips",
+     "coping skills ADHD children, ADHD emotional regulation strategies, supporting ADHD resilience"],
+
+    ["How structured routines for meals, sleep, and study improve ADHD children’s focus.",
+     "#ADHDParenting #ChildFocus #RoutineTips",
+     "structured routines ADHD children, improving ADHD focus, ADHD daily schedule strategies"]
+]
+
+
+
+# File path for CSV
+csv_file_path = "Calm_ADHD_Blueprint_Hooks.csv"
+
+# Write CSV file
+with open(csv_file_path, mode='w', newline='', encoding='utf-8') as file:
+    writer = csv.writer(file)
+    writer.writerow(["Hook", "Hashtags", "LongTailKeywords"])
+    writer.writerows(hooks_data)
+
+print(f"CSV file created: {csv_file_path}")

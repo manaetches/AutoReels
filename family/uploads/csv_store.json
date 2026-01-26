@@ -1,0 +1,2538 @@
+{
+  "fe15022b_hooks.csv": {
+    "headers": [
+      "Hook",
+      "Hashtags",
+      "LongTailKeywords",
+      "FilePath"
+    ],
+    "rows": [
+      {
+        "Hook": "Test hook 1",
+        "Hashtags": "#tag1",
+        "LongTailKeywords": "keyword1",
+        "FilePath": ""
+      }
+    ]
+  },
+  "f42103b1_hooks.csv": {
+    "headers": [
+      "Hook",
+      "Hashtags",
+      "LongTailKeywords",
+      "FilePath"
+    ],
+    "rows": [
+      {
+        "Hook": "Test hook 1",
+        "Hashtags": "#tag1",
+        "LongTailKeywords": "keyword1",
+        "FilePath": ""
+      }
+    ]
+  },
+  "003b798d_hooks.csv": {
+    "headers": [
+      "Hook",
+      "Hashtags",
+      "LongTailKeywords",
+      "FilePath"
+    ],
+    "rows": [
+      {
+        "Hook": "Row A",
+        "Hashtags": "#a",
+        "LongTailKeywords": "kw_a",
+        "FilePath": ""
+      },
+      {
+        "Hook": "Row B",
+        "Hashtags": "#b",
+        "LongTailKeywords": "kw_b",
+        "FilePath": ""
+      },
+      {
+        "Hook": "Row C",
+        "Hashtags": "#c",
+        "LongTailKeywords": "kw_c",
+        "FilePath": ""
+      }
+    ]
+  },
+  "ef78332a_hooks.csv": {
+    "headers": [
+      "Hook",
+      "Hashtags",
+      "LongTailKeywords",
+      "FilePath"
+    ],
+    "rows": [
+      {
+        "Hook": "Row A",
+        "Hashtags": "#a",
+        "LongTailKeywords": "kw_a",
+        "FilePath": ""
+      },
+      {
+        "Hook": "Row B",
+        "Hashtags": "#b",
+        "LongTailKeywords": "kw_b",
+        "FilePath": ""
+      },
+      {
+        "Hook": "Row C",
+        "Hashtags": "#c",
+        "LongTailKeywords": "kw_c",
+        "FilePath": ""
+      }
+    ]
+  },
+  "28451e46_hooks.csv": {
+    "headers": [
+      "ID",
+      "Hook Text",
+      "Category"
+    ],
+    "rows": [
+      {
+        "ID": "1",
+        "Hook Text": "You chased the kids all day… and collapsed without a single workout. Sound familiar?",
+        "Category": "Pain Point"
+      },
+      {
+        "ID": "2",
+        "Hook Text": "I turned my chaotic mom mornings into energized fitness routines. Yours?",
+        "Category": "Transformation"
+      },
+      {
+        "ID": "3",
+        "Hook Text": "\"I want to feel strong again… but the kids' schedule always wins.\"",
+        "Category": "Relatability"
+      },
+      {
+        "ID": "4",
+        "Hook Text": "Health advice ignores moms: it assumes you have free time. I figured out the real way.",
+        "Category": "Authority"
+      },
+      {
+        "ID": "5",
+        "Hook Text": "You're a great mom. You're consistent with them. You're still exhausted and out of shape. Why?",
+        "Category": "Call Out"
+      },
+      {
+        "ID": "6",
+        "Hook Text": "Most fitness plans teach workouts. Mine showed me how to fit them around school runs and meltdowns.",
+        "Category": "Unique Value"
+      },
+      {
+        "ID": "7",
+        "Hook Text": "Another \"\"quick meal\"\" reel… while your energy crashes by noon.",
+        "Category": "Pain Point"
+      },
+      {
+        "ID": "8",
+        "Hook Text": "You keep hearing \"self-care first\"… but no one tells you HOW with toddlers in tow.",
+        "Category": "Reality Check"
+      },
+      {
+        "ID": "9",
+        "Hook Text": "I went from zero workouts -> feeling fit and present as a mom. The missing step was…",
+        "Category": "Transformation"
+      },
+      {
+        "ID": "10",
+        "Hook Text": "Feeling like you're always \"\"almost energized\"\" but never actually sustaining it?",
+        "Category": "Pain Point"
+      },
+      {
+        "ID": "11",
+        "Hook Text": "You meal prep for the family… your own health stays on the back burner.",
+        "Category": "Relatability"
+      },
+      {
+        "ID": "12",
+        "Hook Text": "The biggest lie: \"Just wake up earlier and the fitness will happen.\"",
+        "Category": "Myth Busting"
+      },
+      {
+        "ID": "13",
+        "Hook Text": "How many \"\"new year resolutions\"\" have faded because of mom life?",
+        "Category": "Pain Point"
+      },
+      {
+        "ID": "14",
+        "Hook Text": "You're scared to prioritize yourself… because it feels selfish with kids.",
+        "Category": "Limiting Belief"
+      },
+      {
+        "ID": "15",
+        "Hook Text": "I used to think motherhood meant sacrificing my body. Now I thrive.",
+        "Category": "Transformation"
+      },
+      {
+        "ID": "16",
+        "Hook Text": "Guilt after guilt after guilt… until I learned to blend fitness with family time.",
+        "Category": "Emotional"
+      },
+      {
+        "ID": "17",
+        "Hook Text": "You don't need another app. You need a mom-proof plan.",
+        "Category": "Direct"
+      },
+      {
+        "ID": "18",
+        "Hook Text": "\"I'll just keep powering through\"… said every burned-out mom ever.",
+        "Category": "Call Out"
+      },
+      {
+        "ID": "19",
+        "Hook Text": "Your gym membership expired again. What now?",
+        "Category": "Pain Point"
+      },
+      {
+        "ID": "20",
+        "Hook Text": "I balanced health goals with kids' chaos—and got my energy back. Here's what changed.",
+        "Category": "Transformation"
+      },
+      {
+        "ID": "21",
+        "Hook Text": "Stop waiting for \"\"quiet time\"\". It never comes.",
+        "Category": "Reality Check"
+      },
+      {
+        "ID": "22",
+        "Hook Text": "You have a full house and still zero time for you. Let's talk.",
+        "Category": "Direct"
+      },
+      {
+        "ID": "23",
+        "Hook Text": "Fitness rewards moms who know how to adapt… not just who pushes hardest.",
+        "Category": "Authority"
+      },
+      {
+        "ID": "24",
+        "Hook Text": "I was you: full of good intentions",
+        "Category": " zero follow-through",
+        "null": [
+          " massive mom guilt.",
+          "Relatability"
+        ]
+      },
+      {
+        "ID": "25",
+        "Hook Text": "Another day ends… and you're still watching from the sidelines of your own health.",
+        "Category": "Emotional"
+      },
+      {
+        "ID": "26",
+        "Hook Text": "They say \"family walks count\"… but no one gives you the actual routine.",
+        "Category": "Value Gap"
+      },
+      {
+        "ID": "27",
+        "Hook Text": "Your body deserves fuel and movement—not just leftovers from the kids' plates.",
+        "Category": "Mindset"
+      },
+      {
+        "ID": "28",
+        "Hook Text": "Tired of \"\"exposure\"\" to wellness trends that don't stick?",
+        "Category": "Pain Point"
+      },
+      {
+        "ID": "29",
+        "Hook Text": "I didn't know how to start as a mom. Now I prioritize without apology.",
+        "Category": "Transformation"
+      },
+      {
+        "ID": "30",
+        "Hook Text": "The moment I stopped relying on willpower, everything shifted.",
+        "Category": "Insight"
+      },
+      {
+        "ID": "31",
+        "Hook Text": "You're one mom-hack away from consistent fitness.",
+        "Category": "Curiosity"
+      },
+      {
+        "ID": "32",
+        "Hook Text": "Most moms fail here: they never learn how to sneak in health without chaos.",
+        "Category": "Authority"
+      },
+      {
+        "ID": "33",
+        "Hook Text": "You keep trying diets… and keep quitting when kids demand snacks.",
+        "Category": "Pain Point"
+      },
+      {
+        "ID": "34",
+        "Hook Text": "Prioritizing health as a mom isn't luck. It's knowing which habits stack with family.",
+        "Category": "Insight"
+      },
+      {
+        "ID": "35",
+        "Hook Text": "Feeling invisible under the mom exhaustion?",
+        "Category": "Emotional"
+      },
+      {
+        "ID": "36",
+        "Hook Text": "Your workout clothes are folded away. Real life doesn't scroll Instagram.",
+        "Category": "Reality Check"
+      },
+      {
+        "ID": "37",
+        "Hook Text": "I teach what no mom group teaches: how to reclaim your fitness fast.",
+        "Category": "Authority"
+      },
+      {
+        "ID": "38",
+        "Hook Text": "Stop fueling for survival. Start fueling for strength.",
+        "Category": "Mindset"
+      },
+      {
+        "ID": "39",
+        "Hook Text": "The mom guilt doesn't open doors to health. Strategy does.",
+        "Category": "Authority"
+      },
+      {
+        "ID": "40",
+        "Hook Text": "You’re not \"\"too busy\"\". You just don’t know the shortcuts yet.",
+        "Category": "Reality Check"
+      },
+      {
+        "ID": "41",
+        "Hook Text": "Another month of \"\"maybe tomorrow\"\"… how many more?",
+        "Category": "Urgency"
+      },
+      {
+        "ID": "42",
+        "Hook Text": "Kids changed my body—but lack of priority kept it stuck.",
+        "Category": "Transformation"
+      },
+      {
+        "ID": "43",
+        "Hook Text": "Wellness experts don't discover busy moms on social media.",
+        "Category": "Insight"
+      },
+      {
+        "ID": "44",
+        "Hook Text": "You’re scared to say no to kids… so your health says no to you.",
+        "Category": "Hard Truth"
+      },
+      {
+        "ID": "45",
+        "Hook Text": "I went from skipped meals to nourished and fit. The bridge was mom-savvy knowledge.",
+        "Category": "Transformation"
+      },
+      {
+        "ID": "46",
+        "Hook Text": "Tired of hearing \"love your body… but change nothing\"?",
+        "Category": "Call Out"
+      },
+      {
+        "ID": "47",
+        "Hook Text": "Your dream of feeling strong keeps going to someone with \"\"more time\"\".",
+        "Category": "Pain Point"
+      },
+      {
+        "ID": "48",
+        "Hook Text": "Most programs sell dreams. Mine mapped my actual mom-to-fit journey.",
+        "Category": "Authority"
+      },
+      {
+        "ID": "49",
+        "Hook Text": "You have the drive. You lack the kid-friendly plan.",
+        "Category": "Solution"
+      },
+      {
+        "ID": "50",
+        "Hook Text": "Stop being the last on your own priority list.",
+        "Category": "Call to Action"
+      },
+      {
+        "ID": "51",
+        "Hook Text": "Feeling fit as a mom isn’t \"\"someday\"\". It’s now—if you know how.",
+        "Category": "Urgency"
+      },
+      {
+        "ID": "52",
+        "Hook Text": "Exhaustion hurts less when you understand why it's happening.",
+        "Category": "Insight"
+      },
+      {
+        "ID": "53",
+        "Hook Text": "You’re one wrong belief away from staying drained forever.",
+        "Category": "Mindset"
+      },
+      {
+        "ID": "54",
+        "Hook Text": "\"Just join a gym\" is terrible advice without mom logistics.",
+        "Category": "Myth Busting"
+      },
+      {
+        "ID": "55",
+        "Hook Text": "Your energy is ready. Your schedule is not.",
+        "Category": "Pain Point"
+      },
+      {
+        "ID": "56",
+        "Hook Text": "Healthy habits want busy moms… but only if they fit seamlessly.",
+        "Category": "Insight"
+      },
+      {
+        "ID": "57",
+        "Hook Text": "I stopped waiting for nap time. My health improved instead.",
+        "Category": "Transformation"
+      },
+      {
+        "ID": "58",
+        "Hook Text": "Mom life runs on routines. I teach how to weave fitness in fast.",
+        "Category": "Authority"
+      },
+      {
+        "ID": "59",
+        "Hook Text": "You’re strong enough. You’re just not scheduling correctly.",
+        "Category": "Mindset"
+      },
+      {
+        "ID": "60",
+        "Hook Text": "Another \"\"mom bod\"\" post with zero real change.",
+        "Category": "Call Out"
+      },
+      {
+        "ID": "61",
+        "Hook Text": "Feeling fit proved: motivation without mom-strategy = short-lived hype.",
+        "Category": "Authority"
+      },
+      {
+        "ID": "62",
+        "Hook Text": "You don’t need more gear. You need more mom-moments.",
+        "Category": "Insight"
+      },
+      {
+        "ID": "63",
+        "Hook Text": "Feeling like mom life is rigged against your health?",
+        "Category": "Pain Point"
+      },
+      {
+        "ID": "64",
+        "Hook Text": "It is. Until you learn how to un-rig it.",
+        "Category": "Hook Transition"
+      },
+      {
+        "ID": "65",
+        "Hook Text": "My approach isn’t theory. It’s how I actually reclaimed my wellness.",
+        "Category": "Authority"
+      },
+      {
+        "ID": "66",
+        "Hook Text": "Stop hoping for a quiet hour to workout.",
+        "Category": "Call to Action"
+      },
+      {
+        "ID": "67",
+        "Hook Text": "Create the pockets instead.",
+        "Category": "Solution"
+      },
+      {
+        "ID": "68",
+        "Hook Text": "Your biggest hurdle isn’t the kids. It’s inconsistency.",
+        "Category": "Hard Truth"
+      },
+      {
+        "ID": "69",
+        "Hook Text": "Feeling energized happened because I knew the steps for moms.",
+        "Category": "Insight"
+      },
+      {
+        "ID": "70",
+        "Hook Text": "You’re allowed to want your pre-kid body back. Really.",
+        "Category": "Emotional"
+      },
+      {
+        "ID": "71",
+        "Hook Text": "No one teaches moms how to meal plan",
+        "Category": " move",
+        "null": [
+          " or sustain without burnout.",
+          "Pain Point"
+        ]
+      },
+      {
+        "ID": "72",
+        "Hook Text": "I do.",
+        "Category": "Direct"
+      },
+      {
+        "ID": "73",
+        "Hook Text": "Another week ends. Your jeans still don't fit like they used to.",
+        "Category": "Pain Point"
+      },
+      {
+        "ID": "74",
+        "Hook Text": "Diets ignore 99% of mom realities. Here’s how to be the 1%.",
+        "Category": "Authority"
+      },
+      {
+        "ID": "75",
+        "Hook Text": "You’re not \"\"too tired\"\". You’re too overwhelmed.",
+        "Category": "Insight"
+      },
+      {
+        "ID": "76",
+        "Hook Text": "Strong mom vibes don’t fall from the sky.",
+        "Category": "Reality Check"
+      },
+      {
+        "ID": "77",
+        "Hook Text": "They come from knowing exactly what to tweak and when.",
+        "Category": "Insight"
+      },
+      {
+        "ID": "78",
+        "Hook Text": "I used to be terrified of failing again. Now I thrive daily.",
+        "Category": "Transformation"
+      },
+      {
+        "ID": "79",
+        "Hook Text": "Stop collecting recipes. Start collecting wins.",
+        "Category": "Call to Action"
+      },
+      {
+        "ID": "80",
+        "Hook Text": "Your dream health isn’t impossible. Your mom-plan is missing.",
+        "Category": "Insight"
+      },
+      {
+        "ID": "81",
+        "Hook Text": "Most moms quit right before the habit sticks.",
+        "Category": "Hard Truth"
+      },
+      {
+        "ID": "82",
+        "Hook Text": "Don’t be most.",
+        "Category": "Direct"
+      },
+      {
+        "ID": "83",
+        "Hook Text": "Energy showed up when I stopped guessing.",
+        "Category": "Insight"
+      },
+      {
+        "ID": "84",
+        "Hook Text": "You can keep guessing… or learn what works for moms.",
+        "Category": "Authority"
+      },
+      {
+        "ID": "85",
+        "Hook Text": "Your body deserves real nourishment, real movement, real results.",
+        "Category": "Mindset"
+      },
+      {
+        "ID": "86",
+        "Hook Text": "Not just scraps.",
+        "Category": "Reality Check"
+      },
+      {
+        "ID": "87",
+        "Hook Text": "I share the shortcuts I wish I had as a new mom.",
+        "Category": "Value"
+      },
+      {
+        "ID": "88",
+        "Hook Text": "Tired of being told \"sleep when they sleep\"?",
+        "Category": "Call Out"
+      },
+      {
+        "ID": "89",
+        "Hook Text": "Real health comes from mom-built systems.",
+        "Category": "Authority"
+      },
+      {
+        "ID": "90",
+        "Hook Text": "I went from no workouts -> daily movement with kids in the mix.",
+        "Category": "Transformation"
+      },
+      {
+        "ID": "91",
+        "Hook Text": "The difference was strategy, not suddenly having more hours.",
+        "Category": "Insight"
+      },
+      {
+        "ID": "92",
+        "Hook Text": "You already have the willpower. Now get the mom-access.",
+        "Category": "Motivation"
+      },
+      {
+        "ID": "93",
+        "Hook Text": "No more \"\"maybe next week\"\".",
+        "Category": "Urgency"
+      },
+      {
+        "ID": "94",
+        "Hook Text": "Feeling fit isn’t reserved for child-free folks anymore.",
+        "Category": "Mindset"
+      },
+      {
+        "ID": "95",
+        "Hook Text": "But it is reserved for moms who know how to prioritize.",
+        "Category": "Hard Truth"
+      },
+      {
+        "ID": "96",
+        "Hook Text": "Your next habit could be the one that changes everything.",
+        "Category": "Curiosity"
+      },
+      {
+        "ID": "97",
+        "Hook Text": "If you stop winging it.",
+        "Category": "Hard Truth"
+      },
+      {
+        "ID": "98",
+        "Hook Text": "I guide moms to sustainable health—not just quicker workouts.",
+        "Category": "Direct"
+      },
+      {
+        "ID": "99",
+        "Hook Text": "Feeling like you missed your \"\"fit window\"\"?",
+        "Category": "Pain Point"
+      },
+      {
+        "ID": "100",
+        "Hook Text": "Windows are created. Not waited for.",
+        "Category": "Mindset"
+      },
+      {
+        "ID": "101",
+        "Hook Text": "Strong mom life isn’t a fairy tale. It’s execution.",
+        "Category": "Insight"
+      },
+      {
+        "ID": "102",
+        "Hook Text": "My results proved it.",
+        "Category": "Authority"
+      },
+      {
+        "ID": "103",
+        "Hook Text": "Stop mom-ing in isolation.",
+        "Category": "Call to Action"
+      },
+      {
+        "ID": "104",
+        "Hook Text": "Start health-ing with family in mind.",
+        "Category": "Solution"
+      },
+      {
+        "ID": "105",
+        "Hook Text": "You’re closer than you think… but juggling wrong.",
+        "Category": "Insight"
+      },
+      {
+        "ID": "106",
+        "Hook Text": "Another energy crash today? Let’s make it the last one.",
+        "Category": "Urgency"
+      },
+      {
+        "ID": "107",
+        "Hook Text": "Mom life doesn’t need more chaos. It needs more strategic health.",
+        "Category": "Authority"
+      },
+      {
+        "ID": "108",
+        "Hook Text": "Be the strategic mom.",
+        "Category": "Call to Action"
+      },
+      {
+        "ID": "109",
+        "Hook Text": "I share how I turned mom duties into fitness fuel.",
+        "Category": "Transformation"
+      },
+      {
+        "ID": "110",
+        "Hook Text": "No fluff. Just mom-results.",
+        "Category": "Direct"
+      },
+      {
+        "ID": "111",
+        "Hook Text": "Your ideal energy is possible right now… without ignoring kids.",
+        "Category": "Motivation"
+      },
+      {
+        "ID": "112",
+        "Hook Text": "Unlock it.",
+        "Category": "Call to Action"
+      },
+      {
+        "ID": "113",
+        "Hook Text": "Feeling strong as a mom isn’t luck when you have the playbook.",
+        "Category": "Authority"
+      },
+      {
+        "ID": "114",
+        "Hook Text": "I give you the playbook.",
+        "Category": "Direct"
+      },
+      {
+        "ID": "115",
+        "Hook Text": "Stop being the exhausted mom stereotype.",
+        "Category": "Hard Truth"
+      }
+    ]
+  },
+  "a393ffcb_hooks.csv": {
+    "headers": [
+      "ID",
+      "Hook",
+      "Hashtags",
+      "LongTailKeywords",
+      "FilePath"
+    ],
+    "rows": [
+      {
+        "ID": "1",
+        "Hook": "Learn practical ways to help ADHD children manage daily routines more effectively.",
+        "Hashtags": "#ADHDParenting #ChildFocus #FamilyHealth",
+        "LongTailKeywords": "ADHD daily routine tips for children, managing ADHD at home, strategies for ADHD parenting",
+        "FilePath": "D:\\reels-dev\\mixkit\\women\\family\\ADHD_output_reel\\ADHD_daily_routine_tips_for_children.mp4"
+      },
+      {
+        "ID": "2",
+        "Hook": "Discover how a 7-day blueprint can reduce stress for parents of ADHD kids.",
+        "Hashtags": "#ADHDSupport #ParentWellness #MindfulParenting",
+        "LongTailKeywords": "7 day ADHD plan for parents, reducing parental stress ADHD, ADHD support for families",
+        "FilePath": "D:\\reels-dev\\mixkit\\women\\family\\ADHD_output_reel\\7_day_ADHD_plan_for_parents.mp4"
+      },
+      {
+        "ID": "3",
+        "Hook": "ADHD behavior doesn’t have to overwhelm your household — here’s how to regain calm.",
+        "Hashtags": "#ADHDStrategies #ParentingTips #PeacefulParenting",
+        "LongTailKeywords": "calming ADHD behavior at home, strategies for ADHD parents, managing ADHD children effectively",
+        "FilePath": "D:\\reels-dev\\mixkit\\women\\family\\ADHD_output_reel\\calming_ADHD_behavior_at_home.mp4"
+      },
+      {
+        "ID": "4",
+        "Hook": "Practical tips for helping ADHD children focus during homework time.",
+        "Hashtags": "#ADHDFocus #HomeworkHelp #ParentingEducation",
+        "LongTailKeywords": "ADHD homework focus strategies, helping ADHD children concentrate, ADHD learning support for parents",
+        "FilePath": ""
+      },
+      {
+        "ID": "5",
+        "Hook": "Understanding ADHD triggers and how to reduce meltdowns at home.",
+        "Hashtags": "#ADHDAwareness #ParentingTips #ChildBehavior",
+        "LongTailKeywords": "identifying ADHD triggers in children, reducing ADHD meltdowns, ADHD behavior management techniques",
+        "FilePath": ""
+      },
+      {
+        "ID": "6",
+        "Hook": "Simple daily activities that improve ADHD children’s concentration naturally.",
+        "Hashtags": "#ADHDParenting #ChildFocus #HealthyRoutines",
+        "LongTailKeywords": "natural concentration techniques ADHD, daily focus activities for ADHD children, ADHD concentration exercises at home",
+        "FilePath": ""
+      },
+      {
+        "ID": "7",
+        "Hook": "How structured routines help ADHD children feel secure and in control.",
+        "Hashtags": "#ADHDSupport #ParentingTips #ChildDevelopment",
+        "LongTailKeywords": "structured routines for ADHD children, ADHD routine strategies, helping ADHD children thrive at home",
+        "FilePath": ""
+      },
+      {
+        "ID": "8",
+        "Hook": "ADHD-friendly strategies to improve bedtime and sleep patterns.",
+        "Hashtags": "#ADHDSleep #ParentingAdvice #HealthyKids",
+        "LongTailKeywords": "bedtime tips for ADHD children, ADHD sleep schedule strategies, improving ADHD child sleep routines",
+        "FilePath": ""
+      },
+      {
+        "ID": "9",
+        "Hook": "Techniques for parents to stay patient and calm during ADHD meltdowns.",
+        "Hashtags": "#MindfulParenting #ADHDParenting #FamilyHealth",
+        "LongTailKeywords": "staying calm with ADHD child, ADHD meltdown parenting strategies, patience techniques for ADHD parents",
+        "FilePath": ""
+      },
+      {
+        "ID": "10",
+        "Hook": "How reward systems can motivate ADHD children without increasing stress.",
+        "Hashtags": "#ADHDParenting #PositiveReinforcement #ChildBehavior",
+        "LongTailKeywords": "ADHD reward system ideas, positive reinforcement for ADHD kids, motivating ADHD children effectively",
+        "FilePath": ""
+      },
+      {
+        "ID": "11",
+        "Hook": "ADHD-friendly study tips that actually work for children ages 4-16.",
+        "Hashtags": "#ADHDStudyTips #EducationForKids #ParentingHelp",
+        "LongTailKeywords": "effective study techniques ADHD children, ADHD learning methods for parents, supporting ADHD student success",
+        "FilePath": ""
+      },
+      {
+        "ID": "12",
+        "Hook": "How parents can recognize early signs of ADHD stress and prevent escalation.",
+        "Hashtags": "#ADHDAwareness #ChildWellness #ParentingTips",
+        "LongTailKeywords": "recognizing ADHD stress in children, ADHD early warning signs, preventing ADHD meltdowns at home",
+        "FilePath": ""
+      },
+      {
+        "ID": "13",
+        "Hook": "Simple mindfulness exercises tailored for ADHD kids and families.",
+        "Hashtags": "#ADHDParenting #MindfulnessForKids #FamilyWellness",
+        "LongTailKeywords": "mindfulness exercises for ADHD children, ADHD calming techniques, family mindfulness routines ADHD",
+        "FilePath": ""
+      },
+      {
+        "ID": "14",
+        "Hook": "Tips to create an ADHD-friendly homework environment at home.",
+        "Hashtags": "#ADHDFocus #ParentingTips #HomeworkHelp",
+        "LongTailKeywords": "ADHD homework environment setup, supporting ADHD child learning at home, ADHD-friendly study space",
+        "FilePath": ""
+      },
+      {
+        "ID": "15",
+        "Hook": "How parents can effectively communicate with teachers about ADHD challenges.",
+        "Hashtags": "#ADHDEducation #ParentTeacherCollaboration #ChildSupport",
+        "LongTailKeywords": "communicating with teachers about ADHD, ADHD parent-teacher strategies, supporting ADHD child education",
+        "FilePath": ""
+      },
+      {
+        "ID": "16",
+        "Hook": "ADHD meal planning tips to maintain focus and energy throughout the day.",
+        "Hashtags": "#ADHDNutrition #ParentingTips #HealthyKids",
+        "LongTailKeywords": "ADHD meal planning for kids, nutrition strategies for ADHD children, ADHD diet tips for focus",
+        "FilePath": ""
+      },
+      {
+        "ID": "17",
+        "Hook": "Strategies for parents to help ADHD children manage emotional regulation.",
+        "Hashtags": "#ADHDEmotion #ChildDevelopment #ParentingSupport",
+        "LongTailKeywords": "ADHD emotional regulation strategies, helping ADHD kids control emotions, parenting tips ADHD behavior",
+        "FilePath": ""
+      },
+      {
+        "ID": "18",
+        "Hook": "How ADHD children benefit from short, structured learning bursts.",
+        "Hashtags": "#ADHDParenting #ChildFocus #LearningTips",
+        "LongTailKeywords": "short learning sessions ADHD children, structured learning ADHD, ADHD focus techniques",
+        "FilePath": ""
+      },
+      {
+        "ID": "19",
+        "Hook": "Fun, ADHD-friendly activities that boost attention and engagement.",
+        "Hashtags": "#ADHDParenting #ChildDevelopment #PlayToLearn",
+        "LongTailKeywords": "fun activities ADHD children, ADHD engagement exercises, attention-boosting activities for kids",
+        "FilePath": ""
+      },
+      {
+        "ID": "20",
+        "Hook": "Using visual aids to improve ADHD children’s memory and organization.",
+        "Hashtags": "#ADHDParenting #LearningTools #ChildFocus",
+        "LongTailKeywords": "visual aids for ADHD children, memory improvement ADHD, organizational tools ADHD kids",
+        "FilePath": ""
+      },
+      {
+        "ID": "21",
+        "Hook": "How to create a low-distraction environment for ADHD children at home.",
+        "Hashtags": "#ADHDParenting #FocusTips #HomeLearning",
+        "LongTailKeywords": "low distraction ADHD environment, ADHD study space setup, ADHD child concentration tips",
+        "FilePath": ""
+      },
+      {
+        "ID": "22",
+        "Hook": "ADHD children and screen time: how to balance it for focus and calm.",
+        "Hashtags": "#ADHDSupport #ParentingTips #HealthyKids",
+        "LongTailKeywords": "managing ADHD screen time, ADHD digital balance tips, screen time strategies ADHD children",
+        "FilePath": ""
+      },
+      {
+        "ID": "23",
+        "Hook": "How 7-day structured plans reduce stress for parents and ADHD children.",
+        "Hashtags": "#ADHDParenting #FamilyWellness #ParentSupport",
+        "LongTailKeywords": "7-day ADHD plan benefits, structured ADHD routine for families, parent stress reduction ADHD",
+        "FilePath": ""
+      },
+      {
+        "ID": "24",
+        "Hook": "How parents can track ADHD progress effectively without extra stress.",
+        "Hashtags": "#ADHDParenting #TrackingProgress #FamilySupport",
+        "LongTailKeywords": "tracking ADHD child progress, monitoring ADHD improvement, ADHD parent tracking strategies",
+        "FilePath": ""
+      },
+      {
+        "ID": "25",
+        "Hook": "Using supportive communities to share ADHD parenting tips and strategies.",
+        "Hashtags": "#ADHDSupport #ParentCommunity #FamilyHealth",
+        "LongTailKeywords": "ADHD parenting community support, sharing ADHD tips online, supportive ADHD parent networks",
+        "FilePath": ""
+      },
+      {
+        "ID": "26",
+        "Hook": "How parents can help ADHD children manage time effectively.",
+        "Hashtags": "#ADHDParenting #TimeManagement #ChildFocus",
+        "LongTailKeywords": "ADHD time management strategies, teaching time skills to ADHD children, ADHD daily schedule tips",
+        "FilePath": ""
+      },
+      {
+        "ID": "27",
+        "Hook": "Practical exercises to improve ADHD children's short-term memory.",
+        "Hashtags": "#ADHDParenting #MemoryTips #ChildDevelopment",
+        "LongTailKeywords": "ADHD memory exercises for kids, improving short-term memory ADHD, child cognitive support ADHD",
+        "FilePath": ""
+      },
+      {
+        "ID": "28",
+        "Hook": "How to set achievable goals for ADHD children to boost confidence.",
+        "Hashtags": "#ADHDEducation #ChildMotivation #ParentingTips",
+        "LongTailKeywords": "setting goals for ADHD children, boosting ADHD child confidence, ADHD goal-setting strategies",
+        "FilePath": ""
+      },
+      {
+        "ID": "29",
+        "Hook": "Managing ADHD symptoms during transitions like moving or changing schools.",
+        "Hashtags": "#ADHDParenting #Transitions #ChildSupport",
+        "LongTailKeywords": "ADHD child transitions support, coping with ADHD changes, school transition tips ADHD",
+        "FilePath": ""
+      },
+      {
+        "ID": "30",
+        "Hook": "Understanding executive function challenges in ADHD children.",
+        "Hashtags": "#ADHDAwareness #ChildDevelopment #ParentingTips",
+        "LongTailKeywords": "executive function in ADHD kids, ADHD cognitive challenges, supporting ADHD executive skills",
+        "FilePath": ""
+      },
+      {
+        "ID": "31",
+        "Hook": "How parents can foster social skills in ADHD children.",
+        "Hashtags": "#ADHDSocialSkills #ParentingSupport #ChildDevelopment",
+        "LongTailKeywords": "ADHD social skills development, teaching social skills ADHD, ADHD child peer interaction",
+        "FilePath": ""
+      },
+      {
+        "ID": "32",
+        "Hook": "Simple mindfulness activities to calm ADHD children before bedtime.",
+        "Hashtags": "#ADHDParenting #MindfulnessForKids #BedtimeRoutine",
+        "LongTailKeywords": "ADHD bedtime mindfulness, calming ADHD children, mindfulness techniques for ADHD",
+        "FilePath": ""
+      },
+      {
+        "ID": "33",
+        "Hook": "Creating ADHD-friendly morning routines to start the day positively.",
+        "Hashtags": "#ADHDParenting #MorningRoutine #ChildFocus",
+        "LongTailKeywords": "morning routines ADHD children, ADHD morning strategies, positive ADHD start tips",
+        "FilePath": ""
+      },
+      {
+        "ID": "34",
+        "Hook": "How to reduce homework frustration in ADHD children.",
+        "Hashtags": "#ADHDFocus #HomeworkHelp #ParentingTips",
+        "LongTailKeywords": "reducing homework stress ADHD, ADHD children homework strategies, helping ADHD focus homework",
+        "FilePath": ""
+      },
+      {
+        "ID": "35",
+        "Hook": "Using visual schedules to improve ADHD children’s daily organization.",
+        "Hashtags": "#ADHDParenting #VisualSchedules #ChildFocus",
+        "LongTailKeywords": "visual schedule ADHD children, daily organization tips ADHD, ADHD visual learning tools",
+        "FilePath": ""
+      },
+      {
+        "ID": "36",
+        "Hook": "How parents can support ADHD children’s emotional resilience.",
+        "Hashtags": "#ADHDEmotion #ChildSupport #ParentingTips",
+        "LongTailKeywords": "emotional resilience ADHD children, supporting ADHD coping skills, ADHD child self-regulation strategies",
+        "FilePath": ""
+      },
+      {
+        "ID": "37",
+        "Hook": "Strategies to reduce impulsive behavior in ADHD children at home.",
+        "Hashtags": "#ADHDBehavior #ParentingTips #ChildFocus",
+        "LongTailKeywords": "reducing impulsivity ADHD children, managing ADHD impulsive behavior, ADHD home behavior strategies",
+        "FilePath": ""
+      },
+      {
+        "ID": "38",
+        "Hook": "How structured playtime helps ADHD children improve focus.",
+        "Hashtags": "#ADHDParenting #PlayToLearn #ChildFocus",
+        "LongTailKeywords": "structured play ADHD children, improving ADHD focus with play, ADHD concentration activities",
+        "FilePath": ""
+      },
+      {
+        "ID": "39",
+        "Hook": "Tips for ADHD children to manage stress in school environments.",
+        "Hashtags": "#ADHDEducation #ChildSupport #SchoolSuccess",
+        "LongTailKeywords": "ADHD school stress management, coping strategies ADHD school, ADHD academic support tips",
+        "FilePath": ""
+      },
+      {
+        "ID": "40",
+        "Hook": "How parents can identify ADHD triggers in social situations.",
+        "Hashtags": "#ADHDAwareness #ChildBehavior #ParentingTips",
+        "LongTailKeywords": "ADHD triggers social settings, understanding ADHD child behavior, managing ADHD social challenges",
+        "FilePath": ""
+      },
+      {
+        "ID": "41",
+        "Hook": "The role of nutrition in ADHD children’s behavior and focus.",
+        "Hashtags": "#ADHDNutrition #ParentingTips #HealthyKids",
+        "LongTailKeywords": "nutrition impact on ADHD behavior, ADHD diet and focus, healthy eating ADHD children",
+        "FilePath": ""
+      },
+      {
+        "ID": "42",
+        "Hook": "Tips for helping ADHD children develop better self-control.",
+        "Hashtags": "#ADHDParenting #ChildBehavior #SelfControl",
+        "LongTailKeywords": "improving self-control ADHD, ADHD children impulse management, ADHD behavioral strategies",
+        "FilePath": ""
+      },
+      {
+        "ID": "43",
+        "Hook": "How to use positive reinforcement effectively with ADHD children.",
+        "Hashtags": "#ADHDParenting #PositiveReinforcement #ChildSupport",
+        "LongTailKeywords": "positive reinforcement ADHD children, rewarding ADHD behavior, ADHD parenting tips",
+        "FilePath": ""
+      },
+      {
+        "ID": "44",
+        "Hook": "How parents can create ADHD-friendly learning environments at home.",
+        "Hashtags": "#ADHDEducation #HomeLearning #ChildFocus",
+        "LongTailKeywords": "home learning setup ADHD children, ADHD study environment tips, ADHD learning strategies at home",
+        "FilePath": ""
+      },
+      {
+        "ID": "45",
+        "Hook": "How exercise impacts ADHD children’s attention and energy levels.",
+        "Hashtags": "#ADHDParenting #HealthyKids #FocusTips",
+        "LongTailKeywords": "exercise benefits ADHD children, ADHD physical activity strategies, ADHD attention improvement",
+        "FilePath": ""
+      },
+      {
+        "ID": "46",
+        "Hook": "How parents can teach ADHD children coping strategies for frustration.",
+        "Hashtags": "#ADHDParenting #ChildEmotions #ParentingTips",
+        "LongTailKeywords": "teaching coping skills ADHD, ADHD frustration management, supporting ADHD emotional regulation",
+        "FilePath": ""
+      },
+      {
+        "ID": "47",
+        "Hook": "Understanding sensory sensitivities in ADHD children and how to help.",
+        "Hashtags": "#ADHDSensory #ChildDevelopment #ParentingSupport",
+        "LongTailKeywords": "sensory sensitivities ADHD children, supporting ADHD sensory issues, ADHD child sensory strategies",
+        "FilePath": ""
+      },
+      {
+        "ID": "48",
+        "Hook": "How structured checklists improve ADHD children’s task completion.",
+        "Hashtags": "#ADHDParenting #TaskManagement #ChildFocus",
+        "LongTailKeywords": "checklists for ADHD children, ADHD task completion strategies, ADHD organizational tips",
+        "FilePath": ""
+      },
+      {
+        "ID": "49",
+        "Hook": "Tips to help ADHD children manage impulsive speech and reactions.",
+        "Hashtags": "#ADHDBehavior #ParentingTips #ChildFocus",
+        "LongTailKeywords": "managing ADHD impulsive speech, ADHD emotional control strategies, ADHD behavior guidance",
+        "FilePath": ""
+      },
+      {
+        "ID": "50",
+        "Hook": "How parents can support ADHD children in building friendships.",
+        "Hashtags": "#ADHDSocialSkills #ChildSupport #ParentingTips",
+        "LongTailKeywords": "ADHD friendship tips, supporting social skills ADHD children, ADHD peer interaction strategies",
+        "FilePath": ""
+      },
+      {
+        "ID": "51",
+        "Hook": "How ADHD children benefit from visual learning tools and aids.",
+        "Hashtags": "#ADHDParenting #LearningTools #ChildFocus",
+        "LongTailKeywords": "visual aids ADHD learning, ADHD educational resources, supporting ADHD children visually",
+        "FilePath": ""
+      },
+      {
+        "ID": "52",
+        "Hook": "Strategies to manage ADHD children’s screen time without conflict.",
+        "Hashtags": "#ADHDParenting #ScreenTime #ChildFocus",
+        "LongTailKeywords": "managing screen time ADHD children, healthy digital habits ADHD, ADHD screen balance strategies",
+        "FilePath": ""
+      },
+      {
+        "ID": "53",
+        "Hook": "How parents can use calm-down corners to help ADHD children self-regulate.",
+        "Hashtags": "#ADHDEmotion #ChildSupport #ParentingTips",
+        "LongTailKeywords": "calm-down strategies ADHD, ADHD self-regulation techniques, ADHD parenting tips for behavior",
+        "FilePath": ""
+      },
+      {
+        "ID": "54",
+        "Hook": "How ADHD children can benefit from brief, frequent movement breaks.",
+        "Hashtags": "#ADHDParenting #ChildFocus #HealthyKids",
+        "LongTailKeywords": "movement breaks ADHD children, ADHD focus improvement strategies, ADHD active learning tips",
+        "FilePath": ""
+      },
+      {
+        "ID": "55",
+        "Hook": "How parents can help ADHD children manage transitions between activities.",
+        "Hashtags": "#ADHDParenting #ChildFocus #ParentingTips",
+        "LongTailKeywords": "managing ADHD transitions, ADHD child routine strategies, smooth activity changes ADHD",
+        "FilePath": ""
+      },
+      {
+        "ID": "56",
+        "Hook": "The role of positive routines in reducing ADHD children’s anxiety.",
+        "Hashtags": "#ADHDSupport #ParentingTips #ChildWellness",
+        "LongTailKeywords": "reducing anxiety ADHD children, ADHD daily routines for calm, positive routines for ADHD",
+        "FilePath": ""
+      },
+      {
+        "ID": "57",
+        "Hook": "How parents can collaborate with teachers to support ADHD children.",
+        "Hashtags": "#ADHDEducation #ParentTeacherCollaboration #ChildSupport",
+        "LongTailKeywords": "collaborating with teachers ADHD, ADHD classroom support strategies, parent-teacher ADHD communication",
+        "FilePath": ""
+      },
+      {
+        "ID": "58",
+        "Hook": "Tips for ADHD children to manage their emotions during stressful tasks.",
+        "Hashtags": "#ADHDEmotion #ChildSupport #ParentingTips",
+        "LongTailKeywords": "ADHD emotional management strategies, helping children handle stress ADHD, ADHD coping skills education",
+        "FilePath": ""
+      },
+      {
+        "ID": "59",
+        "Hook": "How mindfulness can reduce ADHD children’s impulsivity and agitation.",
+        "Hashtags": "#ADHDParenting #MindfulnessForKids #ChildFocus",
+        "LongTailKeywords": "mindfulness for ADHD children, reducing impulsivity ADHD, ADHD calming techniques",
+        "FilePath": ""
+      },
+      {
+        "ID": "60",
+        "Hook": "How structured meal times improve focus and behavior in ADHD children.",
+        "Hashtags": "#ADHDNutrition #ChildFocus #ParentingTips",
+        "LongTailKeywords": "structured meals ADHD children, improving ADHD behavior with meals, ADHD nutrition tips",
+        "FilePath": ""
+      },
+      {
+        "ID": "61",
+        "Hook": "Strategies to help ADHD children complete multi-step tasks successfully.",
+        "Hashtags": "#ADHDParenting #TaskManagement #ChildFocus",
+        "LongTailKeywords": "ADHD multi-step task strategies, helping ADHD children complete tasks, ADHD task support techniques",
+        "FilePath": ""
+      },
+      {
+        "ID": "62",
+        "Hook": "How parents can use charts and trackers to monitor ADHD progress.",
+        "Hashtags": "#ADHDParenting #TrackingProgress #ChildSupport",
+        "LongTailKeywords": "tracking ADHD child progress, ADHD chart strategies, monitoring ADHD improvements",
+        "FilePath": ""
+      },
+      {
+        "ID": "63",
+        "Hook": "Tips to help ADHD children manage overstimulation in busy environments.",
+        "Hashtags": "#ADHDSensory #ChildSupport #ParentingTips",
+        "LongTailKeywords": "ADHD overstimulation strategies, helping children manage sensory overload, ADHD calm techniques",
+        "FilePath": ""
+      },
+      {
+        "ID": "64",
+        "Hook": "How parents can teach ADHD children organizational skills step by step.",
+        "Hashtags": "#ADHDParenting #OrganizationalSkills #ChildFocus",
+        "LongTailKeywords": "teaching organizational skills ADHD, ADHD task organization, ADHD planning tips for children",
+        "FilePath": ""
+      },
+      {
+        "ID": "65",
+        "Hook": "How ADHD children can benefit from peer-support and group activities.",
+        "Hashtags": "#ADHDSocialSkills #ChildDevelopment #ParentingTips",
+        "LongTailKeywords": "ADHD peer support benefits, group activities ADHD children, ADHD social engagement strategies",
+        "FilePath": ""
+      },
+      {
+        "ID": "66",
+        "Hook": "How parents can help ADHD children cope with frustration during learning.",
+        "Hashtags": "#ADHDParenting #ChildFocus #ParentingTips",
+        "LongTailKeywords": "coping with frustration ADHD children, ADHD learning support, managing ADHD emotions at home",
+        "FilePath": ""
+      },
+      {
+        "ID": "67",
+        "Hook": "How ADHD children benefit from predictable routines in school and home.",
+        "Hashtags": "#ADHDParenting #ChildFocus #ParentingTips",
+        "LongTailKeywords": "predictable routines ADHD children, ADHD home and school routine strategies, ADHD structured daily routines",
+        "FilePath": ""
+      },
+      {
+        "ID": "68",
+        "Hook": "How parents can help ADHD children transition smoothly from play to homework.",
+        "Hashtags": "#ADHDParenting #ChildFocus #HomeworkTips",
+        "LongTailKeywords": "transition strategies ADHD children, ADHD play to homework routines, ADHD focus improvement",
+        "FilePath": ""
+      },
+      {
+        "ID": "69",
+        "Hook": "How ADHD children can learn to set small, realistic goals for tasks.",
+        "Hashtags": "#ADHDParenting #ChildMotivation #LearningTips",
+        "LongTailKeywords": "goal-setting for ADHD children, ADHD task motivation, ADHD child achievement strategies",
+        "FilePath": ""
+      },
+      {
+        "ID": "70",
+        "Hook": "Tips for ADHD children to develop self-monitoring skills at home and school.",
+        "Hashtags": "#ADHDParenting #ChildFocus #SelfMonitoring",
+        "LongTailKeywords": "self-monitoring strategies ADHD children, ADHD behavior tracking, teaching ADHD self-awareness",
+        "FilePath": ""
+      },
+      {
+        "ID": "71",
+        "Hook": "How ADHD children can benefit from brief daily reflection and journaling.",
+        "Hashtags": "#ADHDParenting #ChildFocus #MindfulnessForKids",
+        "LongTailKeywords": "ADHD journaling for kids, reflection strategies ADHD children, ADHD mindfulness techniques",
+        "FilePath": ""
+      },
+      {
+        "ID": "72",
+        "Hook": "How parents can use visual timers to improve ADHD children’s time awareness.",
+        "Hashtags": "#ADHDParenting #TimeManagement #ChildFocus",
+        "LongTailKeywords": "visual timers ADHD children, time awareness ADHD strategies, ADHD daily routine tools",
+        "FilePath": ""
+      },
+      {
+        "ID": "73",
+        "Hook": "How parents can teach ADHD children calming techniques before stressful events.",
+        "Hashtags": "#ADHDEmotion #ChildFocus #ParentingTips",
+        "LongTailKeywords": "calming techniques ADHD children, ADHD stress management, preparing ADHD kids for stress",
+        "FilePath": ""
+      },
+      {
+        "ID": "74",
+        "Hook": "How structured breaks during schoolwork improve ADHD children’s attention.",
+        "Hashtags": "#ADHDParenting #ChildFocus #HomeworkHelp",
+        "LongTailKeywords": "ADHD breaks strategies, improving focus ADHD children, structured study sessions ADHD",
+        "FilePath": ""
+      },
+      {
+        "ID": "75",
+        "Hook": "How parents can support ADHD children’s independence through routines.",
+        "Hashtags": "#ADHDParenting #ChildFocus #LifeSkills",
+        "LongTailKeywords": "building independence ADHD children, ADHD routines for self-reliance, child life skills ADHD",
+        "FilePath": ""
+      },
+      {
+        "ID": "76",
+        "Hook": "How ADHD children benefit from consistent rewards and recognition.",
+        "Hashtags": "#ADHDParenting #PositiveReinforcement #ChildSupport",
+        "LongTailKeywords": "consistent reward strategies ADHD, ADHD children motivation, positive reinforcement ADHD kids",
+        "FilePath": ""
+      },
+      {
+        "ID": "77",
+        "Hook": "How parents can identify strengths in ADHD children to boost confidence.",
+        "Hashtags": "#ADHDParenting #ChildDevelopment #ParentingTips",
+        "LongTailKeywords": "identifying ADHD child strengths, boosting confidence ADHD children, ADHD child skill recognition",
+        "FilePath": ""
+      },
+      {
+        "ID": "78",
+        "Hook": "Tips for ADHD children to improve focus during group activities.",
+        "Hashtags": "#ADHDParenting #ChildFocus #LearningTips",
+        "LongTailKeywords": "group activity focus ADHD, improving attention ADHD children, ADHD teamwork strategies",
+        "FilePath": ""
+      },
+      {
+        "ID": "79",
+        "Hook": "How ADHD children benefit from structured visual routines at home and school.",
+        "Hashtags": "#ADHDParenting #ChildFocus #VisualLearning",
+        "LongTailKeywords": "structured visual routines ADHD, ADHD daily visual plans, supporting ADHD children visually",
+        "FilePath": ""
+      },
+      {
+        "ID": "80",
+        "Hook": "How parents can reduce ADHD children’s anxiety before transitions or new activities.",
+        "Hashtags": "#ADHDSupport #ChildWellness #ParentingTips",
+        "LongTailKeywords": "reducing anxiety ADHD children, ADHD transition support strategies, calming ADHD child stress",
+        "FilePath": ""
+      },
+      {
+        "ID": "81",
+        "Hook": "How parents can support ADHD children’s strengths in creative learning activities.",
+        "Hashtags": "#ADHDParenting #ChildDevelopment #CreativeLearning",
+        "LongTailKeywords": "creative learning ADHD children, supporting ADHD strengths, ADHD learning activities at home",
+        "FilePath": ""
+      },
+      {
+        "ID": "82",
+        "Hook": "How parents can use consistent routines to improve ADHD children’s executive function.",
+        "Hashtags": "#ADHDParenting #ChildFocus #ExecutiveFunction",
+        "LongTailKeywords": "improving executive function ADHD, routines for ADHD children, ADHD skills development strategies",
+        "FilePath": ""
+      },
+      {
+        "ID": "83",
+        "Hook": "How ADHD children benefit from hands-on learning activities at home.",
+        "Hashtags": "#ADHDParenting #ChildFocus #HandsOnLearning",
+        "LongTailKeywords": "hands-on learning ADHD children, ADHD practical learning tips, child learning strategies ADHD",
+        "FilePath": ""
+      },
+      {
+        "ID": "84",
+        "Hook": "How parents can create ADHD-friendly homework checklists to stay organized.",
+        "Hashtags": "#ADHDFocus #ParentingTips #HomeworkHelp",
+        "LongTailKeywords": "ADHD homework checklists, staying organized ADHD children, ADHD task completion strategies",
+        "FilePath": ""
+      },
+      {
+        "ID": "85",
+        "Hook": "How parents can support ADHD children during stressful school exams.",
+        "Hashtags": "#ADHDEducation #ChildSupport #ParentingTips",
+        "LongTailKeywords": "ADHD exam stress management, supporting ADHD children during tests, ADHD school exam tips",
+        "FilePath": ""
+      },
+      {
+        "ID": "86",
+        "Hook": "How structured snack breaks improve ADHD children’s focus throughout the day.",
+        "Hashtags": "#ADHDNutrition #ChildFocus #ParentingTips",
+        "LongTailKeywords": "snack breaks ADHD children, focus improvement ADHD, ADHD daily energy tips",
+        "FilePath": ""
+      },
+      {
+        "ID": "87",
+        "Hook": "How parents can help ADHD children set priorities and manage tasks.",
+        "Hashtags": "#ADHDParenting #TaskManagement #ChildFocus",
+        "LongTailKeywords": "setting priorities ADHD children, ADHD task management strategies, ADHD time management tips",
+        "FilePath": ""
+      },
+      {
+        "ID": "88",
+        "Hook": "How ADHD children can benefit from interactive learning games.",
+        "Hashtags": "#ADHDParenting #ChildDevelopment #LearningGames",
+        "LongTailKeywords": "interactive learning ADHD children, ADHD educational games, fun ADHD learning strategies",
+        "FilePath": ""
+      },
+      {
+        "ID": "89",
+        "Hook": "How to use calming strategies for ADHD children before homework sessions.",
+        "Hashtags": "#ADHDEmotion #ParentingTips #ChildFocus",
+        "LongTailKeywords": "calming techniques ADHD children, ADHD homework preparation, managing ADHD stress at home",
+        "FilePath": ""
+      },
+      {
+        "ID": "90",
+        "Hook": "How parents can teach ADHD children problem-solving skills step by step.",
+        "Hashtags": "#ADHDParenting #ChildDevelopment #ProblemSolving",
+        "LongTailKeywords": "problem-solving skills ADHD children, ADHD child critical thinking, teaching ADHD strategies",
+        "FilePath": ""
+      },
+      {
+        "ID": "91",
+        "Hook": "How structured transitions improve ADHD children’s focus and behavior.",
+        "Hashtags": "#ADHDParenting #ChildFocus #RoutineTips",
+        "LongTailKeywords": "structured transitions ADHD, improving ADHD focus, ADHD behavior management strategies",
+        "FilePath": ""
+      },
+      {
+        "ID": "92",
+        "Hook": "How parents can help ADHD children develop self-discipline through routines.",
+        "Hashtags": "#ADHDParenting #ChildDevelopment #SelfDiscipline",
+        "LongTailKeywords": "self-discipline ADHD children, ADHD routine strategies, ADHD behavioral improvement",
+        "FilePath": ""
+      },
+      {
+        "ID": "93",
+        "Hook": "How mindfulness breaks improve ADHD children’s attention and calmness.",
+        "Hashtags": "#ADHDParenting #MindfulnessForKids #ChildFocus",
+        "LongTailKeywords": "mindfulness breaks ADHD children, calming ADHD techniques, improving ADHD attention",
+        "FilePath": ""
+      },
+      {
+        "ID": "94",
+        "Hook": "How parents can support ADHD children in managing frustration at school.",
+        "Hashtags": "#ADHDEducation #ChildSupport #ParentingTips",
+        "LongTailKeywords": "managing frustration ADHD children, school support ADHD, ADHD behavior management school",
+        "FilePath": ""
+      },
+      {
+        "ID": "95",
+        "Hook": "How to use reward charts effectively for ADHD children at home.",
+        "Hashtags": "#ADHDParenting #PositiveReinforcement #ChildFocus",
+        "LongTailKeywords": "reward chart ADHD children, positive reinforcement strategies ADHD, ADHD behavior motivation",
+        "FilePath": ""
+      },
+      {
+        "ID": "96",
+        "Hook": "How parents can help ADHD children balance energy with focused activities.",
+        "Hashtags": "#ADHDParenting #ChildFocus #HealthyKids",
+        "LongTailKeywords": "energy balance ADHD children, ADHD focus strategies, active ADHD learning tips",
+        "FilePath": ""
+      },
+      {
+        "ID": "97",
+        "Hook": "How structured morning routines reduce ADHD children’s stress before school.",
+        "Hashtags": "#ADHDParenting #MorningRoutine #ChildFocus",
+        "LongTailKeywords": "morning routines ADHD children, reducing ADHD stress, ADHD school prep tips",
+        "FilePath": ""
+      },
+      {
+        "ID": "98",
+        "Hook": "How parents can help ADHD children improve self-monitoring skills.",
+        "Hashtags": "#ADHDParenting #ChildFocus #SelfMonitoring",
+        "LongTailKeywords": "self-monitoring ADHD children, ADHD behavior tracking, ADHD child self-awareness techniques",
+        "FilePath": ""
+      },
+      {
+        "ID": "99",
+        "Hook": "How parents can create ADHD-friendly chore routines at home.",
+        "Hashtags": "#ADHDParenting #ChildFocus #LifeSkills",
+        "LongTailKeywords": "chore routines ADHD children, ADHD daily responsibilities, supporting ADHD independence",
+        "FilePath": ""
+      },
+      {
+        "ID": "100",
+        "Hook": "How ADHD children can benefit from predictable weekly schedules.",
+        "Hashtags": "#ADHDParenting #ChildFocus #RoutineTips",
+        "LongTailKeywords": "predictable weekly schedule ADHD, ADHD structured routine tips, ADHD focus improvement",
+        "FilePath": ""
+      },
+      {
+        "ID": "101",
+        "Hook": "How parents can help ADHD children build resilience after setbacks.",
+        "Hashtags": "#ADHDParenting #ChildDevelopment #ParentingTips",
+        "LongTailKeywords": "building resilience ADHD children, coping with setbacks ADHD, ADHD emotional support",
+        "FilePath": ""
+      },
+      {
+        "ID": "102",
+        "Hook": "How parents can teach ADHD children calming techniques before bed.",
+        "Hashtags": "#ADHDEmotion #ParentingTips #BedtimeRoutine",
+        "LongTailKeywords": "calming techniques ADHD bedtime, ADHD child relaxation strategies, bedtime ADHD support",
+        "FilePath": ""
+      },
+      {
+        "ID": "103",
+        "Hook": "How structured visual cues improve ADHD children’s task completion.",
+        "Hashtags": "#ADHDParenting #ChildFocus #VisualLearning",
+        "LongTailKeywords": "visual cues ADHD children, task completion ADHD strategies, ADHD visual learning tips",
+        "FilePath": ""
+      },
+      {
+        "ID": "104",
+        "Hook": "How parents can help ADHD children manage multitasking effectively.",
+        "Hashtags": "#ADHDParenting #ChildFocus #TaskManagement",
+        "LongTailKeywords": "multitasking strategies ADHD children, ADHD focus improvement, managing ADHD tasks",
+        "FilePath": ""
+      },
+      {
+        "ID": "105",
+        "Hook": "How parents can use short, consistent routines to improve ADHD children’s behavior.",
+        "Hashtags": "#ADHDParenting #ChildFocus #RoutineTips",
+        "LongTailKeywords": "short consistent routines ADHD, ADHD behavior improvement strategies, ADHD daily routine tips",
+        "FilePath": ""
+      },
+      {
+        "ID": "106",
+        "Hook": "How ADHD children benefit from goal-setting and progress tracking.",
+        "Hashtags": "#ADHDParenting #ChildDevelopment #GoalSetting",
+        "LongTailKeywords": "ADHD goal-setting strategies, tracking ADHD child progress, ADHD achievement tips",
+        "FilePath": ""
+      },
+      {
+        "ID": "107",
+        "Hook": "How parents can support ADHD children’s emotional awareness and regulation.",
+        "Hashtags": "#ADHDEmotion #ChildDevelopment #ParentingTips",
+        "LongTailKeywords": "emotional awareness ADHD children, ADHD regulation strategies, supporting ADHD coping skills",
+        "FilePath": ""
+      },
+      {
+        "ID": "108",
+        "Hook": "How structured homework time reduces ADHD children’s distractions.",
+        "Hashtags": "#ADHDFocus #HomeworkHelp #ParentingTips",
+        "LongTailKeywords": "structured homework ADHD children, reducing distractions ADHD, ADHD focus improvement",
+        "FilePath": ""
+      },
+      {
+        "ID": "109",
+        "Hook": "How ADHD children benefit from movement breaks during study sessions.",
+        "Hashtags": "#ADHDParenting #ChildFocus #ActiveLearning",
+        "LongTailKeywords": "movement breaks ADHD study, improving focus ADHD children, ADHD active learning strategies",
+        "FilePath": ""
+      },
+      {
+        "ID": "110",
+        "Hook": "How parents can help ADHD children develop time awareness with visual tools.",
+        "Hashtags": "#ADHDParenting #TimeManagement #ChildFocus",
+        "LongTailKeywords": "visual time management ADHD, teaching time awareness ADHD, ADHD daily schedule tips",
+        "FilePath": ""
+      },
+      {
+        "ID": "111",
+        "Hook": "How parents can foster creativity in ADHD children through structured activities.",
+        "Hashtags": "#ADHDParenting #ChildDevelopment #CreativeLearning",
+        "LongTailKeywords": "fostering creativity ADHD children, structured activities ADHD, ADHD creative skill building",
+        "FilePath": ""
+      },
+      {
+        "ID": "112",
+        "Hook": "How consistent bedtime routines improve ADHD children’s sleep quality.",
+        "Hashtags": "#ADHDSleep #ParentingTips #ChildWellness",
+        "LongTailKeywords": "bedtime routines ADHD children, improving ADHD sleep quality, ADHD nighttime strategies",
+        "FilePath": ""
+      },
+      {
+        "ID": "113",
+        "Hook": "How parents can help ADHD children manage excitement and energy spikes.",
+        "Hashtags": "#ADHDParenting #ChildFocus #EnergyManagement",
+        "LongTailKeywords": "managing ADHD excitement, ADHD energy regulation strategies, ADHD children focus tips",
+        "FilePath": ""
+      },
+      {
+        "ID": "114",
+        "Hook": "How parents can support ADHD children in completing multi-step school assignments.",
+        "Hashtags": "#ADHDEducation #ChildFocus #HomeworkHelp",
+        "LongTailKeywords": "multi-step assignment strategies ADHD, ADHD homework completion tips, ADHD task guidance",
+        "FilePath": ""
+      },
+      {
+        "ID": "115",
+        "Hook": "How visual timers help ADHD children manage study and playtime.",
+        "Hashtags": "#ADHDParenting #TimeManagement #ChildFocus",
+        "LongTailKeywords": "visual timers ADHD children, ADHD time awareness tips, managing ADHD routines",
+        "FilePath": ""
+      },
+      {
+        "ID": "116",
+        "Hook": "How parents can teach ADHD children self-calming techniques during the day.",
+        "Hashtags": "#ADHDEmotion #ParentingTips #ChildFocus",
+        "LongTailKeywords": "self-calming strategies ADHD children, ADHD emotional control techniques, ADHD daily routines",
+        "FilePath": ""
+      },
+      {
+        "ID": "117",
+        "Hook": "How parents can help ADHD children manage emotional outbursts effectively.",
+        "Hashtags": "#ADHDBehavior #ParentingTips #ChildFocus",
+        "LongTailKeywords": "managing ADHD outbursts, ADHD behavior strategies, calming ADHD children",
+        "FilePath": ""
+      },
+      {
+        "ID": "118",
+        "Hook": "How ADHD children benefit from structured, predictable weekend routines.",
+        "Hashtags": "#ADHDParenting #ChildFocus #RoutineTips",
+        "LongTailKeywords": "predictable weekend routines ADHD, ADHD structured weekend tips, ADHD family routines",
+        "FilePath": ""
+      },
+      {
+        "ID": "119",
+        "Hook": "How parents can support ADHD children in building social confidence.",
+        "Hashtags": "#ADHDSocialSkills #ChildDevelopment #ParentingTips",
+        "LongTailKeywords": "building social confidence ADHD, ADHD children social skills, supporting ADHD peer interactions",
+        "FilePath": ""
+      },
+      {
+        "ID": "120",
+        "Hook": "How parents can use small, frequent breaks to improve ADHD children’s focus.",
+        "Hashtags": "#ADHDParenting #ChildFocus #FocusTips",
+        "LongTailKeywords": "frequent breaks ADHD children, ADHD attention improvement strategies, managing ADHD focus",
+        "FilePath": ""
+      },
+      {
+        "ID": "121",
+        "Hook": "How ADHD children benefit from positive reinforcement at home and school.",
+        "Hashtags": "#ADHDParenting #PositiveReinforcement #ChildSupport",
+        "LongTailKeywords": "positive reinforcement ADHD strategies, motivating ADHD children, ADHD reward systems",
+        "FilePath": ""
+      },
+      {
+        "ID": "122",
+        "Hook": "How parents can help ADHD children develop planning and organizational skills.",
+        "Hashtags": "#ADHDParenting #ChildFocus #OrganizationalSkills",
+        "LongTailKeywords": "planning skills ADHD children, organizational strategies ADHD, ADHD executive function tips",
+        "FilePath": ""
+      },
+      {
+        "ID": "123",
+        "Hook": "How structured visual schedules help ADHD children navigate daily tasks.",
+        "Hashtags": "#ADHDParenting #VisualLearning #ChildFocus",
+        "LongTailKeywords": "visual schedules ADHD children, task management ADHD, ADHD daily routine strategies",
+        "FilePath": ""
+      },
+      {
+        "ID": "124",
+        "Hook": "How parents can use calm-down routines to reduce ADHD children’s stress.",
+        "Hashtags": "#ADHDEmotion #ParentingTips #ChildFocus",
+        "LongTailKeywords": "calm-down routines ADHD, ADHD stress reduction strategies, ADHD emotional regulation tips",
+        "FilePath": ""
+      },
+      {
+        "ID": "125",
+        "Hook": "How parents can support ADHD children in managing peer conflicts.",
+        "Hashtags": "#ADHDSocialSkills #ChildDevelopment #ParentingTips",
+        "LongTailKeywords": "managing peer conflict ADHD children, ADHD social problem solving, supporting ADHD social skills",
+        "FilePath": ""
+      },
+      {
+        "ID": "126",
+        "Hook": "How ADHD children benefit from structured, predictable classroom routines.",
+        "Hashtags": "#ADHDEducation #ChildFocus #RoutineTips",
+        "LongTailKeywords": "classroom routines ADHD children, ADHD structured learning strategies, ADHD focus improvement",
+        "FilePath": ""
+      },
+      {
+        "ID": "127",
+        "Hook": "How parents can foster independence in ADHD children with small daily tasks.",
+        "Hashtags": "#ADHDParenting #ChildDevelopment #LifeSkills",
+        "LongTailKeywords": "building independence ADHD children, small task routines ADHD, ADHD daily life skills",
+        "FilePath": ""
+      },
+      {
+        "ID": "128",
+        "Hook": "How ADHD children benefit from consistent reminders and prompts for tasks.",
+        "Hashtags": "#ADHDParenting #ChildFocus #TaskManagement",
+        "LongTailKeywords": "task reminders ADHD children, ADHD prompt strategies, supporting ADHD task completion",
+        "FilePath": ""
+      },
+      {
+        "ID": "129",
+        "Hook": "How parents can help ADHD children manage overstimulation in social settings.",
+        "Hashtags": "#ADHDSensory #ChildSupport #ParentingTips",
+        "LongTailKeywords": "managing overstimulation ADHD children, ADHD social environment strategies, calming ADHD kids",
+        "FilePath": ""
+      },
+      {
+        "ID": "130",
+        "Hook": "How parents can teach ADHD children coping skills for frustration and disappointment.",
+        "Hashtags": "#ADHDParenting #ChildFocus #ParentingTips",
+        "LongTailKeywords": "coping skills ADHD children, ADHD emotional regulation strategies, supporting ADHD resilience",
+        "FilePath": ""
+      },
+      {
+        "ID": "131",
+        "Hook": "How structured routines for meals, sleep, and study improve ADHD children’s focus.",
+        "Hashtags": "#ADHDParenting #ChildFocus #RoutineTips",
+        "LongTailKeywords": "structured routines ADHD children, improving ADHD focus, ADHD daily schedule strategies",
+        "FilePath": ""
+      }
+    ]
+  },
+  "452a5163_hooks.csv": {
+    "headers": [
+      "ID",
+      "Hook",
+      "Hashtags",
+      "LongTailKeywords",
+      "FilePath"
+    ],
+    "rows": [
+      {
+        "ID": "1",
+        "Hook": "Learn practical ways to help ADHD children manage daily routines more effectively.",
+        "Hashtags": "#ADHDParenting #ChildFocus #FamilyHealth",
+        "LongTailKeywords": "ADHD daily routine tips for children, managing ADHD at home, strategies for ADHD parenting",
+        "FilePath": "D:\\reels-dev\\mixkit\\women\\family\\ADHD_output_reel\\ADHD_daily_routine_tips_for_children.mp4"
+      },
+      {
+        "ID": "2",
+        "Hook": "Discover how a 7-day blueprint can reduce stress for parents of ADHD kids.",
+        "Hashtags": "#ADHDSupport #ParentWellness #MindfulParenting",
+        "LongTailKeywords": "7 day ADHD plan for parents, reducing parental stress ADHD, ADHD support for families",
+        "FilePath": "D:\\reels-dev\\mixkit\\women\\family\\ADHD_output_reel\\7_day_ADHD_plan_for_parents.mp4"
+      },
+      {
+        "ID": "3",
+        "Hook": "ADHD behavior doesn’t have to overwhelm your household — here’s how to regain calm.",
+        "Hashtags": "#ADHDStrategies #ParentingTips #PeacefulParenting",
+        "LongTailKeywords": "calming ADHD behavior at home, strategies for ADHD parents, managing ADHD children effectively",
+        "FilePath": "D:\\reels-dev\\mixkit\\women\\family\\ADHD_output_reel\\calming_ADHD_behavior_at_home.mp4"
+      },
+      {
+        "ID": "4",
+        "Hook": "Practical tips for helping ADHD children focus during homework time.",
+        "Hashtags": "#ADHDFocus #HomeworkHelp #ParentingEducation",
+        "LongTailKeywords": "ADHD homework focus strategies, helping ADHD children concentrate, ADHD learning support for parents",
+        "FilePath": ""
+      },
+      {
+        "ID": "5",
+        "Hook": "Understanding ADHD triggers and how to reduce meltdowns at home.",
+        "Hashtags": "#ADHDAwareness #ParentingTips #ChildBehavior",
+        "LongTailKeywords": "identifying ADHD triggers in children, reducing ADHD meltdowns, ADHD behavior management techniques",
+        "FilePath": ""
+      },
+      {
+        "ID": "6",
+        "Hook": "Simple daily activities that improve ADHD children’s concentration naturally.",
+        "Hashtags": "#ADHDParenting #ChildFocus #HealthyRoutines",
+        "LongTailKeywords": "natural concentration techniques ADHD, daily focus activities for ADHD children, ADHD concentration exercises at home",
+        "FilePath": ""
+      },
+      {
+        "ID": "7",
+        "Hook": "How structured routines help ADHD children feel secure and in control.",
+        "Hashtags": "#ADHDSupport #ParentingTips #ChildDevelopment",
+        "LongTailKeywords": "structured routines for ADHD children, ADHD routine strategies, helping ADHD children thrive at home",
+        "FilePath": ""
+      },
+      {
+        "ID": "8",
+        "Hook": "ADHD-friendly strategies to improve bedtime and sleep patterns.",
+        "Hashtags": "#ADHDSleep #ParentingAdvice #HealthyKids",
+        "LongTailKeywords": "bedtime tips for ADHD children, ADHD sleep schedule strategies, improving ADHD child sleep routines",
+        "FilePath": ""
+      },
+      {
+        "ID": "9",
+        "Hook": "Techniques for parents to stay patient and calm during ADHD meltdowns.",
+        "Hashtags": "#MindfulParenting #ADHDParenting #FamilyHealth",
+        "LongTailKeywords": "staying calm with ADHD child, ADHD meltdown parenting strategies, patience techniques for ADHD parents",
+        "FilePath": ""
+      },
+      {
+        "ID": "10",
+        "Hook": "How reward systems can motivate ADHD children without increasing stress.",
+        "Hashtags": "#ADHDParenting #PositiveReinforcement #ChildBehavior",
+        "LongTailKeywords": "ADHD reward system ideas, positive reinforcement for ADHD kids, motivating ADHD children effectively",
+        "FilePath": ""
+      },
+      {
+        "ID": "11",
+        "Hook": "ADHD-friendly study tips that actually work for children ages 4-16.",
+        "Hashtags": "#ADHDStudyTips #EducationForKids #ParentingHelp",
+        "LongTailKeywords": "effective study techniques ADHD children, ADHD learning methods for parents, supporting ADHD student success",
+        "FilePath": ""
+      },
+      {
+        "ID": "12",
+        "Hook": "How parents can recognize early signs of ADHD stress and prevent escalation.",
+        "Hashtags": "#ADHDAwareness #ChildWellness #ParentingTips",
+        "LongTailKeywords": "recognizing ADHD stress in children, ADHD early warning signs, preventing ADHD meltdowns at home",
+        "FilePath": ""
+      },
+      {
+        "ID": "13",
+        "Hook": "Simple mindfulness exercises tailored for ADHD kids and families.",
+        "Hashtags": "#ADHDParenting #MindfulnessForKids #FamilyWellness",
+        "LongTailKeywords": "mindfulness exercises for ADHD children, ADHD calming techniques, family mindfulness routines ADHD",
+        "FilePath": ""
+      },
+      {
+        "ID": "14",
+        "Hook": "Tips to create an ADHD-friendly homework environment at home.",
+        "Hashtags": "#ADHDFocus #ParentingTips #HomeworkHelp",
+        "LongTailKeywords": "ADHD homework environment setup, supporting ADHD child learning at home, ADHD-friendly study space",
+        "FilePath": ""
+      },
+      {
+        "ID": "15",
+        "Hook": "How parents can effectively communicate with teachers about ADHD challenges.",
+        "Hashtags": "#ADHDEducation #ParentTeacherCollaboration #ChildSupport",
+        "LongTailKeywords": "communicating with teachers about ADHD, ADHD parent-teacher strategies, supporting ADHD child education",
+        "FilePath": ""
+      },
+      {
+        "ID": "16",
+        "Hook": "ADHD meal planning tips to maintain focus and energy throughout the day.",
+        "Hashtags": "#ADHDNutrition #ParentingTips #HealthyKids",
+        "LongTailKeywords": "ADHD meal planning for kids, nutrition strategies for ADHD children, ADHD diet tips for focus",
+        "FilePath": ""
+      },
+      {
+        "ID": "17",
+        "Hook": "Strategies for parents to help ADHD children manage emotional regulation.",
+        "Hashtags": "#ADHDEmotion #ChildDevelopment #ParentingSupport",
+        "LongTailKeywords": "ADHD emotional regulation strategies, helping ADHD kids control emotions, parenting tips ADHD behavior",
+        "FilePath": ""
+      },
+      {
+        "ID": "18",
+        "Hook": "How ADHD children benefit from short, structured learning bursts.",
+        "Hashtags": "#ADHDParenting #ChildFocus #LearningTips",
+        "LongTailKeywords": "short learning sessions ADHD children, structured learning ADHD, ADHD focus techniques",
+        "FilePath": ""
+      },
+      {
+        "ID": "19",
+        "Hook": "Fun, ADHD-friendly activities that boost attention and engagement.",
+        "Hashtags": "#ADHDParenting #ChildDevelopment #PlayToLearn",
+        "LongTailKeywords": "fun activities ADHD children, ADHD engagement exercises, attention-boosting activities for kids",
+        "FilePath": ""
+      },
+      {
+        "ID": "20",
+        "Hook": "Using visual aids to improve ADHD children’s memory and organization.",
+        "Hashtags": "#ADHDParenting #LearningTools #ChildFocus",
+        "LongTailKeywords": "visual aids for ADHD children, memory improvement ADHD, organizational tools ADHD kids",
+        "FilePath": ""
+      },
+      {
+        "ID": "21",
+        "Hook": "How to create a low-distraction environment for ADHD children at home.",
+        "Hashtags": "#ADHDParenting #FocusTips #HomeLearning",
+        "LongTailKeywords": "low distraction ADHD environment, ADHD study space setup, ADHD child concentration tips",
+        "FilePath": ""
+      },
+      {
+        "ID": "22",
+        "Hook": "ADHD children and screen time: how to balance it for focus and calm.",
+        "Hashtags": "#ADHDSupport #ParentingTips #HealthyKids",
+        "LongTailKeywords": "managing ADHD screen time, ADHD digital balance tips, screen time strategies ADHD children",
+        "FilePath": ""
+      },
+      {
+        "ID": "23",
+        "Hook": "How 7-day structured plans reduce stress for parents and ADHD children.",
+        "Hashtags": "#ADHDParenting #FamilyWellness #ParentSupport",
+        "LongTailKeywords": "7-day ADHD plan benefits, structured ADHD routine for families, parent stress reduction ADHD",
+        "FilePath": ""
+      },
+      {
+        "ID": "24",
+        "Hook": "How parents can track ADHD progress effectively without extra stress.",
+        "Hashtags": "#ADHDParenting #TrackingProgress #FamilySupport",
+        "LongTailKeywords": "tracking ADHD child progress, monitoring ADHD improvement, ADHD parent tracking strategies",
+        "FilePath": ""
+      },
+      {
+        "ID": "25",
+        "Hook": "Using supportive communities to share ADHD parenting tips and strategies.",
+        "Hashtags": "#ADHDSupport #ParentCommunity #FamilyHealth",
+        "LongTailKeywords": "ADHD parenting community support, sharing ADHD tips online, supportive ADHD parent networks",
+        "FilePath": ""
+      },
+      {
+        "ID": "26",
+        "Hook": "How parents can help ADHD children manage time effectively.",
+        "Hashtags": "#ADHDParenting #TimeManagement #ChildFocus",
+        "LongTailKeywords": "ADHD time management strategies, teaching time skills to ADHD children, ADHD daily schedule tips",
+        "FilePath": ""
+      },
+      {
+        "ID": "27",
+        "Hook": "Practical exercises to improve ADHD children's short-term memory.",
+        "Hashtags": "#ADHDParenting #MemoryTips #ChildDevelopment",
+        "LongTailKeywords": "ADHD memory exercises for kids, improving short-term memory ADHD, child cognitive support ADHD",
+        "FilePath": ""
+      },
+      {
+        "ID": "28",
+        "Hook": "How to set achievable goals for ADHD children to boost confidence.",
+        "Hashtags": "#ADHDEducation #ChildMotivation #ParentingTips",
+        "LongTailKeywords": "setting goals for ADHD children, boosting ADHD child confidence, ADHD goal-setting strategies",
+        "FilePath": ""
+      },
+      {
+        "ID": "29",
+        "Hook": "Managing ADHD symptoms during transitions like moving or changing schools.",
+        "Hashtags": "#ADHDParenting #Transitions #ChildSupport",
+        "LongTailKeywords": "ADHD child transitions support, coping with ADHD changes, school transition tips ADHD",
+        "FilePath": ""
+      },
+      {
+        "ID": "30",
+        "Hook": "Understanding executive function challenges in ADHD children.",
+        "Hashtags": "#ADHDAwareness #ChildDevelopment #ParentingTips",
+        "LongTailKeywords": "executive function in ADHD kids, ADHD cognitive challenges, supporting ADHD executive skills",
+        "FilePath": ""
+      },
+      {
+        "ID": "31",
+        "Hook": "How parents can foster social skills in ADHD children.",
+        "Hashtags": "#ADHDSocialSkills #ParentingSupport #ChildDevelopment",
+        "LongTailKeywords": "ADHD social skills development, teaching social skills ADHD, ADHD child peer interaction",
+        "FilePath": ""
+      },
+      {
+        "ID": "32",
+        "Hook": "Simple mindfulness activities to calm ADHD children before bedtime.",
+        "Hashtags": "#ADHDParenting #MindfulnessForKids #BedtimeRoutine",
+        "LongTailKeywords": "ADHD bedtime mindfulness, calming ADHD children, mindfulness techniques for ADHD",
+        "FilePath": ""
+      },
+      {
+        "ID": "33",
+        "Hook": "Creating ADHD-friendly morning routines to start the day positively.",
+        "Hashtags": "#ADHDParenting #MorningRoutine #ChildFocus",
+        "LongTailKeywords": "morning routines ADHD children, ADHD morning strategies, positive ADHD start tips",
+        "FilePath": ""
+      },
+      {
+        "ID": "34",
+        "Hook": "How to reduce homework frustration in ADHD children.",
+        "Hashtags": "#ADHDFocus #HomeworkHelp #ParentingTips",
+        "LongTailKeywords": "reducing homework stress ADHD, ADHD children homework strategies, helping ADHD focus homework",
+        "FilePath": ""
+      },
+      {
+        "ID": "35",
+        "Hook": "Using visual schedules to improve ADHD children’s daily organization.",
+        "Hashtags": "#ADHDParenting #VisualSchedules #ChildFocus",
+        "LongTailKeywords": "visual schedule ADHD children, daily organization tips ADHD, ADHD visual learning tools",
+        "FilePath": ""
+      },
+      {
+        "ID": "36",
+        "Hook": "How parents can support ADHD children’s emotional resilience.",
+        "Hashtags": "#ADHDEmotion #ChildSupport #ParentingTips",
+        "LongTailKeywords": "emotional resilience ADHD children, supporting ADHD coping skills, ADHD child self-regulation strategies",
+        "FilePath": ""
+      },
+      {
+        "ID": "37",
+        "Hook": "Strategies to reduce impulsive behavior in ADHD children at home.",
+        "Hashtags": "#ADHDBehavior #ParentingTips #ChildFocus",
+        "LongTailKeywords": "reducing impulsivity ADHD children, managing ADHD impulsive behavior, ADHD home behavior strategies",
+        "FilePath": ""
+      },
+      {
+        "ID": "38",
+        "Hook": "How structured playtime helps ADHD children improve focus.",
+        "Hashtags": "#ADHDParenting #PlayToLearn #ChildFocus",
+        "LongTailKeywords": "structured play ADHD children, improving ADHD focus with play, ADHD concentration activities",
+        "FilePath": ""
+      },
+      {
+        "ID": "39",
+        "Hook": "Tips for ADHD children to manage stress in school environments.",
+        "Hashtags": "#ADHDEducation #ChildSupport #SchoolSuccess",
+        "LongTailKeywords": "ADHD school stress management, coping strategies ADHD school, ADHD academic support tips",
+        "FilePath": ""
+      },
+      {
+        "ID": "40",
+        "Hook": "How parents can identify ADHD triggers in social situations.",
+        "Hashtags": "#ADHDAwareness #ChildBehavior #ParentingTips",
+        "LongTailKeywords": "ADHD triggers social settings, understanding ADHD child behavior, managing ADHD social challenges",
+        "FilePath": ""
+      },
+      {
+        "ID": "41",
+        "Hook": "The role of nutrition in ADHD children’s behavior and focus.",
+        "Hashtags": "#ADHDNutrition #ParentingTips #HealthyKids",
+        "LongTailKeywords": "nutrition impact on ADHD behavior, ADHD diet and focus, healthy eating ADHD children",
+        "FilePath": ""
+      },
+      {
+        "ID": "42",
+        "Hook": "Tips for helping ADHD children develop better self-control.",
+        "Hashtags": "#ADHDParenting #ChildBehavior #SelfControl",
+        "LongTailKeywords": "improving self-control ADHD, ADHD children impulse management, ADHD behavioral strategies",
+        "FilePath": ""
+      },
+      {
+        "ID": "43",
+        "Hook": "How to use positive reinforcement effectively with ADHD children.",
+        "Hashtags": "#ADHDParenting #PositiveReinforcement #ChildSupport",
+        "LongTailKeywords": "positive reinforcement ADHD children, rewarding ADHD behavior, ADHD parenting tips",
+        "FilePath": ""
+      },
+      {
+        "ID": "44",
+        "Hook": "How parents can create ADHD-friendly learning environments at home.",
+        "Hashtags": "#ADHDEducation #HomeLearning #ChildFocus",
+        "LongTailKeywords": "home learning setup ADHD children, ADHD study environment tips, ADHD learning strategies at home",
+        "FilePath": ""
+      },
+      {
+        "ID": "45",
+        "Hook": "How exercise impacts ADHD children’s attention and energy levels.",
+        "Hashtags": "#ADHDParenting #HealthyKids #FocusTips",
+        "LongTailKeywords": "exercise benefits ADHD children, ADHD physical activity strategies, ADHD attention improvement",
+        "FilePath": ""
+      },
+      {
+        "ID": "46",
+        "Hook": "How parents can teach ADHD children coping strategies for frustration.",
+        "Hashtags": "#ADHDParenting #ChildEmotions #ParentingTips",
+        "LongTailKeywords": "teaching coping skills ADHD, ADHD frustration management, supporting ADHD emotional regulation",
+        "FilePath": ""
+      },
+      {
+        "ID": "47",
+        "Hook": "Understanding sensory sensitivities in ADHD children and how to help.",
+        "Hashtags": "#ADHDSensory #ChildDevelopment #ParentingSupport",
+        "LongTailKeywords": "sensory sensitivities ADHD children, supporting ADHD sensory issues, ADHD child sensory strategies",
+        "FilePath": ""
+      },
+      {
+        "ID": "48",
+        "Hook": "How structured checklists improve ADHD children’s task completion.",
+        "Hashtags": "#ADHDParenting #TaskManagement #ChildFocus",
+        "LongTailKeywords": "checklists for ADHD children, ADHD task completion strategies, ADHD organizational tips",
+        "FilePath": ""
+      },
+      {
+        "ID": "49",
+        "Hook": "Tips to help ADHD children manage impulsive speech and reactions.",
+        "Hashtags": "#ADHDBehavior #ParentingTips #ChildFocus",
+        "LongTailKeywords": "managing ADHD impulsive speech, ADHD emotional control strategies, ADHD behavior guidance",
+        "FilePath": ""
+      },
+      {
+        "ID": "50",
+        "Hook": "How parents can support ADHD children in building friendships.",
+        "Hashtags": "#ADHDSocialSkills #ChildSupport #ParentingTips",
+        "LongTailKeywords": "ADHD friendship tips, supporting social skills ADHD children, ADHD peer interaction strategies",
+        "FilePath": ""
+      },
+      {
+        "ID": "51",
+        "Hook": "How ADHD children benefit from visual learning tools and aids.",
+        "Hashtags": "#ADHDParenting #LearningTools #ChildFocus",
+        "LongTailKeywords": "visual aids ADHD learning, ADHD educational resources, supporting ADHD children visually",
+        "FilePath": ""
+      },
+      {
+        "ID": "52",
+        "Hook": "Strategies to manage ADHD children’s screen time without conflict.",
+        "Hashtags": "#ADHDParenting #ScreenTime #ChildFocus",
+        "LongTailKeywords": "managing screen time ADHD children, healthy digital habits ADHD, ADHD screen balance strategies",
+        "FilePath": ""
+      },
+      {
+        "ID": "53",
+        "Hook": "How parents can use calm-down corners to help ADHD children self-regulate.",
+        "Hashtags": "#ADHDEmotion #ChildSupport #ParentingTips",
+        "LongTailKeywords": "calm-down strategies ADHD, ADHD self-regulation techniques, ADHD parenting tips for behavior",
+        "FilePath": ""
+      },
+      {
+        "ID": "54",
+        "Hook": "How ADHD children can benefit from brief, frequent movement breaks.",
+        "Hashtags": "#ADHDParenting #ChildFocus #HealthyKids",
+        "LongTailKeywords": "movement breaks ADHD children, ADHD focus improvement strategies, ADHD active learning tips",
+        "FilePath": ""
+      },
+      {
+        "ID": "55",
+        "Hook": "How parents can help ADHD children manage transitions between activities.",
+        "Hashtags": "#ADHDParenting #ChildFocus #ParentingTips",
+        "LongTailKeywords": "managing ADHD transitions, ADHD child routine strategies, smooth activity changes ADHD",
+        "FilePath": ""
+      },
+      {
+        "ID": "56",
+        "Hook": "The role of positive routines in reducing ADHD children’s anxiety.",
+        "Hashtags": "#ADHDSupport #ParentingTips #ChildWellness",
+        "LongTailKeywords": "reducing anxiety ADHD children, ADHD daily routines for calm, positive routines for ADHD",
+        "FilePath": ""
+      },
+      {
+        "ID": "57",
+        "Hook": "How parents can collaborate with teachers to support ADHD children.",
+        "Hashtags": "#ADHDEducation #ParentTeacherCollaboration #ChildSupport",
+        "LongTailKeywords": "collaborating with teachers ADHD, ADHD classroom support strategies, parent-teacher ADHD communication",
+        "FilePath": ""
+      },
+      {
+        "ID": "58",
+        "Hook": "Tips for ADHD children to manage their emotions during stressful tasks.",
+        "Hashtags": "#ADHDEmotion #ChildSupport #ParentingTips",
+        "LongTailKeywords": "ADHD emotional management strategies, helping children handle stress ADHD, ADHD coping skills education",
+        "FilePath": ""
+      },
+      {
+        "ID": "59",
+        "Hook": "How mindfulness can reduce ADHD children’s impulsivity and agitation.",
+        "Hashtags": "#ADHDParenting #MindfulnessForKids #ChildFocus",
+        "LongTailKeywords": "mindfulness for ADHD children, reducing impulsivity ADHD, ADHD calming techniques",
+        "FilePath": ""
+      },
+      {
+        "ID": "60",
+        "Hook": "How structured meal times improve focus and behavior in ADHD children.",
+        "Hashtags": "#ADHDNutrition #ChildFocus #ParentingTips",
+        "LongTailKeywords": "structured meals ADHD children, improving ADHD behavior with meals, ADHD nutrition tips",
+        "FilePath": ""
+      },
+      {
+        "ID": "61",
+        "Hook": "Strategies to help ADHD children complete multi-step tasks successfully.",
+        "Hashtags": "#ADHDParenting #TaskManagement #ChildFocus",
+        "LongTailKeywords": "ADHD multi-step task strategies, helping ADHD children complete tasks, ADHD task support techniques",
+        "FilePath": ""
+      },
+      {
+        "ID": "62",
+        "Hook": "How parents can use charts and trackers to monitor ADHD progress.",
+        "Hashtags": "#ADHDParenting #TrackingProgress #ChildSupport",
+        "LongTailKeywords": "tracking ADHD child progress, ADHD chart strategies, monitoring ADHD improvements",
+        "FilePath": ""
+      },
+      {
+        "ID": "63",
+        "Hook": "Tips to help ADHD children manage overstimulation in busy environments.",
+        "Hashtags": "#ADHDSensory #ChildSupport #ParentingTips",
+        "LongTailKeywords": "ADHD overstimulation strategies, helping children manage sensory overload, ADHD calm techniques",
+        "FilePath": ""
+      },
+      {
+        "ID": "64",
+        "Hook": "How parents can teach ADHD children organizational skills step by step.",
+        "Hashtags": "#ADHDParenting #OrganizationalSkills #ChildFocus",
+        "LongTailKeywords": "teaching organizational skills ADHD, ADHD task organization, ADHD planning tips for children",
+        "FilePath": ""
+      },
+      {
+        "ID": "65",
+        "Hook": "How ADHD children can benefit from peer-support and group activities.",
+        "Hashtags": "#ADHDSocialSkills #ChildDevelopment #ParentingTips",
+        "LongTailKeywords": "ADHD peer support benefits, group activities ADHD children, ADHD social engagement strategies",
+        "FilePath": ""
+      },
+      {
+        "ID": "66",
+        "Hook": "How parents can help ADHD children cope with frustration during learning.",
+        "Hashtags": "#ADHDParenting #ChildFocus #ParentingTips",
+        "LongTailKeywords": "coping with frustration ADHD children, ADHD learning support, managing ADHD emotions at home",
+        "FilePath": ""
+      },
+      {
+        "ID": "67",
+        "Hook": "How ADHD children benefit from predictable routines in school and home.",
+        "Hashtags": "#ADHDParenting #ChildFocus #ParentingTips",
+        "LongTailKeywords": "predictable routines ADHD children, ADHD home and school routine strategies, ADHD structured daily routines",
+        "FilePath": ""
+      },
+      {
+        "ID": "68",
+        "Hook": "How parents can help ADHD children transition smoothly from play to homework.",
+        "Hashtags": "#ADHDParenting #ChildFocus #HomeworkTips",
+        "LongTailKeywords": "transition strategies ADHD children, ADHD play to homework routines, ADHD focus improvement",
+        "FilePath": ""
+      },
+      {
+        "ID": "69",
+        "Hook": "How ADHD children can learn to set small, realistic goals for tasks.",
+        "Hashtags": "#ADHDParenting #ChildMotivation #LearningTips",
+        "LongTailKeywords": "goal-setting for ADHD children, ADHD task motivation, ADHD child achievement strategies",
+        "FilePath": ""
+      },
+      {
+        "ID": "70",
+        "Hook": "Tips for ADHD children to develop self-monitoring skills at home and school.",
+        "Hashtags": "#ADHDParenting #ChildFocus #SelfMonitoring",
+        "LongTailKeywords": "self-monitoring strategies ADHD children, ADHD behavior tracking, teaching ADHD self-awareness",
+        "FilePath": ""
+      },
+      {
+        "ID": "71",
+        "Hook": "How ADHD children can benefit from brief daily reflection and journaling.",
+        "Hashtags": "#ADHDParenting #ChildFocus #MindfulnessForKids",
+        "LongTailKeywords": "ADHD journaling for kids, reflection strategies ADHD children, ADHD mindfulness techniques",
+        "FilePath": ""
+      },
+      {
+        "ID": "72",
+        "Hook": "How parents can use visual timers to improve ADHD children’s time awareness.",
+        "Hashtags": "#ADHDParenting #TimeManagement #ChildFocus",
+        "LongTailKeywords": "visual timers ADHD children, time awareness ADHD strategies, ADHD daily routine tools",
+        "FilePath": ""
+      },
+      {
+        "ID": "73",
+        "Hook": "How parents can teach ADHD children calming techniques before stressful events.",
+        "Hashtags": "#ADHDEmotion #ChildFocus #ParentingTips",
+        "LongTailKeywords": "calming techniques ADHD children, ADHD stress management, preparing ADHD kids for stress",
+        "FilePath": ""
+      },
+      {
+        "ID": "74",
+        "Hook": "How structured breaks during schoolwork improve ADHD children’s attention.",
+        "Hashtags": "#ADHDParenting #ChildFocus #HomeworkHelp",
+        "LongTailKeywords": "ADHD breaks strategies, improving focus ADHD children, structured study sessions ADHD",
+        "FilePath": ""
+      },
+      {
+        "ID": "75",
+        "Hook": "How parents can support ADHD children’s independence through routines.",
+        "Hashtags": "#ADHDParenting #ChildFocus #LifeSkills",
+        "LongTailKeywords": "building independence ADHD children, ADHD routines for self-reliance, child life skills ADHD",
+        "FilePath": ""
+      },
+      {
+        "ID": "76",
+        "Hook": "How ADHD children benefit from consistent rewards and recognition.",
+        "Hashtags": "#ADHDParenting #PositiveReinforcement #ChildSupport",
+        "LongTailKeywords": "consistent reward strategies ADHD, ADHD children motivation, positive reinforcement ADHD kids",
+        "FilePath": ""
+      },
+      {
+        "ID": "77",
+        "Hook": "How parents can identify strengths in ADHD children to boost confidence.",
+        "Hashtags": "#ADHDParenting #ChildDevelopment #ParentingTips",
+        "LongTailKeywords": "identifying ADHD child strengths, boosting confidence ADHD children, ADHD child skill recognition",
+        "FilePath": ""
+      },
+      {
+        "ID": "78",
+        "Hook": "Tips for ADHD children to improve focus during group activities.",
+        "Hashtags": "#ADHDParenting #ChildFocus #LearningTips",
+        "LongTailKeywords": "group activity focus ADHD, improving attention ADHD children, ADHD teamwork strategies",
+        "FilePath": ""
+      },
+      {
+        "ID": "79",
+        "Hook": "How ADHD children benefit from structured visual routines at home and school.",
+        "Hashtags": "#ADHDParenting #ChildFocus #VisualLearning",
+        "LongTailKeywords": "structured visual routines ADHD, ADHD daily visual plans, supporting ADHD children visually",
+        "FilePath": ""
+      },
+      {
+        "ID": "80",
+        "Hook": "How parents can reduce ADHD children’s anxiety before transitions or new activities.",
+        "Hashtags": "#ADHDSupport #ChildWellness #ParentingTips",
+        "LongTailKeywords": "reducing anxiety ADHD children, ADHD transition support strategies, calming ADHD child stress",
+        "FilePath": ""
+      },
+      {
+        "ID": "81",
+        "Hook": "How parents can support ADHD children’s strengths in creative learning activities.",
+        "Hashtags": "#ADHDParenting #ChildDevelopment #CreativeLearning",
+        "LongTailKeywords": "creative learning ADHD children, supporting ADHD strengths, ADHD learning activities at home",
+        "FilePath": ""
+      },
+      {
+        "ID": "82",
+        "Hook": "How parents can use consistent routines to improve ADHD children’s executive function.",
+        "Hashtags": "#ADHDParenting #ChildFocus #ExecutiveFunction",
+        "LongTailKeywords": "improving executive function ADHD, routines for ADHD children, ADHD skills development strategies",
+        "FilePath": ""
+      },
+      {
+        "ID": "83",
+        "Hook": "How ADHD children benefit from hands-on learning activities at home.",
+        "Hashtags": "#ADHDParenting #ChildFocus #HandsOnLearning",
+        "LongTailKeywords": "hands-on learning ADHD children, ADHD practical learning tips, child learning strategies ADHD",
+        "FilePath": ""
+      },
+      {
+        "ID": "84",
+        "Hook": "How parents can create ADHD-friendly homework checklists to stay organized.",
+        "Hashtags": "#ADHDFocus #ParentingTips #HomeworkHelp",
+        "LongTailKeywords": "ADHD homework checklists, staying organized ADHD children, ADHD task completion strategies",
+        "FilePath": ""
+      },
+      {
+        "ID": "85",
+        "Hook": "How parents can support ADHD children during stressful school exams.",
+        "Hashtags": "#ADHDEducation #ChildSupport #ParentingTips",
+        "LongTailKeywords": "ADHD exam stress management, supporting ADHD children during tests, ADHD school exam tips",
+        "FilePath": ""
+      },
+      {
+        "ID": "86",
+        "Hook": "How structured snack breaks improve ADHD children’s focus throughout the day.",
+        "Hashtags": "#ADHDNutrition #ChildFocus #ParentingTips",
+        "LongTailKeywords": "snack breaks ADHD children, focus improvement ADHD, ADHD daily energy tips",
+        "FilePath": ""
+      },
+      {
+        "ID": "87",
+        "Hook": "How parents can help ADHD children set priorities and manage tasks.",
+        "Hashtags": "#ADHDParenting #TaskManagement #ChildFocus",
+        "LongTailKeywords": "setting priorities ADHD children, ADHD task management strategies, ADHD time management tips",
+        "FilePath": ""
+      },
+      {
+        "ID": "88",
+        "Hook": "How ADHD children can benefit from interactive learning games.",
+        "Hashtags": "#ADHDParenting #ChildDevelopment #LearningGames",
+        "LongTailKeywords": "interactive learning ADHD children, ADHD educational games, fun ADHD learning strategies",
+        "FilePath": ""
+      },
+      {
+        "ID": "89",
+        "Hook": "How to use calming strategies for ADHD children before homework sessions.",
+        "Hashtags": "#ADHDEmotion #ParentingTips #ChildFocus",
+        "LongTailKeywords": "calming techniques ADHD children, ADHD homework preparation, managing ADHD stress at home",
+        "FilePath": ""
+      },
+      {
+        "ID": "90",
+        "Hook": "How parents can teach ADHD children problem-solving skills step by step.",
+        "Hashtags": "#ADHDParenting #ChildDevelopment #ProblemSolving",
+        "LongTailKeywords": "problem-solving skills ADHD children, ADHD child critical thinking, teaching ADHD strategies",
+        "FilePath": ""
+      },
+      {
+        "ID": "91",
+        "Hook": "How structured transitions improve ADHD children’s focus and behavior.",
+        "Hashtags": "#ADHDParenting #ChildFocus #RoutineTips",
+        "LongTailKeywords": "structured transitions ADHD, improving ADHD focus, ADHD behavior management strategies",
+        "FilePath": ""
+      },
+      {
+        "ID": "92",
+        "Hook": "How parents can help ADHD children develop self-discipline through routines.",
+        "Hashtags": "#ADHDParenting #ChildDevelopment #SelfDiscipline",
+        "LongTailKeywords": "self-discipline ADHD children, ADHD routine strategies, ADHD behavioral improvement",
+        "FilePath": ""
+      },
+      {
+        "ID": "93",
+        "Hook": "How mindfulness breaks improve ADHD children’s attention and calmness.",
+        "Hashtags": "#ADHDParenting #MindfulnessForKids #ChildFocus",
+        "LongTailKeywords": "mindfulness breaks ADHD children, calming ADHD techniques, improving ADHD attention",
+        "FilePath": ""
+      },
+      {
+        "ID": "94",
+        "Hook": "How parents can support ADHD children in managing frustration at school.",
+        "Hashtags": "#ADHDEducation #ChildSupport #ParentingTips",
+        "LongTailKeywords": "managing frustration ADHD children, school support ADHD, ADHD behavior management school",
+        "FilePath": ""
+      },
+      {
+        "ID": "95",
+        "Hook": "How to use reward charts effectively for ADHD children at home.",
+        "Hashtags": "#ADHDParenting #PositiveReinforcement #ChildFocus",
+        "LongTailKeywords": "reward chart ADHD children, positive reinforcement strategies ADHD, ADHD behavior motivation",
+        "FilePath": ""
+      },
+      {
+        "ID": "96",
+        "Hook": "How parents can help ADHD children balance energy with focused activities.",
+        "Hashtags": "#ADHDParenting #ChildFocus #HealthyKids",
+        "LongTailKeywords": "energy balance ADHD children, ADHD focus strategies, active ADHD learning tips",
+        "FilePath": ""
+      },
+      {
+        "ID": "97",
+        "Hook": "How structured morning routines reduce ADHD children’s stress before school.",
+        "Hashtags": "#ADHDParenting #MorningRoutine #ChildFocus",
+        "LongTailKeywords": "morning routines ADHD children, reducing ADHD stress, ADHD school prep tips",
+        "FilePath": ""
+      },
+      {
+        "ID": "98",
+        "Hook": "How parents can help ADHD children improve self-monitoring skills.",
+        "Hashtags": "#ADHDParenting #ChildFocus #SelfMonitoring",
+        "LongTailKeywords": "self-monitoring ADHD children, ADHD behavior tracking, ADHD child self-awareness techniques",
+        "FilePath": ""
+      },
+      {
+        "ID": "99",
+        "Hook": "How parents can create ADHD-friendly chore routines at home.",
+        "Hashtags": "#ADHDParenting #ChildFocus #LifeSkills",
+        "LongTailKeywords": "chore routines ADHD children, ADHD daily responsibilities, supporting ADHD independence",
+        "FilePath": ""
+      },
+      {
+        "ID": "100",
+        "Hook": "How ADHD children can benefit from predictable weekly schedules.",
+        "Hashtags": "#ADHDParenting #ChildFocus #RoutineTips",
+        "LongTailKeywords": "predictable weekly schedule ADHD, ADHD structured routine tips, ADHD focus improvement",
+        "FilePath": ""
+      },
+      {
+        "ID": "101",
+        "Hook": "How parents can help ADHD children build resilience after setbacks.",
+        "Hashtags": "#ADHDParenting #ChildDevelopment #ParentingTips",
+        "LongTailKeywords": "building resilience ADHD children, coping with setbacks ADHD, ADHD emotional support",
+        "FilePath": ""
+      },
+      {
+        "ID": "102",
+        "Hook": "How parents can teach ADHD children calming techniques before bed.",
+        "Hashtags": "#ADHDEmotion #ParentingTips #BedtimeRoutine",
+        "LongTailKeywords": "calming techniques ADHD bedtime, ADHD child relaxation strategies, bedtime ADHD support",
+        "FilePath": ""
+      },
+      {
+        "ID": "103",
+        "Hook": "How structured visual cues improve ADHD children’s task completion.",
+        "Hashtags": "#ADHDParenting #ChildFocus #VisualLearning",
+        "LongTailKeywords": "visual cues ADHD children, task completion ADHD strategies, ADHD visual learning tips",
+        "FilePath": ""
+      },
+      {
+        "ID": "104",
+        "Hook": "How parents can help ADHD children manage multitasking effectively.",
+        "Hashtags": "#ADHDParenting #ChildFocus #TaskManagement",
+        "LongTailKeywords": "multitasking strategies ADHD children, ADHD focus improvement, managing ADHD tasks",
+        "FilePath": ""
+      },
+      {
+        "ID": "105",
+        "Hook": "How parents can use short, consistent routines to improve ADHD children’s behavior.",
+        "Hashtags": "#ADHDParenting #ChildFocus #RoutineTips",
+        "LongTailKeywords": "short consistent routines ADHD, ADHD behavior improvement strategies, ADHD daily routine tips",
+        "FilePath": ""
+      },
+      {
+        "ID": "106",
+        "Hook": "How ADHD children benefit from goal-setting and progress tracking.",
+        "Hashtags": "#ADHDParenting #ChildDevelopment #GoalSetting",
+        "LongTailKeywords": "ADHD goal-setting strategies, tracking ADHD child progress, ADHD achievement tips",
+        "FilePath": ""
+      },
+      {
+        "ID": "107",
+        "Hook": "How parents can support ADHD children’s emotional awareness and regulation.",
+        "Hashtags": "#ADHDEmotion #ChildDevelopment #ParentingTips",
+        "LongTailKeywords": "emotional awareness ADHD children, ADHD regulation strategies, supporting ADHD coping skills",
+        "FilePath": ""
+      },
+      {
+        "ID": "108",
+        "Hook": "How structured homework time reduces ADHD children’s distractions.",
+        "Hashtags": "#ADHDFocus #HomeworkHelp #ParentingTips",
+        "LongTailKeywords": "structured homework ADHD children, reducing distractions ADHD, ADHD focus improvement",
+        "FilePath": ""
+      },
+      {
+        "ID": "109",
+        "Hook": "How ADHD children benefit from movement breaks during study sessions.",
+        "Hashtags": "#ADHDParenting #ChildFocus #ActiveLearning",
+        "LongTailKeywords": "movement breaks ADHD study, improving focus ADHD children, ADHD active learning strategies",
+        "FilePath": ""
+      },
+      {
+        "ID": "110",
+        "Hook": "How parents can help ADHD children develop time awareness with visual tools.",
+        "Hashtags": "#ADHDParenting #TimeManagement #ChildFocus",
+        "LongTailKeywords": "visual time management ADHD, teaching time awareness ADHD, ADHD daily schedule tips",
+        "FilePath": ""
+      },
+      {
+        "ID": "111",
+        "Hook": "How parents can foster creativity in ADHD children through structured activities.",
+        "Hashtags": "#ADHDParenting #ChildDevelopment #CreativeLearning",
+        "LongTailKeywords": "fostering creativity ADHD children, structured activities ADHD, ADHD creative skill building",
+        "FilePath": ""
+      },
+      {
+        "ID": "112",
+        "Hook": "How consistent bedtime routines improve ADHD children’s sleep quality.",
+        "Hashtags": "#ADHDSleep #ParentingTips #ChildWellness",
+        "LongTailKeywords": "bedtime routines ADHD children, improving ADHD sleep quality, ADHD nighttime strategies",
+        "FilePath": ""
+      },
+      {
+        "ID": "113",
+        "Hook": "How parents can help ADHD children manage excitement and energy spikes.",
+        "Hashtags": "#ADHDParenting #ChildFocus #EnergyManagement",
+        "LongTailKeywords": "managing ADHD excitement, ADHD energy regulation strategies, ADHD children focus tips",
+        "FilePath": ""
+      },
+      {
+        "ID": "114",
+        "Hook": "How parents can support ADHD children in completing multi-step school assignments.",
+        "Hashtags": "#ADHDEducation #ChildFocus #HomeworkHelp",
+        "LongTailKeywords": "multi-step assignment strategies ADHD, ADHD homework completion tips, ADHD task guidance",
+        "FilePath": ""
+      },
+      {
+        "ID": "115",
+        "Hook": "How visual timers help ADHD children manage study and playtime.",
+        "Hashtags": "#ADHDParenting #TimeManagement #ChildFocus",
+        "LongTailKeywords": "visual timers ADHD children, ADHD time awareness tips, managing ADHD routines",
+        "FilePath": ""
+      },
+      {
+        "ID": "116",
+        "Hook": "How parents can teach ADHD children self-calming techniques during the day.",
+        "Hashtags": "#ADHDEmotion #ParentingTips #ChildFocus",
+        "LongTailKeywords": "self-calming strategies ADHD children, ADHD emotional control techniques, ADHD daily routines",
+        "FilePath": ""
+      },
+      {
+        "ID": "117",
+        "Hook": "How parents can help ADHD children manage emotional outbursts effectively.",
+        "Hashtags": "#ADHDBehavior #ParentingTips #ChildFocus",
+        "LongTailKeywords": "managing ADHD outbursts, ADHD behavior strategies, calming ADHD children",
+        "FilePath": ""
+      },
+      {
+        "ID": "118",
+        "Hook": "How ADHD children benefit from structured, predictable weekend routines.",
+        "Hashtags": "#ADHDParenting #ChildFocus #RoutineTips",
+        "LongTailKeywords": "predictable weekend routines ADHD, ADHD structured weekend tips, ADHD family routines",
+        "FilePath": ""
+      },
+      {
+        "ID": "119",
+        "Hook": "How parents can support ADHD children in building social confidence.",
+        "Hashtags": "#ADHDSocialSkills #ChildDevelopment #ParentingTips",
+        "LongTailKeywords": "building social confidence ADHD, ADHD children social skills, supporting ADHD peer interactions",
+        "FilePath": ""
+      },
+      {
+        "ID": "120",
+        "Hook": "How parents can use small, frequent breaks to improve ADHD children’s focus.",
+        "Hashtags": "#ADHDParenting #ChildFocus #FocusTips",
+        "LongTailKeywords": "frequent breaks ADHD children, ADHD attention improvement strategies, managing ADHD focus",
+        "FilePath": ""
+      },
+      {
+        "ID": "121",
+        "Hook": "How ADHD children benefit from positive reinforcement at home and school.",
+        "Hashtags": "#ADHDParenting #PositiveReinforcement #ChildSupport",
+        "LongTailKeywords": "positive reinforcement ADHD strategies, motivating ADHD children, ADHD reward systems",
+        "FilePath": ""
+      },
+      {
+        "ID": "122",
+        "Hook": "How parents can help ADHD children develop planning and organizational skills.",
+        "Hashtags": "#ADHDParenting #ChildFocus #OrganizationalSkills",
+        "LongTailKeywords": "planning skills ADHD children, organizational strategies ADHD, ADHD executive function tips",
+        "FilePath": ""
+      },
+      {
+        "ID": "123",
+        "Hook": "How structured visual schedules help ADHD children navigate daily tasks.",
+        "Hashtags": "#ADHDParenting #VisualLearning #ChildFocus",
+        "LongTailKeywords": "visual schedules ADHD children, task management ADHD, ADHD daily routine strategies",
+        "FilePath": ""
+      },
+      {
+        "ID": "124",
+        "Hook": "How parents can use calm-down routines to reduce ADHD children’s stress.",
+        "Hashtags": "#ADHDEmotion #ParentingTips #ChildFocus",
+        "LongTailKeywords": "calm-down routines ADHD, ADHD stress reduction strategies, ADHD emotional regulation tips",
+        "FilePath": ""
+      },
+      {
+        "ID": "125",
+        "Hook": "How parents can support ADHD children in managing peer conflicts.",
+        "Hashtags": "#ADHDSocialSkills #ChildDevelopment #ParentingTips",
+        "LongTailKeywords": "managing peer conflict ADHD children, ADHD social problem solving, supporting ADHD social skills",
+        "FilePath": ""
+      },
+      {
+        "ID": "126",
+        "Hook": "How ADHD children benefit from structured, predictable classroom routines.",
+        "Hashtags": "#ADHDEducation #ChildFocus #RoutineTips",
+        "LongTailKeywords": "classroom routines ADHD children, ADHD structured learning strategies, ADHD focus improvement",
+        "FilePath": ""
+      },
+      {
+        "ID": "127",
+        "Hook": "How parents can foster independence in ADHD children with small daily tasks.",
+        "Hashtags": "#ADHDParenting #ChildDevelopment #LifeSkills",
+        "LongTailKeywords": "building independence ADHD children, small task routines ADHD, ADHD daily life skills",
+        "FilePath": ""
+      },
+      {
+        "ID": "128",
+        "Hook": "How ADHD children benefit from consistent reminders and prompts for tasks.",
+        "Hashtags": "#ADHDParenting #ChildFocus #TaskManagement",
+        "LongTailKeywords": "task reminders ADHD children, ADHD prompt strategies, supporting ADHD task completion",
+        "FilePath": ""
+      },
+      {
+        "ID": "129",
+        "Hook": "How parents can help ADHD children manage overstimulation in social settings.",
+        "Hashtags": "#ADHDSensory #ChildSupport #ParentingTips",
+        "LongTailKeywords": "managing overstimulation ADHD children, ADHD social environment strategies, calming ADHD kids",
+        "FilePath": ""
+      },
+      {
+        "ID": "130",
+        "Hook": "How parents can teach ADHD children coping skills for frustration and disappointment.",
+        "Hashtags": "#ADHDParenting #ChildFocus #ParentingTips",
+        "LongTailKeywords": "coping skills ADHD children, ADHD emotional regulation strategies, supporting ADHD resilience",
+        "FilePath": ""
+      },
+      {
+        "ID": "131",
+        "Hook": "How structured routines for meals, sleep, and study improve ADHD children’s focus.",
+        "Hashtags": "#ADHDParenting #ChildFocus #RoutineTips",
+        "LongTailKeywords": "structured routines ADHD children, improving ADHD focus, ADHD daily schedule strategies",
+        "FilePath": ""
+      }
+    ]
+  }
+}
