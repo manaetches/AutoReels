@@ -26,7 +26,7 @@ if os.path.isdir(output_dir):
 file_map = {}
 for f in files:
     id_part = f.split('_', 1)[0]
-    file_map[id_part] = os.path.join(output_dir, f)
+    file_map[id_part] = os.path.abspath(os.path.join(output_dir, f))
 
 updated = False
 for r in rows:
@@ -40,22 +40,36 @@ for r in rows:
             updated = True
 
 if updated:
-    # determine fieldnames, ensuring FilePath is 5th column
+    # determine base fieldnames and ensure FilePath is 5th column
     if original_fieldnames:
-        fns = list(original_fieldnames)
+        base_fns = [fn for fn in original_fieldnames if fn != 'FilePath']
     else:
-        fns = list(rows[0].keys())
+        base_fns = [k for k in rows[0].keys() if k != 'FilePath']
 
-    if 'FilePath' not in fns:
-        insert_index = 4 if len(fns) >= 4 else len(fns)
-        fns.insert(insert_index, 'FilePath')
+    insert_index = 4 if len(base_fns) >= 4 else len(base_fns)
+    fns = list(base_fns)
+    if 'FilePath' in fns:
+        fns.remove('FilePath')
+    fns.insert(insert_index, 'FilePath')
 
-    with open(csv_file_path, mode='w', encoding='utf-8', newline='') as wf:
+    tmp_csv = csv_file_path + '.tmp'
+    with open(tmp_csv, mode='w', encoding='utf-8', newline='') as wf:
         writer = csv.DictWriter(wf, fieldnames=fns)
         writer.writeheader()
         for r in rows:
             out = {k: r.get(k, '') for k in fns}
+            out['FilePath'] = os.path.abspath(out.get('FilePath') or '')
+            print(f"Writing CSV row ID={r.get('ID')} FilePath={out['FilePath']}")
             writer.writerow(out)
-    print(f"Backfilled {csv_file_path} with {len(file_map)} output paths")
+    try:
+        os.replace(tmp_csv, csv_file_path)
+        print(f"Backfilled {csv_file_path} with {len(file_map)} output paths")
+    except Exception:
+        try:
+            os.remove(csv_file_path)
+        except Exception:
+            pass
+        os.replace(tmp_csv, csv_file_path)
+        print(f"Backfilled (fallback) {csv_file_path} with {len(file_map)} output paths")
 else:
     print("No updates required; FilePath values already set or no matching outputs found.")

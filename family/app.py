@@ -22,10 +22,25 @@ audio_path = r"C:\software\autoreels\AutoReels\family\audio\samsmith.mp3"
 target_dir = r"C:\software\autoreels\AutoReels\family\output_reel"
 os.makedirs(target_dir, exist_ok=True)
 
+# debug log
+run_log_path = os.path.join(script_dir, 'run_debug.log')
+def log(msg):
+    try:
+        with open(run_log_path, 'a', encoding='utf-8') as lf:
+            lf.write(str(msg) + '\n')
+    except Exception:
+        pass
+    try:
+        print(msg)
+    except Exception:
+        pass
+
+
 
 # Read CSV rows
 rows = []
 original_fieldnames = None
+log(f"Starting app.py; script_dir={script_dir}")
 if os.path.isfile(csv_file_path):
     with open(csv_file_path, mode="r", encoding="utf-8", newline="") as fh:
         reader = csv.DictReader(fh)
@@ -44,6 +59,8 @@ else:
 video_files = []
 if os.path.isdir(video_src_dir):
     video_files = [f for f in os.listdir(video_src_dir) if f.lower().endswith((".mp4", ".mov", ".avi", ".mkv"))]
+log(f"Found {len(video_files)} source reels: {video_files}")
+log(f"Loaded {len(rows)} CSV rows; original_fieldnames={original_fieldnames}")
 
 
 def get_font_variant(size, bold=False):
@@ -248,39 +265,184 @@ for idx, row in enumerate(rows):
         fps = getattr(clip, 'fps', None) or 30
     except Exception:
         fps = 30
-    final.write_videofile(output_path, codec='libx264', audio_codec='aac', fps=fps)
-    print(f"Created: {output_path}")
-    # create a small marker file to reliably indicate successful creation
     try:
-        marker = output_path + ".done"
-        with open(marker, 'w', encoding='utf-8') as m:
-            m.write('')
-    except Exception:
-        pass
+        log(f"Writing video: {output_path} (fps={fps})")
+        final.write_videofile(output_path, codec='libx264', audio_codec='aac', fps=fps)
+        log(f"Created: {output_path}")
+        # create a small marker file to reliably indicate successful creation
+        try:
+            marker = output_path + ".done"
+            with open(marker, 'w', encoding='utf-8') as m:
+                m.write('')
+        except Exception as e:
+            log(f"Warning: could not write marker for {output_path}: {e}")
+    except Exception as e:
+        log(f"Error writing {output_path}: {e}")
     # Record the output absolute path into the CSV under the FilePath column (5th column)
     try:
-        # update the in-memory row; `rows` is the original list loaded from CSV when present
-        rows[idx]['FilePath'] = output_path
+        # update the in-memory row with an absolute output path
+        abs_output = os.path.abspath(output_path)
+        rows[idx]['FilePath'] = abs_output
 
-        # determine fieldnames to write, inserting FilePath as the 5th column if missing
+        # determine base fieldnames (preserve original order when possible)
         if original_fieldnames:
-            fns = list(original_fieldnames)
+            base_fns = [fn for fn in original_fieldnames if fn != 'FilePath']
         elif rows:
-            fns = list(rows[0].keys())
+            base_fns = [k for k in rows[0].keys() if k != 'FilePath']
         else:
-            fns = ['ID', 'Hook', 'LongTailKeywords']
+            base_fns = ['ID', 'Hook', 'LongTailKeywords']
 
-        if 'FilePath' not in fns:
-            insert_index = 4 if len(fns) >= 4 else len(fns)
-            fns.insert(insert_index, 'FilePath')
+        # ensure FilePath is present as the 5th column (index 4)
+        insert_index = 4 if len(base_fns) >= 4 else len(base_fns)
+        fns = list(base_fns)
+        if 'FilePath' in fns:
+            fns.remove('FilePath')
+        fns.insert(insert_index, 'FilePath')
 
-        # write back the CSV with updated FilePath values
-        with open(csv_file_path, mode='w', encoding='utf-8', newline='') as wf:
+        # write back the CSV with updated FilePath absolute values (atomic write)
+        log(f"Updating CSV {csv_file_path} with fieldnames={fns}")
+        tmp_csv = csv_file_path + '.tmp'
+        with open(tmp_csv, mode='w', encoding='utf-8', newline='') as wf:
             writer = csv.DictWriter(wf, fieldnames=fns)
             writer.writeheader()
             for r in rows:
                 out = {k: r.get(k, '') for k in fns}
+                # ensure FilePath is absolute when present
+                if out.get('FilePath'):
+                    out['FilePath'] = os.path.abspath(out['FilePath'])
+                else:
+                    out['FilePath'] = ''
+                log(f"CSV write row ID={r.get('ID')} FilePath={out['FilePath']}")
                 writer.writerow(out)
+        try:
+            os.replace(tmp_csv, csv_file_path)
+            log(f"CSV updated: {csv_file_path}")
+        except Exception:
+            # fallback to move
+            try:
+                os.remove(csv_file_path)
+            except Exception:
+                pass
+            os.replace(tmp_csv, csv_file_path)
+        # create thumbnail for this output if possible
+        try:
+            thumbs_dir = os.path.join(target_dir, 'thumbnails')
+            os.makedirs(thumbs_dir, exist_ok=True)
+            # try to get a frame from the final composite; fallback to source clip
+            frame_np = None
+            try:
+                frame_np = final.get_frame(0)
+            except Exception:
+                try:
+                    frame_np = clip.get_frame(0)
+                except Exception:
+                    frame_np = None
+
+            if frame_np is not None:
+                try:
+                    # Use the original source clip's first frame for the thumbnail when available
+                    try:
+                        src_frame = clip.get_frame(0)
+                    except Exception:
+                        src_frame = frame_np
+
+                    thumb_img = Image.fromarray(src_frame.astype('uint8'))
+                    if thumb_img.mode != 'RGBA':
+                        thumb_img = thumb_img.convert('RGBA')
+
+                    # text: first longtail keyword (or hook fallback)
+                    ltk = (row.get('LongTailKeywords') or '').split(',')
+                    text = ltk[0].strip() if ltk and ltk[0].strip() else (row.get('Hook') or '')
+
+                    # target: text wraps to 3 words per line and occupies up to 75% width
+                    max_text_width = int(thumb_img.width * 0.75)
+                    # start with a very large font and scale down as needed
+                    target_font_size = max(32, int(thumb_img.width * 0.95))
+
+                    # uppercase the text and prepare wrapped lines (3 words per line)
+                    text = (text or '').upper()
+                    words = [w for w in text.split() if w]
+                    if not words:
+                        continue
+                    lines = [ ' '.join(words[i:i+3]) for i in range(0, len(words), 3) ]
+
+                    # pick starting font and measure each line
+                    font_size = target_font_size
+                    font = get_font_variant(font_size, bold=True)
+                    measure = Image.new('RGBA', (10, 10), (0, 0, 0, 0))
+                    md = ImageDraw.Draw(measure)
+
+                    line_widths = []
+                    line_heights = []
+                    for ln in lines:
+                        bb = md.textbbox((0,0), ln, font=font)
+                        w = bb[2] - bb[0]
+                        h = bb[3] - bb[1]
+                        line_widths.append(w)
+                        line_heights.append(h)
+
+                    max_line_w = max(line_widths)
+                    # if the widest line exceeds allowed width, scale font down
+                    if max_line_w > 0 and max_line_w > max_text_width:
+                        scale = max_text_width / float(max_line_w)
+                        font_size = max(10, int(font_size * scale))
+                        font = get_font_variant(font_size, bold=True)
+                        line_widths = []
+                        line_heights = []
+                        for ln in lines:
+                            bb = md.textbbox((0,0), ln, font=font)
+                            line_widths.append(bb[2]-bb[0])
+                            line_heights.append(bb[3]-bb[1])
+                        max_line_w = max(line_widths)
+
+                    # line-height increase by 30%
+                    base_line_h = int(sum(line_heights) / float(len(line_heights))) if line_heights else font_size
+                    line_height = int(round(base_line_h * 1.3))
+
+                    pad_x, pad_y = 12, 8
+                    rect_w = max_line_w + pad_x * 2
+                    rect_h = line_height * len(lines) + pad_y * 2
+
+                    # stroke width proportional to font size
+                    stroke_w = max(2, int(round(font_size * 0.12)))
+
+                    # create text layer and draw each wrapped line centered in the layer
+                    text_layer = Image.new('RGBA', (rect_w, rect_h), (0,0,0,0))
+                    td = ImageDraw.Draw(text_layer)
+                    try:
+                        for idx, ln in enumerate(lines):
+                            lw = line_widths[idx]
+                            x = (rect_w - lw) // 2
+                            y = pad_y + idx * line_height
+                            td.text((x, y), ln, font=font, fill=(48,0,96,255), stroke_width=stroke_w, stroke_fill=(200,200,200,255))
+                    except TypeError:
+                        # fallback outline emulation per-line
+                        sw = int(stroke_w)
+                        for idx, ln in enumerate(lines):
+                            lw = line_widths[idx]
+                            x = (rect_w - lw) // 2
+                            y = pad_y + idx * line_height
+                            ox = [(-sw,0),(sw,0),(0,-sw),(0,sw),(-sw,-sw),(sw,sw),(-sw,sw),(sw,-sw)]
+                            for dx,dy in ox:
+                                td.text((x+dx, y+dy), ln, font=font, fill=(200,200,200,255))
+                            td.text((x, y), ln, font=font, fill=(48,0,96,255))
+
+                    # rotate the text layer 30 degrees and paste centered
+                    rotated = text_layer.rotate(30, expand=True, resample=Image.BICUBIC)
+                    tx = (thumb_img.width - rotated.width) // 2
+                    ty = (thumb_img.height - rotated.height) // 2
+                    thumb_img.paste(rotated, (tx, ty), rotated)
+
+                    out_name = os.path.splitext(os.path.basename(output_path))[0] + '.jpg'
+                    out_path = os.path.join(thumbs_dir, out_name)
+                    thumb_img.convert('RGB').save(out_path, quality=90)
+                    log(f"Thumbnail created: {out_path}")
+                except Exception as e:
+                    log(f"Warning: could not create thumbnail for {output_path}: {e}")
+            else:
+                log(f"No frame available to create thumbnail for {output_path}")
+        except Exception as e:
+            log(f"Warning: thumbnail step failed for {output_path}: {e}")
     except Exception as e:
-        print(f"Warning: could not update CSV {csv_file_path}: {e}")
+        log(f"Warning: could not update CSV {csv_file_path}: {e}")
 

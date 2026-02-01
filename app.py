@@ -252,28 +252,41 @@ for idx, row in enumerate(rows):
     print(f"Created: {output_path}")
     # Record the output absolute path into the CSV under the FilePath column (5th column)
     try:
-        # update the in-memory row; `rows` is the original list loaded from CSV when present
-        rows[idx]['FilePath'] = output_path
+        # update the in-memory row with absolute path
+        abs_output = os.path.abspath(output_path)
+        rows[idx]['FilePath'] = abs_output
 
-        # determine fieldnames to write, inserting FilePath as the 5th column if missing
+        # determine base fieldnames (preserve original order when possible)
         if original_fieldnames:
-            fns = list(original_fieldnames)
+            base_fns = [fn for fn in original_fieldnames if fn != 'FilePath']
         elif rows:
-            fns = list(rows[0].keys())
+            base_fns = [k for k in rows[0].keys() if k != 'FilePath']
         else:
-            fns = ['ID', 'Hook', 'LongTailKeywords']
+            base_fns = ['ID', 'Hook', 'LongTailKeywords']
 
-        if 'FilePath' not in fns:
-            insert_index = 4 if len(fns) >= 4 else len(fns)
-            fns.insert(insert_index, 'FilePath')
+        insert_index = 4 if len(base_fns) >= 4 else len(base_fns)
+        fns = list(base_fns)
+        if 'FilePath' in fns:
+            fns.remove('FilePath')
+        fns.insert(insert_index, 'FilePath')
 
-        # write back the CSV with updated FilePath values
-        with open(csv_file_path, mode='w', encoding='utf-8', newline='') as wf:
+        # atomic write to CSV
+        tmp_csv = csv_file_path + '.tmp'
+        with open(tmp_csv, mode='w', encoding='utf-8', newline='') as wf:
             writer = csv.DictWriter(wf, fieldnames=fns)
             writer.writeheader()
             for r in rows:
                 out = {k: r.get(k, '') for k in fns}
+                out['FilePath'] = os.path.abspath(out.get('FilePath') or '')
                 writer.writerow(out)
+        try:
+            os.replace(tmp_csv, csv_file_path)
+        except Exception:
+            try:
+                os.remove(csv_file_path)
+            except Exception:
+                pass
+            os.replace(tmp_csv, csv_file_path)
     except Exception as e:
         print(f"Warning: could not update CSV {csv_file_path}: {e}")
 
