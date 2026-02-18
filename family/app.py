@@ -18,9 +18,9 @@ import warnings
 script_dir = os.path.dirname(os.path.abspath(__file__))
 # canonicalize to the AutoReels/family paths so all copies write the same CSV
 csv_file_path = r"C:\software\autoreels\AutoReels\family\Calm_ADHD_Blueprint_Hooks2.csv"
-video_src_dir = r"C:\software\autoreels\AutoReels\family\reels"
+video_src_dir = r"D:\reels-dev\mixkit\women\family"
 audio_path = r"C:\software\autoreels\AutoReels\family\audio\samsmith.mp3"
-target_dir = r"C:\software\autoreels\AutoReels\family\output_reel"
+target_dir = r"D:\reels-dev\mixkit\output_reel_ADHD"
 os.makedirs(target_dir, exist_ok=True)
 
 # debug log
@@ -197,26 +197,9 @@ for idx, row in enumerate(rows):
             log(f"ffmpeg remux failed for {video_path}; proceeding with original file")
 
         clip = VideoFileClip(remux_path)
-        # Normalize to exact duration and 9:16 portrait (720x1280)
-        target_dur = 15.0
-        orig_clip_dur = clip.duration
-        try:
-            if clip.duration > target_dur:
-                clip = clip.subclip(0, target_dur)
-                log(f"Video trimmed from {orig_clip_dur:.2f}s to {target_dur}s")
-            elif clip.duration < target_dur:
-                try:
-                    from moviepy.video.fx.all import loop as vfx_loop
-                    clip = vfx_loop(clip, duration=target_dur)
-                    log(f"Video looped from {orig_clip_dur:.2f}s to {target_dur}s")
-                except Exception:
-                    log(f"Video loop failed, keeping original duration: {clip.duration:.2f}s")
-                    pass
-            else:
-                log(f"Video duration already {target_dur}s")
-        except Exception as e:
-            log(f"Video duration adjustment failed: {e}")
-            pass
+        # Use source video duration (no trimming or looping)
+        target_dur = clip.duration
+        log(f"Using source video duration: {target_dur:.2f}s")
 
         target_w, target_h = 720, 1280
         try:
@@ -241,15 +224,15 @@ for idx, row in enumerate(rows):
         if os.path.isfile(audio_path):
             try:
                 audio_clip = AudioFileClip(audio_path)
-                # Set audio to exact target duration (12 seconds)
+                # Adjust audio to match source video duration
                 orig_audio_dur = getattr(audio_clip, 'duration', 0)
                 try:
                     if orig_audio_dur >= target_dur:
                         audio_clip = audio_clip.subclip(0, target_dur)
-                        log(f"Audio trimmed from {orig_audio_dur:.2f}s to {target_dur}s")
+                        log(f"Audio trimmed from {orig_audio_dur:.2f}s to {target_dur:.2f}s")
                     elif audio_loop is not None:
                         audio_clip = audio_loop(audio_clip, duration=target_dur)
-                        log(f"Audio looped from {orig_audio_dur:.2f}s to {target_dur}s")
+                        log(f"Audio looped from {orig_audio_dur:.2f}s to {target_dur:.2f}s")
                     else:
                         # Use what we have if shorter and looping not available
                         audio_clip = audio_clip.subclip(0, min(orig_audio_dur, target_dur))
@@ -268,9 +251,9 @@ for idx, row in enumerate(rows):
             except Exception as e:
                 log(f"Warning: could not load audio {audio_path}: {e}")
 
-        # Ensure final composite is exactly 12 seconds
+        # Ensure final composite matches source video duration
         final = final.with_duration(target_dur)
-        log(f"Final video duration set to: {target_dur}s (actual: {final.duration}s)")
+        log(f"Final video duration set to: {target_dur:.2f}s (actual: {final.duration:.2f}s)")
         
         final.write_videofile(output_path, codec='libx264', audio_codec='aac', fps=30)
         log(f"Created: {output_path}")
