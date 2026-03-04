@@ -7,7 +7,7 @@ and adds AI voiceover narration. Perfect for creating engaging social media reel
 
 Features:
 - Random video clip selection from source directory
-- Multi-hook support (Hook1, Hook2, Hook3, Hook4)
+- Multi-hook support (Hook1, Hook2, Hook3, Hook4, Hook5, Hook6)
 - Background music integration
 - TTS voiceover narration
 - Customizable text overlays with animations
@@ -29,18 +29,21 @@ try:
 except Exception:
     audio_loop = None
     volumex = None
-    
+
+import wave
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 
 # =============================================================================
 # TTS ENGINE PREFERENCE
 # =============================================================================
-# Force specific TTS engine: "gtts", "pyttsx3", "edge-tts", or "auto" for automatic selection
-# gtts = Google TTS (online, reliable, good quality, no male/female distinction)
+# Force specific TTS engine: "piper", "gtts", "pyttsx3", "edge-tts", "elevenlabs", or "auto" for automatic selection
+# elevenlabs = ElevenLabs AI (online, BEST QUALITY, requires API key)
+# piper = Piper TTS (offline, NATURAL MALE VOICE - Joe, smooth professional tone)
+# gtts = Google TTS (online, reliable, good quality, neutral voice)
 # pyttsx3 = Offline TTS (uses Windows voices, fast but limited voices)
-# edge-tts = Microsoft Edge TTS (online, high quality neural voices but may be unreliable)
-PREFERRED_TTS_ENGINE = "gtts"  # Change to "edge-tts" when Microsoft servers are working
+# edge-tts = Microsoft Edge TTS (online, high quality but connection issues)
+PREFERRED_TTS_ENGINE = "elevenlabs"  # Using ElevenLabs for best quality voiceover
 
 # Optional TTS support - install with: pip install pyttsx3 gtts edge-tts
 print("\n" + "="*60)
@@ -51,9 +54,15 @@ TTS_ENGINE = None
 PYTTSX3_AVAILABLE = False
 GTTS_AVAILABLE = False
 EDGE_TTS_AVAILABLE = False
+COQUI_TTS_AVAILABLE = False
+PIPER_TTS_AVAILABLE = False
+ELEVENLABS_AVAILABLE = False
 pyttsx3 = None
 gTTS = None
 edge_tts = None
+TTS = None
+PiperVoice = None
+ElevenLabs = None
 
 try:
     import pyttsx3 as pyttsx3_module
@@ -79,10 +88,36 @@ try:
 except ImportError as e:
     print(f"⚠ edge-tts import failed: {e}")
 
+try:
+    from TTS.api import TTS as CoquiTTS
+    TTS = CoquiTTS
+    COQUI_TTS_AVAILABLE = True
+    print("✓ Coqui TTS library imported successfully (High-quality neural TTS with male voices)")
+except ImportError as e:
+    print(f"⚠ Coqui TTS import failed: {e}")
+
+try:
+    from piper import PiperVoice as PiperVoiceClass
+    PiperVoice = PiperVoiceClass
+    PIPER_TTS_AVAILABLE = True
+    print("✓ Piper TTS library imported successfully (Deep male voice - offline)")
+except ImportError as e:
+    print(f"⚠ Piper TTS import failed: {e}")
+
+try:
+    from elevenlabs import ElevenLabs as ElevenLabsClient
+    ElevenLabs = ElevenLabsClient
+    ELEVENLABS_AVAILABLE = True
+    print("✓ ElevenLabs library imported successfully (BEST quality AI voices - online)")
+except ImportError as e:
+    print(f"⚠ ElevenLabs import failed: {e}")
+
 print(f"\nLibrary availability:")
 print(f"  - pyttsx3: {PYTTSX3_AVAILABLE}")
 print(f"  - gTTS: {GTTS_AVAILABLE}")
 print(f"  - edge-tts: {EDGE_TTS_AVAILABLE}")
+print(f"  - piper-tts: {PIPER_TTS_AVAILABLE}")
+print(f"  - elevenlabs: {ELEVENLABS_AVAILABLE}")
 
 # Check for male voices in pyttsx3
 has_male_voice = False
@@ -109,7 +144,16 @@ if PYTTSX3_AVAILABLE:
 # Select best TTS engine based on preference and availability
 if PREFERRED_TTS_ENGINE and PREFERRED_TTS_ENGINE != "auto":
     # Manual selection
-    if PREFERRED_TTS_ENGINE == "gtts" and GTTS_AVAILABLE:
+    if PREFERRED_TTS_ENGINE == "elevenlabs" and ELEVENLABS_AVAILABLE:
+        TTS_ENGINE = "elevenlabs"
+        print(f"\n  ✓ Using ElevenLabs (online AI voices - BEST quality for professional content)")
+    elif PREFERRED_TTS_ENGINE == "piper" and PIPER_TTS_AVAILABLE:
+        TTS_ENGINE = "piper"
+        print(f"\n  ✓ Using Piper TTS (offline natural male voice - BEST for professional narration)")
+    elif PREFERRED_TTS_ENGINE == "coqui" and COQUI_TTS_AVAILABLE:
+        TTS_ENGINE = "coqui"
+        print(f"\n  ✓ Using Coqui TTS (offline neural TTS - BEST quality with male voices)")
+    elif PREFERRED_TTS_ENGINE == "gtts" and GTTS_AVAILABLE:
         TTS_ENGINE = "gtts"
         print(f"\n  ✓ Using gTTS (online TTS - manual preference)")
     elif PREFERRED_TTS_ENGINE == "pyttsx3" and PYTTSX3_AVAILABLE:
@@ -119,21 +163,23 @@ if PREFERRED_TTS_ENGINE and PREFERRED_TTS_ENGINE != "auto":
         TTS_ENGINE = "edge-tts"
         print(f"\n  ✓ Using edge-tts (Microsoft Edge TTS - manual preference)")
     else:
-        print(f"\n  ⚠ Preferred engine '{PREFERRED_TTS_ENGINE}' not available, auto-selecting...")
+        print(f"\n  ✗ CRITICAL: Preferred engine '{PREFERRED_TTS_ENGINE}' not available!")
+        print(f"\n  ✗ CRITICAL: Script is configured for ElevenLabs ONLY - no fallback allowed")
+        if PREFERRED_TTS_ENGINE == "elevenlabs":
+            print(f"\n  ✗ Make sure ElevenLabs is installed: pip install elevenlabs")
+            print(f"\n  ✗ Make sure API key has text_to_speech permission")
+        raise Exception(f"Required TTS engine '{PREFERRED_TTS_ENGINE}' is not available. Stopping.")
 else:
-    # Automatic selection - prioritize working engines
-    if GTTS_AVAILABLE:
-        TTS_ENGINE = "gtts"
-        print(f"\n  ✓ Using gTTS (online TTS - reliable, good quality)")
-    elif PYTTSX3_AVAILABLE and has_male_voice:
-        TTS_ENGINE = "pyttsx3"
-        print(f"\n  ✓ Using pyttsx3 (male voice available)")
-    elif PYTTSX3_AVAILABLE:
-        TTS_ENGINE = "pyttsx3"
-        print(f"\n  ⚠ Using pyttsx3 (no male voices found, will use default)")
-    elif EDGE_TTS_AVAILABLE:
-        TTS_ENGINE = "edge-tts"
-        print(f"\n  ✓ Using edge-tts (Microsoft Edge TTS)")
+    # Automatic selection - ElevenLabs ONLY policy
+    if ELEVENLABS_AVAILABLE:
+        TTS_ENGINE = "elevenlabs"
+        print(f"\n  ✓ Using ElevenLabs (online AI voices - BEST quality)")
+    else:
+        print(f"\n  ✗ CRITICAL: ElevenLabs is not available!")
+        print(f"\n  ✗ CRITICAL: Script is configured for ElevenLabs ONLY - no fallback to other engines")
+        print(f"\n  ✗ Install ElevenLabs: pip install elevenlabs")
+        print(f"\n  ✗ Make sure API key has text_to_speech permission")
+        raise Exception("ElevenLabs is not available. No fallback allowed. Stopping.")
 
 print(f"\n✓ Selected TTS Engine: {TTS_ENGINE}")
 
@@ -150,10 +196,10 @@ print("="*60 + "\n")
 # =============================================================================
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
-csv_file_path = os.path.join(script_dir, "tesla-medbed.csv")
+csv_file_path = os.path.join(script_dir, "mom_fitness_motivation2.csv")
 video_src_dir = r"D:\reels-dev\mixkit\fitness"
 audio_path = r"D:\reels-dev\mixkit\music\gym.wav"
-target_dir = r"D:\reels-dev\mixkit\output_reels\output_reel\output_reel_TeslaMed"
+target_dir = r"D:\reels-dev\mixkit\output_reels\output_reel\fit_moms"
 os.makedirs(target_dir, exist_ok=True)
 
 # =============================================================================
@@ -167,22 +213,28 @@ SHUFFLE_CSV_ROWS = False  # Randomize the order of CSV rows before processing
 # === VIDEO CLIP CONTROLS ===
 RANDOM_VIDEO_SELECTION = True  # True: random clips per video | False: sequential
 ALLOW_VIDEO_REUSE = True  # Allow same video to be used multiple times if needed
-TARGET_VIDEO_DURATION = 20  # Final video duration in seconds (e.g., 15, 30, 60)
+TARGET_VIDEO_DURATION = 40  # Final video duration in seconds (e.g., 15, 30, 40, 60)
 MAX_SEGMENT_DURATION = 5  # Maximum duration per segment/clip in seconds (each gets different Hook)
 CLIP_DURATION_RANGE = (4, 5)  # Min/max seconds per clip when assembling from multiple clips
 
+# === SEGMENT STRUCTURE CONTROLS ===
+SEGMENT_MODE = "match_hooks"  # Options: "match_hooks", "fixed_duration"
+                              # "match_hooks" = number of segments matches number of available hooks (e.g., 8 hooks = 8 segments, duration divided evenly)
+                              # "fixed_duration" = segments use MAX_SEGMENT_DURATION, allowing hook repetition for longer videos
+                              # Example: 40s video with 8 hooks → "match_hooks" = 8 segments of 5s each, "fixed_duration" = 8 segments of 5s
+
 # === HOOK TEXT CONTROLS ===
-HOOK_SELECTION = "Hook1"  # Options: "Hook1", "Hook2", "Hook3", "Hook4", "random", "rotate"
+HOOK_SELECTION = "rotate"  # Options: "Hook1", "Hook2", "Hook3", "Hook4", "Hook5", "Hook6", "Hook7", "Hook8", "random", "rotate"
                           # "random" = pick random hook for each video
-                          # "rotate" = cycle through Hook1->Hook2->Hook3->Hook4 sequentially
+                          # "rotate" = cycle through all available hooks sequentially (Hook1->Hook2->...->Hook8)
 USE_NARRATIVE_FOR_TTS = False  # Not used in multi-segment mode (uses Hook text for each segment)
 
 # === AUDIO CONTROLS ===
 ENABLE_BACKGROUND_MUSIC = True  # Toggle background music on/off
-BACKGROUND_MUSIC_VOLUME = 0.1  # 0.0 to 1.0 (10% = 0.1, 100% = 1.0)
+BACKGROUND_MUSIC_VOLUME = 0.001  # 0.0 to 1.0 (0.5% = 0.005 for very subtle background, 1% = 0.01, 10% = 0.1, 100% = 1.0)
 AUDIO_START_OFFSET = 0  # Start background audio X seconds into the video (for sync)
 ENABLE_VOICEOVER = True  # Toggle AI voiceover narration on/off
-VOICEOVER_VOLUME = 1.0  # 0.0 to 1.0 (100% = 1.0)
+VOICEOVER_VOLUME = 1.5  # 0.0 to 1.0 (100% = 1.0)
 TTS_VOICE_SPEED = 160  # Words per minute for pyttsx3 (default: 150-200, slower = more natural)
 TTS_VOICE_GENDER = "male"  # Voice gender: "male" or "female"
 TTS_VOICE_INDEX = None  # Specific voice index (0, 1, 2...) or None for auto-select by gender (pyttsx3 only)
@@ -192,10 +244,23 @@ TTS_LANGUAGE = "en"  # Language code for gTTS (e.g., "en", "es", "fr")
 # Female voices: "en-US-JennyNeural" (default female), "en-US-AriaNeural" (expressive)
 EDGE_TTS_VOICE = "en-US-DavisNeural"  # Used when TTS_ENGINE is "edge-tts"
 
+# === ELEVENLABS API CONFIGURATION ===
+ELEVENLABS_API_KEY = "sk_fbf41ffad60809a6d440367d6d2a6fc1f16f961e5e198955"  # Your ElevenLabs API key
+# Popular ElevenLabs STANDARD voices (work with free tier):
+# "pNInz6obpgDQGcFmaJgB" - Adam - Deep, authoritative male (great for narration)
+# "ErXwobaYiN019PkySvjV" - Antoni - Well-rounded male
+# "VR6AewLTigWG4xSOukaG" - Arnold - Crisp, strong male  
+# "N2lVS1w4EtoT3dr4eOWO" - Callum - Smooth, professional male
+# "IKne3meq5aSn9XLyUdCD" - Charlie - Natural, conversational male
+# "TxGEqnHWrfWFTfGW9XjX" - Josh - Professional, clear male (news anchor style)
+# Library/cloned voices require paid subscription!
+ELEVENLABS_VOICE = "pNInz6obpgDQGcFmaJgB"  # Adam - Standard voice (works with free tier)
+ELEVENLABS_MODEL = "eleven_multilingual_v2"  # "eleven_monolingual_v1" or "eleven_multilingual_v2"
+
 # === TEXT OVERLAY CONTROLS ===
 TEXT_OVERLAY_ENABLED = True  # Show text overlay on video
 TEXT_POSITION = ('center', 'top')  # Position tuple: (horizontal, vertical) - 'left'/'center'/'right', 'top'/'center'/'bottom'
-TEXT_POSITION_OFFSET = (0, 400)  # Offset in pixels (horizontal, vertical) from TEXT_POSITION
+TEXT_POSITION_OFFSET = (0, 480)  # Offset in pixels (horizontal, vertical) from TEXT_POSITION
 TEXT_CUSTOM_POSITION = None  # Override with (x, y) pixel coordinates or None
 TEXT_WIDTH_PERCENT = 0.85  # Text width as percentage of video width (0.85 = 85%)
 FONT_SIZE = 40  # Base font size for text overlay
@@ -207,10 +272,23 @@ PREFIX_COLOR = (102, 0, 153, 255)  # RGBA color for prefix words (purple)
 TEXT_PADDING = (24, 16)  # Padding around text (horizontal, vertical) in pixels
 TEXT_BORDER_RADIUS = 10  # Border radius for rounded text background
 
+# === TITLE OVERLAY CONTROLS ===
+TITLE_OVERLAY_ENABLED = True  # Show title overlay on video
+TITLE_POSITION = ('center', 'top')  # Position tuple: (horizontal, vertical)
+TITLE_POSITION_OFFSET = (0, 200)  # Offset in pixels (horizontal, vertical) from top
+TITLE_WIDTH_PERCENT = 0.80  # Title width as percentage of video width
+TITLE_FONT_SIZE = 48  # Font size for title
+TITLE_FONT_FAMILY = "arial"  # Font family for title
+TITLE_FONT_COLOR = (255, 255, 255, 255)  # White color for title text
+TITLE_FONT_WEIGHT = "bold"  # Bold font weight (note: simulated with font rendering)
+TITLE_BG_COLOR = None  # No background for title (None or RGBA tuple like (0, 0, 0, 180))
+TITLE_PADDING = (20, 12)  # Padding around title text if background is used
+TITLE_BORDER_RADIUS = 8  # Border radius if background is used
+
 # === ANIMATION CONTROLS ===
 TEXT_FADE_IN_DURATION = 0.5  # Text fade-in duration in seconds (0 = instant)
 TEXT_FADE_OUT_DURATION = 0.5  # Text fade-out duration in seconds (0 = instant)
-VIDEO_CROSSFADE_DURATION = 0.8  # Crossfade between video clips in seconds (0 = cut)
+VIDEO_CROSSFADE_DURATION = 2.0  # Crossfade/dissolve transition between video segments in seconds (0 = cut, 2.0 = smooth fade)
 
 # === OUTPUT CONTROLS ===
 OUTPUT_FPS = 30  # Frames per second for output video (24, 30, 60)
@@ -218,6 +296,7 @@ OUTPUT_RESOLUTION = (1080, 1920)  # Portrait (width, height) - 9:16 aspect ratio
 VIDEO_CODEC = 'libx264'  # Video codec: 'libx264' (h264), 'libx265' (h265/HEVC)
 AUDIO_CODEC = 'aac'  # Audio codec: 'aac', 'mp3'
 BITRATE = "8000k"  # Video bitrate for quality (e.g., "5000k", "8000k", "12000k")
+OUTPUT_FILENAME_PREFIX = "fit_moms_"  # Prefix for output filenames (e.g., "fit_moms_" → "fit_moms_15_min_rule.mp4")
 
 
 # =============================================================================
@@ -244,7 +323,63 @@ def generate_voiceover_audio(text, output_path, engine=None):
         return None
         
     try:
-        if engine == "pyttsx3":
+        if engine == "elevenlabs":
+            # ElevenLabs AI TTS (best quality, online, requires API key)
+            print(f"         → Using ElevenLabs (Premium AI Voiceover)...")
+            if not ELEVENLABS_AVAILABLE or ElevenLabs is None:
+                print(f"         ✗ ElevenLabs not available!")
+                print(f"         ✗ CRITICAL: ElevenLabs library not imported. Install with: pip install elevenlabs")
+                raise Exception("ElevenLabs is not available. No fallback allowed.")
+            
+            if not ELEVENLABS_API_KEY:
+                print(f"         ✗ ElevenLabs API key not set!")
+                print(f"         → Get your API key from: https://elevenlabs.io/app/settings/api-keys")
+                print(f"         → Set ELEVENLABS_API_KEY in script or environment variable")
+                print(f"         ✗ CRITICAL: Cannot proceed without valid ElevenLabs API key")
+                raise Exception("ElevenLabs API key missing. No fallback allowed.")
+            
+            try:
+                # Initialize ElevenLabs client
+                client = ElevenLabs(api_key=ELEVENLABS_API_KEY)
+                print(f"         → Client initialized with voice: {ELEVENLABS_VOICE}")
+                
+                # Generate audio using ElevenLabs API
+                print(f"         → Generating audio with model: {ELEVENLABS_MODEL}...")
+                audio_generator = client.text_to_speech.convert(
+                    text=text,
+                    voice_id=ELEVENLABS_VOICE,
+                    model_id=ELEVENLABS_MODEL
+                )
+                
+                # Stream audio chunks to file
+                output_path_mp3 = output_path.replace(".wav", ".mp3")
+                with open(output_path_mp3, 'wb') as audio_file:
+                    for chunk in audio_generator:
+                        audio_file.write(chunk)
+                
+                print(f"         → Audio generated successfully")
+                
+                # Verify file was created
+                if os.path.exists(output_path_mp3):
+                    file_size = os.path.getsize(output_path_mp3)
+                    print(f"         → File created: {file_size} bytes")
+                    if file_size > 1000:  # At least 1KB
+                        print(f"         ✓ Using ElevenLabs premium AI voice ({ELEVENLABS_VOICE})")
+                        return output_path_mp3
+                    else:
+                        print(f"         ✗ CRITICAL: Audio file too small ({file_size} bytes)")
+                        raise Exception(f"ElevenLabs generated invalid audio file. No fallback allowed.")
+                else:
+                    print(f"         ✗ CRITICAL: Audio file not created")
+                    raise Exception("ElevenLabs failed to create audio file. No fallback allowed.")
+                
+            except Exception as e:
+                print(f"         ✗ ElevenLabs API error: {type(e).__name__}: {str(e)[:200]}")
+                print(f"         ✗ CRITICAL: Check your API key and internet connection")
+                print(f"         ✗ CRITICAL: No fallback to other TTS engines allowed")
+                raise  # Re-raise the exception to stop execution
+        
+        elif engine == "pyttsx3":
             # Offline TTS engine (faster, no internet needed)
             print(f"         → Using pyttsx3...")
             if not PYTTSX3_AVAILABLE or pyttsx3 is None:
@@ -333,15 +468,17 @@ def generate_voiceover_audio(text, output_path, engine=None):
                 return None
             
         elif engine == "gtts":
-            # Online TTS engine (better quality, requires internet)
+            # Online TTS engine (reliable, requires internet)
             print(f"         → Using gTTS...")
             if not GTTS_AVAILABLE or gTTS is None:
                 print(f"         ✗ gTTS not available!")
                 return None
                 
+            # Use slow=False for natural pace (slow=True makes it too slow)
             tts = gTTS(text=text, lang=TTS_LANGUAGE, slow=False)
             print(f"         → gTTS object created")
             tts.save(output_path)
+            print(f"         → save() completed")
             print(f"         → save() completed")
             
             # Verify file was created
@@ -357,11 +494,128 @@ def generate_voiceover_audio(text, output_path, engine=None):
                 print(f"      ⚠ Audio file not created: {output_path}")
                 return None
                 
+        elif engine == "piper":
+            # Piper TTS (high quality natural male voice, offline)
+            print(f"         → Using Piper TTS (Natural Male Voice - Joe)...")
+            if not PIPER_TTS_AVAILABLE or PiperVoice is None:
+                print(f"         ✗ Piper TTS not available!")
+                # Fallback to gTTS
+                if GTTS_AVAILABLE:
+                    print(f"         → Falling back to gTTS...")
+                    return generate_voiceover_audio(text, output_path, engine="gtts")
+                return None
+            
+            try:
+                # Load Piper voice model (Joe - natural male voice)
+                model_path = os.path.join(os.path.dirname(__file__), "piper_voices", "en_US-joe-medium.onnx")
+                if not os.path.exists(model_path):
+                    print(f"         ✗ Piper voice model not found: {model_path}")
+                    if GTTS_AVAILABLE:
+                        print(f"         → Falling back to gTTS...")
+                        return generate_voiceover_audio(text, output_path, engine="gtts")
+                    return None
+                
+                print(f"         → Loading voice model...")
+                voice = PiperVoice.load(model_path)
+                
+                # Change output to WAV (Piper generates WAV)
+                output_path_wav = output_path.replace(".mp3", ".wav")
+                
+                print(f"         → Synthesizing audio...")
+                with wave.open(output_path_wav, 'wb') as wav_file:
+                    voice.synthesize_wav(text, wav_file)
+                
+                # Verify file was created
+                if os.path.exists(output_path_wav):
+                    file_size = os.path.getsize(output_path_wav)
+                    print(f"         → Audio generated: {file_size} bytes")
+                    if file_size > 1000:  # At least 1KB
+                        print(f"         ✓ Using Piper TTS natural male voice (Joe)")
+                        return output_path_wav
+                    else:
+                        print(f"      ⚠ Audio file too small")
+                        if GTTS_AVAILABLE:
+                            print(f"         → Falling back to gTTS...")
+                            return generate_voiceover_audio(text, output_path, engine="gtts")
+                        return None
+                else:
+                    print(f"      ⚠ Audio file not created")
+                    if GTTS_AVAILABLE:
+                        print(f"         → Falling back to gTTS...")
+                        return generate_voiceover_audio(text, output_path, engine="gtts")
+                    return None
+                
+            except Exception as e:
+                print(f"         ✗ Piper TTS error: {type(e).__name__}: {str(e)[:100]}")
+                # Fallback to gTTS
+                if GTTS_AVAILABLE:
+                    print(f"         → Falling back to gTTS...")
+                    return generate_voiceover_audio(text, output_path, engine="gtts")
+                return None
+        
+        elif engine == "coqui":
+            # Coqui TTS (high quality neural voices, offline)
+            print(f"         → Using Coqui TTS (Neural TTS)...")
+            if not COQUI_TTS_AVAILABLE or TTS is None:
+                print(f"         ✗ Coqui TTS not available!")
+                # Fallback to gTTS
+                if GTTS_AVAILABLE:
+                    print(f"         → Falling back to gTTS...")
+                    return generate_voiceover_audio(text, output_path, engine="gtts")
+                return None
+            
+            try:
+                # Initialize Coqui TTS with a male voice model
+                print(f"         → Loading Coqui TTS model (first time takes a moment)...")
+                # Use VCTK model which has multiple speakers including males
+                tts_model = TTS(model_name="tts_models/en/vctk/vits", progress_bar=False, gpu=False)
+                
+                # Select a male speaker (p243, p245, p246, p247 are good male voices)
+                # p243 = Adult male, clear and professional
+                speaker = "p243"
+                print(f"         → Using speaker: {speaker} (professional male voice)")
+                
+                # Generate audio
+                tts_model.tts_to_file(text=text, file_path=output_path, speaker=speaker)
+                print(f"         → Audio generated successfully")
+                
+                # Verify file was created
+                if os.path.exists(output_path):
+                    file_size = os.path.getsize(output_path)
+                    print(f"         → File created: {file_size} bytes")
+                    if file_size > 0:
+                        print(f"         ✓ Using Coqui TTS deep male voice")
+                        return output_path
+                    else:
+                        print(f"      ⚠ Audio file created but empty")
+                        if GTTS_AVAILABLE:
+                            print(f"         → Falling back to gTTS...")
+                            return generate_voiceover_audio(text, output_path, engine="gtts")
+                        return None
+                else:
+                    print(f"      ⚠ Audio file not created")
+                    if GTTS_AVAILABLE:
+                        print(f"         → Falling back to gTTS...")
+                        return generate_voiceover_audio(text, output_path, engine="gtts")
+                    return None
+                
+            except Exception as e:
+                print(f"         ✗ Coqui TTS error: {type(e).__name__}: {str(e)[:100]}")
+                # Fallback to gTTS
+                if GTTS_AVAILABLE:
+                    print(f"         → Falling back to gTTS...")
+                    return generate_voiceover_audio(text, output_path, engine="gtts")
+                return None
+                
         elif engine == "edge-tts":
             # Microsoft Edge TTS (high quality neural voices, requires internet)
             print(f"         → Using edge-tts (Microsoft Edge Neural TTS)...")
             if not EDGE_TTS_AVAILABLE or edge_tts is None:
                 print(f"         ✗ edge-tts not available!")
+                # Fallback to gTTS
+                if GTTS_AVAILABLE:
+                    print(f"         → Falling back to gTTS...")
+                    return generate_voiceover_audio(text, output_path, engine="gtts")
                 return None
             
             import asyncio
@@ -369,37 +623,46 @@ def generate_voiceover_audio(text, output_path, engine=None):
             
             # Handle asyncio event loop on Windows
             if sys.platform == 'win32':
-                asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+                try:
+                    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+                except Exception:
+                    pass
             
             async def _generate_edge_tts():
                 """Async function to generate edge-tts audio"""
                 voice = EDGE_TTS_VOICE
-                print(f"         → Voice: {voice}")
+                print(f"         → Voice: {voice} (deep professional male)")
                 print(f"         → Generating audio...")
                 communicate = edge_tts.Communicate(text, voice)
                 await communicate.save(output_path)
-                print(f"         → Audio saved to {output_path}")
+                print(f"         → Audio saved successfully")
             
-            # Run the async function
+            # Run the async function with retry and fallback
+            edge_tts_success = False
             try:
                 loop = asyncio.new_event_loop()
                 asyncio.set_event_loop(loop)
                 try:
                     loop.run_until_complete(_generate_edge_tts())
+                    edge_tts_success = True
                 finally:
                     loop.close()
-                print(f"         → edge-tts generation completed")
+                print(f"         ✓ edge-tts generation completed")
             except Exception as e:
-                print(f"         ✗ edge-tts async error: {type(e).__name__}: {e}")
-                import traceback
-                traceback.print_exc()
+                error_name = type(e).__name__
+                print(f"         ✗ edge-tts error: {error_name}: {str(e)[:100]}")
+                
+                # If edge-tts fails, fallback to gTTS
+                if GTTS_AVAILABLE:
+                    print(f"         → Falling back to gTTS (edge-tts connection failed)...")
+                    return generate_voiceover_audio(text, output_path, engine="gtts")
                 return None
             
             # Give the file system a moment to finalize
             import time
             time.sleep(0.2)
             
-            # Verify file was created
+            # Verify file was created and has content
             if os.path.exists(output_path):
                 file_size = os.path.getsize(output_path)
                 print(f"         → File created: {file_size} bytes")
@@ -407,10 +670,18 @@ def generate_voiceover_audio(text, output_path, engine=None):
                     print(f"         ✓ Using Microsoft Edge voice: {EDGE_TTS_VOICE}")
                     return output_path
                 else:
-                    print(f"      ⚠ Audio file created but empty: {output_path}")
+                    print(f"      ⚠ Audio file created but empty (0 bytes)")
+                    # Fallback to gTTS
+                    if GTTS_AVAILABLE:
+                        print(f"         → Falling back to gTTS...")
+                        return generate_voiceover_audio(text, output_path, engine="gtts")
                     return None
             else:
-                print(f"      ⚠ Audio file not created: {output_path}")
+                print(f"      ⚠ Audio file not created")
+                # Fallback to gTTS
+                if GTTS_AVAILABLE:
+                    print(f"         → Falling back to gTTS...")
+                    return generate_voiceover_audio(text, output_path, engine="gtts")
                 return None
                 
         else:
@@ -435,17 +706,20 @@ def select_hook_text(row, hook_mode, iteration=0):
     
     if hook_mode == "random":
         # Randomly pick from available hooks
-        available_hooks = [row.get(f"Hook{i}", "").strip() for i in range(1, 5)]
+        available_hooks = [row.get(f"Hook{i}", "").strip() for i in range(1, 9)]  # Support up to Hook8
         available_hooks = [h for h in available_hooks if h]
         return random.choice(available_hooks) if available_hooks else ""
         
     elif hook_mode == "rotate":
-        # Cycle through Hook1 -> Hook2 -> Hook3 -> Hook4
-        hook_num = (iteration % 4) + 1
-        return row.get(f"Hook{hook_num}", "").strip()
+        # Cycle through all available hooks dynamically
+        available_hooks = [row.get(f"Hook{i}", "").strip() for i in range(1, 9) if row.get(f"Hook{i}", "").strip()]
+        if available_hooks:
+            hook_idx = iteration % len(available_hooks)
+            return available_hooks[hook_idx]
+        return ""
         
     else:
-        # Specific hook (Hook1, Hook2, Hook3, or Hook4)
+        # Specific hook (Hook1, Hook2, Hook3, Hook4, Hook5, Hook6, Hook7, or Hook8)
         return row.get(hook_mode, "").strip()
 
 
@@ -521,10 +795,10 @@ def calculate_position_with_offset(base_position, offset=(0, 0), clip_size=None,
     return (int(x + x_offset), int(y + y_offset))
 
 
-def create_video_segment(video_path, hook_text, duration, portrait_w, portrait_h):
+def create_video_segment(video_path, hook_text, duration, portrait_w, portrait_h, title_text=None):
     """
-    Create a single video segment with text overlay.
-    Returns a CompositeVideoClip with video + text overlay.
+    Create a single video segment with text overlay and optional title.
+    Returns a CompositeVideoClip with video + text overlay + title.
     """
     # Load video clip
     clip = VideoFileClip(video_path)
@@ -621,6 +895,119 @@ def create_video_segment(video_path, hook_text, duration, portrait_w, portrait_h
         
         layers.append(img_clip)
     
+    # Add title overlay
+    if TITLE_OVERLAY_ENABLED and title_text:
+        max_title_width = int(portrait_w * TITLE_WIDTH_PERCENT)
+        
+        # Create title image (white bold text)
+        try:
+            font = ImageFont.truetype("arialbd.ttf", TITLE_FONT_SIZE)  # Bold Arial
+        except:
+            try:
+                font = ImageFont.truetype("arial.ttf", TITLE_FONT_SIZE)
+            except:
+                font = ImageFont.load_default()
+        
+        # Calculate text size
+        dummy_img = Image.new('RGBA', (1, 1))
+        dummy_draw = ImageDraw.Draw(dummy_img)
+        
+        # Word wrap for title
+        words = title_text.split()
+        lines = []
+        current_line = []
+        
+        for word in words:
+            test_line = ' '.join(current_line + [word])
+            bbox = dummy_draw.textbbox((0, 0), test_line, font=font)
+            line_width = bbox[2] - bbox[0]
+            
+            if line_width <= max_title_width:
+                current_line.append(word)
+            else:
+                if current_line:
+                    lines.append(' '.join(current_line))
+                current_line = [word]
+        
+        if current_line:
+            lines.append(' '.join(current_line))
+        
+        # Calculate total size
+        line_heights = []
+        max_line_width = 0
+        for line in lines:
+            bbox = dummy_draw.textbbox((0, 0), line, font=font)
+            # Add extra space for descenders (letters like g, j, p, q, y)
+            line_height = (bbox[3] - bbox[1]) + 8  # Extra 8px padding for descenders
+            line_heights.append(line_height)
+            max_line_width = max(max_line_width, bbox[2] - bbox[0])
+        
+        total_height = sum(line_heights) + (len(lines) - 1) * 4  # 4px between lines
+        
+        # Add padding if background is used
+        if TITLE_BG_COLOR:
+            h_pad, v_pad = TITLE_PADDING
+            img_width = max_line_width + 2 * h_pad
+            img_height = total_height + 2 * v_pad
+        else:
+            h_pad, v_pad = 0, 0
+            img_width = max_line_width
+            img_height = total_height
+        
+        # Create title image
+        title_img = Image.new('RGBA', (img_width, img_height), (0, 0, 0, 0))
+        title_draw = ImageDraw.Draw(title_img)
+        
+        # Draw background if specified
+        if TITLE_BG_COLOR:
+            if TITLE_BORDER_RADIUS > 0:
+                # Draw rounded rectangle
+                title_draw.rounded_rectangle(
+                    [(0, 0), (img_width, img_height)],
+                    radius=TITLE_BORDER_RADIUS,
+                    fill=TITLE_BG_COLOR
+                )
+            else:
+                title_draw.rectangle([(0, 0), (img_width, img_height)], fill=TITLE_BG_COLOR)
+        
+        # Draw text lines
+        y = v_pad
+        for i, line in enumerate(lines):
+            bbox = title_draw.textbbox((0, 0), line, font=font)
+            line_width = bbox[2] - bbox[0]
+            x = h_pad + (max_line_width - line_width) // 2  # Center each line
+            
+            # Draw text with white color
+            title_draw.text((x, y), line, font=font, fill=TITLE_FONT_COLOR)
+            y += line_heights[i] + 4
+        
+        # Create ImageClip for title
+        title_clip = ImageClip(np.array(title_img)).with_duration(duration)
+        
+        # Position title
+        title_clip_size = (title_img.width, title_img.height)
+        title_position = calculate_position_with_offset(
+            TITLE_POSITION,
+            TITLE_POSITION_OFFSET,
+            title_clip_size,
+            canvas_size
+        )
+        title_clip = title_clip.with_position(title_position)
+        
+        # Apply fade effects
+        if TEXT_FADE_IN_DURATION > 0:
+            try:
+                title_clip = title_clip.crossfadein(TEXT_FADE_IN_DURATION)
+            except Exception:
+                pass
+        if TEXT_FADE_OUT_DURATION > 0:
+            try:
+                title_clip = title_clip.crossfadeout(TEXT_FADE_OUT_DURATION)
+            except Exception:
+                pass
+        
+        layers.append(title_clip)
+    
     # Compose segment
     segment = CompositeVideoClip(layers, size=(portrait_w, portrait_h))
     return segment
@@ -634,7 +1021,7 @@ def create_video_segment(video_path, hook_text, duration, portrait_w, portrait_h
 rows = []
 original_fieldnames = None
 if os.path.isfile(csv_file_path):
-    with open(csv_file_path, mode="r", encoding="utf-8", newline="") as fh:
+    with open(csv_file_path, mode="r", encoding="utf-8-sig", errors="replace", newline="") as fh:
         reader = csv.DictReader(fh)
         original_fieldnames = reader.fieldnames
         for row in reader:
@@ -779,11 +1166,17 @@ print(f"\n{'='*60}")
 print(f"Starting video generation with the following settings:")
 print(f"{'='*60}")
 print(f"Videos to generate: {len(rows)}")
-print(f"Target duration: {TARGET_VIDEO_DURATION}s (segments: {MAX_SEGMENT_DURATION}s each)")
+print(f"Target duration: {TARGET_VIDEO_DURATION}s")
+print(f"Segment mode: {SEGMENT_MODE}")
+if SEGMENT_MODE == "match_hooks":
+    print(f"  → Segments will match available hooks (typically 8 segments)")
+    print(f"  → Each segment duration: ~{TARGET_VIDEO_DURATION / 8:.1f}s (divided evenly)")
+else:
+    print(f"  → Segments use fixed duration: {MAX_SEGMENT_DURATION}s each")
+    print(f"  → Total segments: ~{int(TARGET_VIDEO_DURATION / MAX_SEGMENT_DURATION)} (hooks may repeat)")
 print(f"Random video selection: {RANDOM_VIDEO_SELECTION}")
 print(f"Hook selection mode: {HOOK_SELECTION}")
-print(f"Multi-hook segments: Hook1→Hook2→Hook3→Hook4 per segment")
-print(f"Background music: {ENABLE_BACKGROUND_MUSIC} (volume: {BACKGROUND_MUSIC_VOLUME})")
+print(f"Background music: {ENABLE_BACKGROUND_MUSIC} (volume: {BACKGROUND_MUSIC_VOLUME * 100:.2f}%)")
 print(f"Voiceover: {ENABLE_VOICEOVER} (engine: {TTS_ENGINE})")
 print(f"Output resolution: {OUTPUT_RESOLUTION[0]}x{OUTPUT_RESOLUTION[1]}")
 print(f"{'='*60}")
@@ -861,12 +1254,20 @@ for idx, row in enumerate(rows):
                 print(f"  ⚠ No video available, skipping")
                 continue
     
-    # Generate output filename
+    # Generate output filename from Title column
     row_id = (row.get("ID") or str(idx + 1)).strip()
-    lt = (row.get("3 Long Tailed Keywords") or row.get("LongTailKeywords") or "").split(",")[0].strip()
-    sanitized = re.sub(r'[^A-Za-z0-9]+', '_', lt).strip('_') or f"row{row_id}"
-    output_name = f"{row_id}_{sanitized}.mp4"
+    title = (row.get("Title") or "").strip()
+    if title:
+        # Sanitize title: convert to lowercase, replace spaces/special chars with underscores
+        sanitized_title = re.sub(r'[^A-Za-z0-9]+', '_', title.lower()).strip('_')
+        output_name = f"{row_id}_{OUTPUT_FILENAME_PREFIX}{sanitized_title}.mp4"
+    else:
+        # Fallback if no title: use ID and keyword
+        lt = (row.get("3 Long Tailed Keywords") or row.get("LongTailKeywords") or "").split(",")[0].strip()
+        sanitized = re.sub(r'[^A-Za-z0-9]+', '_', lt).strip('_') or f"row{row_id}"
+        output_name = f"{row_id}_{OUTPUT_FILENAME_PREFIX}{sanitized}.mp4"
     output_path = os.path.join(target_dir, output_name)
+    print(f"  📁 Output filename: {output_name}")
     
     # Build video with multiple segments (each with different Hook and video clip)
     print(f"  ⚙ Building multi-segment video...")
@@ -874,14 +1275,9 @@ for idx, row in enumerate(rows):
     # Target portrait (mobile) size: 9:16 aspect ratio
     portrait_w, portrait_h = OUTPUT_RESOLUTION
     
-    # Calculate segments: divide target duration by max segment duration
-    num_segments = max(1, int(TARGET_VIDEO_DURATION / MAX_SEGMENT_DURATION))
-    if TARGET_VIDEO_DURATION % MAX_SEGMENT_DURATION != 0:
-        num_segments += 1
-    
-    # Get all hooks from the row
+    # Get all hooks from the row first (needed for segment calculation)
     all_hooks = []
-    for i in range(1, 5):
+    for i in range(1, 9):  # Support Hook1 through Hook8
         hook = row.get(f"Hook{i}", "").strip()
         if hook:
             all_hooks.append(hook)
@@ -889,6 +1285,20 @@ for idx, row in enumerate(rows):
     # Ensure we have hooks (fallback to Hook1 if empty)
     if not all_hooks:
         all_hooks = [hook_text]
+    
+    # Calculate segments based on SEGMENT_MODE
+    if SEGMENT_MODE == "match_hooks":
+        # Number of segments matches number of available hooks
+        num_segments = len(all_hooks)
+        calculated_segment_duration = TARGET_VIDEO_DURATION / num_segments
+        print(f"     Mode: Match Hooks - {num_segments} segments × {calculated_segment_duration:.1f}s each")
+    else:
+        # Default: "fixed_duration" - use MAX_SEGMENT_DURATION
+        num_segments = max(1, int(TARGET_VIDEO_DURATION / MAX_SEGMENT_DURATION))
+        if TARGET_VIDEO_DURATION % MAX_SEGMENT_DURATION != 0:
+            num_segments += 1
+        calculated_segment_duration = MAX_SEGMENT_DURATION
+        print(f"     Mode: Fixed Duration - {num_segments} segments × ~{MAX_SEGMENT_DURATION}s each (hooks may repeat)")
     
     # Generate voiceover for each hook segment if enabled
     voiceover_audio_paths = []
@@ -952,17 +1362,30 @@ for idx, row in enumerate(rows):
     # Create segments
     segments = []
     for seg_idx in range(num_segments):
-        # Use voiceover duration if available, otherwise use fixed duration
+        # Use voiceover duration if available, otherwise use calculated duration
         if seg_idx < len(voiceover_durations) and voiceover_durations[seg_idx] > 0:
             seg_duration = voiceover_durations[seg_idx]
             print(f"    ⏱ Segment {seg_idx + 1} duration synced to voiceover: {seg_duration:.1f}s")
         else:
-            # Calculate segment duration from target
-            remaining_duration = TARGET_VIDEO_DURATION - sum(voiceover_durations[:seg_idx] if voiceover_durations else [MAX_SEGMENT_DURATION * seg_idx])
-            seg_duration = min(MAX_SEGMENT_DURATION, remaining_duration)
+            # Calculate segment duration based on mode
+            if SEGMENT_MODE == "match_hooks":
+                # Equal division of total duration
+                seg_duration = calculated_segment_duration
+            else:
+                # Use remaining duration approach with MAX_SEGMENT_DURATION
+                remaining_duration = TARGET_VIDEO_DURATION - sum(voiceover_durations[:seg_idx] if voiceover_durations else [MAX_SEGMENT_DURATION * seg_idx])
+                seg_duration = min(MAX_SEGMENT_DURATION, remaining_duration)
         
         if seg_duration <= 0:
             break
+        
+        # Extend segment duration to account for crossfade overlap (except last segment)
+        # This ensures each segment displays for its full duration even after overlapping
+        if VIDEO_CROSSFADE_DURATION > 0 and seg_idx < num_segments - 1:
+            seg_duration_extended = seg_duration + VIDEO_CROSSFADE_DURATION
+            print(f"    ⏱ Extended segment {seg_idx + 1} duration to {seg_duration_extended:.1f}s (adding {VIDEO_CROSSFADE_DURATION}s for crossfade)")
+        else:
+            seg_duration_extended = seg_duration
         
         # Select hook for this segment (cycle through Hook1, Hook2, Hook3, Hook4)
         hook_idx = seg_idx % len(all_hooks)
@@ -983,16 +1406,22 @@ for idx, row in enumerate(rows):
             else:
                 segment_video_path = video_path
         
-        print(f"    📹 Segment {seg_idx + 1}/{num_segments}: Hook{hook_idx + 1} ({seg_duration}s) - {os.path.basename(segment_video_path)}")
+        print(f"    📹 Segment {seg_idx + 1}/{num_segments}: Hook{hook_idx + 1} ({seg_duration:.1f}s) - {os.path.basename(segment_video_path)}")
+        if seg_duration_extended != seg_duration:
+            print(f"       ✨ Extended to {seg_duration_extended:.1f}s for crossfade overlap")
         
-        # Create segment with video + text overlay
+        # Get title from CSV row
+        title_text = row.get("Title", "").strip()
+        
+        # Create segment with video + text overlay + title
         try:
             segment = create_video_segment(
                 segment_video_path, 
                 segment_hook, 
-                seg_duration, 
+                seg_duration_extended,  # Use extended duration for video creation
                 portrait_w, 
-                portrait_h
+                portrait_h,
+                title_text=title_text
             )
             segments.append(segment)
         except Exception as e:
@@ -1008,7 +1437,39 @@ for idx, row in enumerate(rows):
     if len(segments) == 1:
         final = segments[0]
     else:
-        final = concatenate_videoclips(segments, method="compose")
+        # Apply crossfade transitions between segments
+        if VIDEO_CROSSFADE_DURATION > 0:
+            print(f"     ✨ Applying {VIDEO_CROSSFADE_DURATION}s crossfade transitions between segments")
+            # Apply fade-out to all segments except the last, fade-in to all except first
+            transition_segments = []
+            for i in range(len(segments)):
+                seg = segments[i]
+                try:
+                    # Fade out at the end (except last segment)
+                    if i < len(segments) - 1:
+                        seg = seg.crossfadeout(VIDEO_CROSSFADE_DURATION)
+                    # Fade in at the start (except first segment)  
+                    if i > 0:
+                        seg = seg.crossfadein(VIDEO_CROSSFADE_DURATION)
+                    transition_segments.append(seg)
+                except Exception as e:
+                    print(f"     ⚠ Could not apply transition to segment {i+1}: {e}")
+                    transition_segments.append(segments[i])
+            
+            # Concatenate with padding to create overlap effect
+            # Each segment overlaps by VIDEO_CROSSFADE_DURATION with the next
+            final = transition_segments[0]
+            for i in range(1, len(transition_segments)):
+                try:
+                    # Set next segment to start VIDEO_CROSSFADE_DURATION before previous ends
+                    next_seg = transition_segments[i].with_start(final.duration - VIDEO_CROSSFADE_DURATION)
+                    final = CompositeVideoClip([final, next_seg], size=(portrait_w, portrait_h))
+                except Exception as e:
+                    print(f"     ⚠ Could not composite segment {i+1}: {e}")
+                    # Fallback to simple concatenation
+                    final = concatenate_videoclips([final, transition_segments[i]], method="compose")
+        else:
+            final = concatenate_videoclips(segments, method="compose")
 
     # Handle audio mixing: background music + voiceover
     print(f"  🎵 Processing audio...")
@@ -1019,6 +1480,7 @@ for idx, row in enumerate(rows):
     if ENABLE_BACKGROUND_MUSIC and os.path.isfile(audio_path):
         try:
             bg_audio = AudioFileClip(audio_path)
+            print(f"     Background music loaded (duration: {bg_audio.duration:.1f}s)")
             
             # Apply start offset if configured
             if AUDIO_START_OFFSET > 0:
@@ -1038,18 +1500,48 @@ for idx, row in enumerate(rows):
                         except Exception:
                             pass
             
-            # Apply volume adjustment
+            # Apply volume adjustment - CRITICAL: This must work!
+            print(f"     Applying background music volume: {BACKGROUND_MUSIC_VOLUME} ({BACKGROUND_MUSIC_VOLUME * 100}%)")
+            print(f"     volumex function available: {volumex is not None}")
+            
+            volume_applied = False
             if BACKGROUND_MUSIC_VOLUME != 1.0:
+                # Try multiple methods to ensure volume is applied
                 try:
+                    # Method 1: Direct volumex function
                     if volumex:
                         bg_audio = volumex(bg_audio, BACKGROUND_MUSIC_VOLUME)
-                    else:
-                        bg_audio = bg_audio.fx(lambda clip: clip.volumex(BACKGROUND_MUSIC_VOLUME))
-                except Exception:
+                        volume_applied = True
+                        print(f"     ✓ Volume applied using volumex function")
+                except Exception as e1:
+                    print(f"     ✗ volumex method failed: {e1}")
                     try:
-                        bg_audio = bg_audio.volumex(BACKGROUND_MUSIC_VOLUME)
-                    except Exception:
-                        pass
+                        # Method 2: Using fx with volumex
+                        from moviepy.audio.fx.volumex import volumex as volumex_fx
+                        bg_audio = bg_audio.fx(volumex_fx, BACKGROUND_MUSIC_VOLUME)
+                        volume_applied = True
+                        print(f"     ✓ Volume applied using fx(volumex)")
+                    except Exception as e2:
+                        print(f"     ✗ fx(volumex) method failed: {e2}")
+                        try:
+                            # Method 3: Direct method call
+                            bg_audio = bg_audio.volumex(BACKGROUND_MUSIC_VOLUME)
+                            volume_applied = True
+                            print(f"     ✓ Volume applied using direct volumex method")
+                        except Exception as e3:
+                            print(f"     ✗ direct volumex method failed: {e3}")
+                            # Method 4: Manual audio array multiplication (guaranteed to work)
+                            try:
+                                def apply_volume(get_frame, t):
+                                    return get_frame(t) * BACKGROUND_MUSIC_VOLUME
+                                bg_audio = bg_audio.transform(apply_volume)
+                                volume_applied = True
+                                print(f"     ✓ Volume applied using manual transform")
+                            except Exception as e4:
+                                print(f"     ✗ ALL volume methods failed: {e4}")
+            
+            if not volume_applied and BACKGROUND_MUSIC_VOLUME != 1.0:
+                print(f"     ⚠ WARNING: Background music volume could NOT be applied!")
             
             audio_clips.append(bg_audio)
             
@@ -1153,7 +1645,7 @@ for idx, row in enumerate(rows):
         elif rows:
             base_fns = [k for k in rows[0].keys() if k != 'FilePath']
         else:
-            base_fns = ['ID', 'Title', 'Hook1', 'Hook2', 'Hook3', 'Hook4', '3 Hashtags', '3 Long Tailed Keywords', 'Narrative']
+            base_fns = ['ID', 'Title', 'Hook1', 'Hook2', 'Hook3', 'Hook4', 'Hook5', 'Hook6', '3 Hashtags', '3 Long Tailed Keywords', 'Narrative']
 
         # Insert FilePath at appropriate position (after first 4 columns)
         insert_index = 4 if len(base_fns) >= 4 else len(base_fns)
