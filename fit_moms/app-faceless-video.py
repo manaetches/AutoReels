@@ -207,7 +207,7 @@ os.makedirs(target_dir, exist_ok=True)
 # =============================================================================
 
 # === VIDEO GENERATION CONTROLS ===
-MAX_VIDEOS_TO_GENERATE = 3  # Set to integer (e.g., 10, 50, 100) or None for all CSV rows
+MAX_VIDEOS_TO_GENERATE = 60  # Set to integer (e.g., 10, 50, 100) or None for all CSV rows
 SHUFFLE_CSV_ROWS = False  # Randomize the order of CSV rows before processing
 
 # === VIDEO CLIP CONTROLS ===
@@ -231,7 +231,7 @@ USE_NARRATIVE_FOR_TTS = False  # Not used in multi-segment mode (uses Hook text 
 
 # === AUDIO CONTROLS ===
 ENABLE_BACKGROUND_MUSIC = True  # Toggle background music on/off
-BACKGROUND_MUSIC_VOLUME = 0.001  # 0.0 to 1.0 (0.5% = 0.005 for very subtle background, 1% = 0.01, 10% = 0.1, 100% = 1.0)
+BACKGROUND_MUSIC_VOLUME = 0.0001  # 0.0 to 1.0 (0.5% = 0.005 for very subtle background, 1% = 0.01, 10% = 0.1, 100% = 1.0)
 AUDIO_START_OFFSET = 0  # Start background audio X seconds into the video (for sync)
 ENABLE_VOICEOVER = True  # Toggle AI voiceover narration on/off
 VOICEOVER_VOLUME = 1.5  # 0.0 to 1.0 (100% = 1.0)
@@ -297,6 +297,11 @@ VIDEO_CODEC = 'libx264'  # Video codec: 'libx264' (h264), 'libx265' (h265/HEVC)
 AUDIO_CODEC = 'aac'  # Audio codec: 'aac', 'mp3'
 BITRATE = "8000k"  # Video bitrate for quality (e.g., "5000k", "8000k", "12000k")
 OUTPUT_FILENAME_PREFIX = "fit_moms_"  # Prefix for output filenames (e.g., "fit_moms_" → "fit_moms_15_min_rule.mp4")
+
+# === ROW PROCESSING RANGE ===
+ROW_START = 31   # Start processing from this row number (1-based, 1 = first data row)
+ROW_END = None  # End processing at this row number (1-based, None = process all remaining rows)
+# Example: ROW_START = 3, ROW_END = 30 will process rows 3 through 30
 
 
 # =============================================================================
@@ -1037,11 +1042,16 @@ else:
 if SHUFFLE_CSV_ROWS:
     random.shuffle(rows)
 
-# Limit rows to process
-if MAX_VIDEOS_TO_GENERATE and MAX_VIDEOS_TO_GENERATE > 0:
-    rows = rows[:MAX_VIDEOS_TO_GENERATE]
+# Store the complete rows list for CSV writing (preserve all rows)
+all_rows = rows.copy()  # Keep original full list for CSV writing 
 
-print(f"Loaded {len(rows)} rows from CSV")
+# Limit rows to process (but don't modify the original rows list)
+rows_to_process = rows
+if MAX_VIDEOS_TO_GENERATE and MAX_VIDEOS_TO_GENERATE > 0:
+    rows_to_process = rows[:MAX_VIDEOS_TO_GENERATE]
+
+print(f"Loaded {len(all_rows)} rows from CSV total")
+print(f"Will process {len(rows_to_process)} rows (limited by MAX_VIDEOS_TO_GENERATE)")
 
 # Get available video files
 video_files = []
@@ -1211,15 +1221,41 @@ elif ENABLE_VOICEOVER and TTS_ENGINE:
 else:
     print()
 
-# Process rows
-for idx, row in enumerate(rows):
+# Determine row range for processing
+start_idx = max(0, ROW_START - 1) if ROW_START else 0  # Convert 1-based to 0-based index
+end_idx = min(len(rows_to_process), ROW_END) if ROW_END else len(rows_to_process)  # Convert 1-based to 0-based index
+
+# Validate row range
+if start_idx >= len(rows_to_process):
+    print(f"❌ ERROR: ROW_START ({ROW_START}) is beyond the available data rows ({len(rows_to_process)})")
+    print(f"   Available rows: 1-{len(rows_to_process)} (CSV has {len(all_rows)} total data rows)")
+    print(f"   Please set ROW_START to a value between 1 and {len(rows_to_process)}")
+    exit(1)
+if ROW_END and ROW_START and ROW_END < ROW_START:
+    print(f"❌ ERROR: ROW_END ({ROW_END}) cannot be less than ROW_START ({ROW_START})")
+    exit(1)
+
+total_to_process = end_idx - start_idx
+
+print(f"\n{'='*60}")
+print(f"ROW PROCESSING RANGE:")
+print(f"  Total rows in CSV: {len(all_rows)}")
+print(f"  Rows available for processing: {len(rows_to_process)}")
+print(f"  Processing rows: {start_idx + 1} to {end_idx} (1-based)")
+print(f"  Videos to generate: {total_to_process}")
+print(f"{'='*60}")
+
+# Process rows within specified range
+for list_idx, idx in enumerate(range(start_idx, end_idx)):
+    row = rows_to_process[idx]
+    original_idx = idx  # Track the original index for CSV updates
     # Progress indicator
-    print(f"\n[{idx+1}/{len(rows)}] Processing video for ID: {row.get('ID', idx+1)}")
+    print(f"\n[{list_idx+1}/{total_to_process}] Processing video for Row {original_idx+1}, ID: {row.get('ID', original_idx+1)}")
     
     # Select hook text based on configuration
     hook_text = select_hook_text(row, HOOK_SELECTION, idx)
     if not hook_text:
-        print(f"  ⚠ No hook text found, skipping row {idx+1}")
+        print(f"  ⚠ No hook text found, skipping row {original_idx+1}")
         continue
     
     print(f"  📝 Hook: {hook_text[:60]}..." if len(hook_text) > 60 else f"  📝 Hook: {hook_text}")
@@ -1633,17 +1669,29 @@ for idx, row in enumerate(rows):
                 except Exception:
                     pass
     
-    # Update CSV with output path
+    # Update CSV with output path (update in the full all_rows list)
     try:
         # Update the in-memory row with absolute path
         abs_output = os.path.abspath(output_path)
-        rows[idx]['FilePath'] = abs_output
+        
+        # Find the correct row in all_rows to update
+        row_id = row.get('ID', '').strip()
+        updated = False
+        for i, full_row in enumerate(all_rows):
+            if full_row.get('ID', '').strip() == row_id:
+                all_rows[i]['FilePath'] = abs_output
+                updated = True
+                print(f"  📋 Updated CSV FilePath for ID {row_id} (all_rows[{i}]): {abs_output}")
+                break
+        
+        if not updated:
+            print(f"  ⚠️ Could not find matching row ID {row_id} in all_rows for FilePath update")
 
         # Determine base fieldnames (preserve original order when possible)
         if original_fieldnames:
             base_fns = [fn for fn in original_fieldnames if fn != 'FilePath']
-        elif rows:
-            base_fns = [k for k in rows[0].keys() if k != 'FilePath']
+        elif all_rows:
+            base_fns = [k for k in all_rows[0].keys() if k != 'FilePath']
         else:
             base_fns = ['ID', 'Title', 'Hook1', 'Hook2', 'Hook3', 'Hook4', 'Hook5', 'Hook6', '3 Hashtags', '3 Long Tailed Keywords', 'Narrative']
 
@@ -1654,25 +1702,52 @@ for idx, row in enumerate(rows):
             fns.remove('FilePath')
         fns.insert(insert_index, 'FilePath')
 
-        # Atomic write to CSV
+        # Atomic write to CSV (write ALL rows, not just processed ones)
         tmp_csv = csv_file_path + '.tmp'
         with open(tmp_csv, mode='w', encoding='utf-8', newline='') as wf:
             writer = csv.DictWriter(wf, fieldnames=fns)
             writer.writeheader()
-            for r in rows:
+            for i, r in enumerate(all_rows):  # Use all_rows to preserve all data
                 out = {k: r.get(k, '') for k in fns}
-                out['FilePath'] = os.path.abspath(out.get('FilePath') or '')
+                # Only update FilePath to absolute path if it's a real file path, not a placeholder
+                current_filepath = out.get('FilePath', '').strip()
+                if current_filepath and (current_filepath.startswith('/') or '\\' in current_filepath or ':' in current_filepath):
+                    # This looks like a real file path, convert to absolute
+                    if os.path.exists(current_filepath):
+                        out['FilePath'] = os.path.abspath(current_filepath)
+                    else:
+                        # Keep the current value as-is if file doesn't exist
+                        out['FilePath'] = current_filepath
                 writer.writerow(out)
         
         # Replace original CSV with updated version
         try:
             os.replace(tmp_csv, csv_file_path)
+            print(f"  ✅ CSV successfully updated")
+            
+            # Verify the FilePath was written correctly
+            try:
+                with open(csv_file_path, mode='r', encoding='utf-8') as verify_file:
+                    verify_reader = csv.DictReader(verify_file)
+                    verify_rows = list(verify_reader)
+                    # Find the row by ID instead of using idx
+                    for verify_row in verify_rows:
+                        if verify_row.get('ID', '').strip() == row_id:
+                            written_path = verify_row.get('FilePath', '').strip()
+                            if written_path == abs_output:
+                                print(f"  ✅ FilePath verification successful: {written_path}")
+                            else:
+                                print(f"  ⚠ FilePath verification failed. Expected: {abs_output}, Got: {written_path}")
+                            break
+            except Exception as ve:
+                print(f"  ⚠ FilePath verification error: {ve}")
         except Exception:
             try:
                 os.remove(csv_file_path)
             except Exception:
                 pass
             os.replace(tmp_csv, csv_file_path)
+            print(f"  ✅ CSV updated (with fallback method)")
             
     except Exception as e:
         print(f"  ⚠ CSV update warning: {e}")
@@ -1680,7 +1755,8 @@ for idx, row in enumerate(rows):
 print(f"\n{'='*60}")
 print(f"✅ Video generation complete!")
 print(f"{'='*60}")
-print(f"Generated {len(rows)} videos")
+print(f"Processed {total_to_process} videos (rows {start_idx + 1}-{end_idx})")
+print(f"Total rows in CSV: {len(all_rows)}")
 print(f"Output directory: {target_dir}")
 print(f"{'='*60}\n")
 
