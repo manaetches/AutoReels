@@ -299,7 +299,7 @@ BITRATE = "8000k"  # Video bitrate for quality (e.g., "5000k", "8000k", "12000k"
 OUTPUT_FILENAME_PREFIX = "fit_moms_"  # Prefix for output filenames (e.g., "fit_moms_" → "fit_moms_15_min_rule.mp4")
 
 # === ROW PROCESSING RANGE ===
-ROW_START = 31   # Start processing from this row number (1-based, 1 = first data row)
+ROW_START = 48   # Start processing from this row number (1-based, 1 = first data row)
 ROW_END = None  # End processing at this row number (1-based, None = process all remaining rows)
 # Example: ROW_START = 3, ROW_END = 30 will process rows 3 through 30
 
